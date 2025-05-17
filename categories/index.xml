@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Rijoshin&#39;s notes</title>
+    <link>https://riyasushin.github.io/categories/</link>
+    <description>Recent content in Categories on Rijoshin&#39;s notes</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Rijoshin</copyright>
+    <lastBuildDate>Sat, 17 May 2025 23:18:02 +0800</lastBuildDate>
+    <atom:link href="https://riyasushin.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>磨刀</title>
+      <link>https://riyasushin.github.io/categories/%E7%A3%A8%E5%88%80/</link>
+      <pubDate>Sat, 17 May 2025 23:18:02 +0800</pubDate>
+      <guid>https://riyasushin.github.io/categories/%E7%A3%A8%E5%88%80/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Syntax</title>
+      <link>https://riyasushin.github.io/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/categories/syntax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Themes</title>
+      <link>https://riyasushin.github.io/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/categories/themes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Test</title>
+      <link>https://riyasushin.github.io/categories/test/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/categories/test/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Test With Whitespaces</title>
+      <link>https://riyasushin.github.io/categories/test-with-whitespaces/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/categories/test-with-whitespaces/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

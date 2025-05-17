@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Rijoshin&#39;s notes</title>
+    <link>https://riyasushin.github.io/tags/</link>
+    <description>Recent content in Tags on Rijoshin&#39;s notes</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Rijoshin</copyright>
+    <lastBuildDate>Sat, 17 May 2025 23:18:02 +0800</lastBuildDate>
+    <atom:link href="https://riyasushin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://riyasushin.github.io/tags/hugo/</link>
+      <pubDate>Sat, 17 May 2025 23:18:02 +0800</pubDate>
+      <guid>https://riyasushin.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text</title>
+      <link>https://riyasushin.github.io/tags/text/</link>
+      <pubDate>Sat, 17 May 2025 23:18:02 +0800</pubDate>
+      <guid>https://riyasushin.github.io/tags/text/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Css</title>
+      <link>https://riyasushin.github.io/tags/css/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Html</title>
+      <link>https://riyasushin.github.io/tags/html/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>https://riyasushin.github.io/tags/markdown/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Themes</title>
+      <link>https://riyasushin.github.io/tags/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/tags/themes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tag With Whitespaces</title>
+      <link>https://riyasushin.github.io/tags/tag-with-whitespaces/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/tags/tag-with-whitespaces/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emoji</title>
+      <link>https://riyasushin.github.io/tags/emoji/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://riyasushin.github.io/tags/emoji/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

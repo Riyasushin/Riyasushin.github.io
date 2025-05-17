@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Rijoshin&#39;s notes</title>
+    <link>https://riyasushin.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Rijoshin&#39;s notes</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Rijoshin</copyright>
+    <lastBuildDate>Sat, 17 May 2025 23:18:02 +0800</lastBuildDate>
+    <atom:link href="https://riyasushin.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Stack Play Tutoral</title>
+      <link>https://riyasushin.github.io/p/hugo-stack-play-tutoral/</link>
+      <pubDate>Sat, 17 May 2025 23:18:02 +0800</pubDate>
+      <guid>https://riyasushin.github.io/p/hugo-stack-play-tutoral/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;今日用时 4h，完成个人 blog 的基本框架的设定&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h1 id=&#34;refers&#34;&gt;Refers&lt;/h1&gt;&#xA;&lt;h1 id=&#34;todo&#34;&gt;TODO&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;自定义模版&lt;/li&gt;&#xA;&lt;li&gt;左侧状态栏的细分&lt;/li&gt;&#xA;&lt;li&gt;图像-头像的显示&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
