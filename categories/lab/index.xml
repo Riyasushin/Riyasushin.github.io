@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Lab on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/categories/lab/</link>
+        <description>Recent content in Lab on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Tue, 20 May 2025 16:23:52 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/categories/lab/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Overview of AI Reasoning</title>
+        <link>https://riyasushin.github.io/p/overview-of-ai-reasoning/</link>
+        <pubDate>Tue, 20 May 2025 16:23:52 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/overview-of-ai-reasoning/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>RoPE</title>
+        <link>https://riyasushin.github.io/p/rope/</link>
+        <pubDate>Tue, 20 May 2025 16:11:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rope/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LoRA</title>
+        <link>https://riyasushin.github.io/p/lora/</link>
+        <pubDate>Tue, 20 May 2025 16:10:51 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/lora/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>PD分离</title>
+        <link>https://riyasushin.github.io/p/pd%E5%88%86%E7%A6%BB/</link>
+        <pubDate>Tue, 20 May 2025 16:06:45 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/pd%E5%88%86%E7%A6%BB/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>VAR AR VAE GAN DiT Depooling</title>
+        <link>https://riyasushin.github.io/p/var-ar-vae-gan-dit-depooling/</link>
+        <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/var-ar-vae-gan-dit-depooling/</guid>
+        <description>&lt;p&gt;TODO&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Patch Parallelism</title>
+        <link>https://riyasushin.github.io/p/patch-parallelism/</link>
+        <pubDate>Tue, 20 May 2025 15:57:36 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/patch-parallelism/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Cfg Parallelism</title>
+        <link>https://riyasushin.github.io/p/cfg-parallelism/</link>
+        <pubDate>Tue, 20 May 2025 15:56:59 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/cfg-parallelism/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>PipeFusion</title>
+        <link>https://riyasushin.github.io/p/pipefusion/</link>
+        <pubDate>Tue, 20 May 2025 15:56:04 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/pipefusion/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>DiT</title>
+        <link>https://riyasushin.github.io/p/dit/</link>
+        <pubDate>Tue, 20 May 2025 15:55:38 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/dit/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2212.09748&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/2212.09748&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>XDiT</title>
+        <link>https://riyasushin.github.io/p/xdit/</link>
+        <pubDate>Tue, 20 May 2025 15:55:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/xdit/</guid>
+        <description>&lt;p&gt;TODO&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>VLLM理解</title>
+        <link>https://riyasushin.github.io/p/vllm%E7%90%86%E8%A7%A3/</link>
+        <pubDate>Tue, 20 May 2025 15:53:32 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/vllm%E7%90%86%E8%A7%A3/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

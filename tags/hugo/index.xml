@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Hugo on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/tags/hugo/</link>
+        <description>Recent content in Hugo on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Sun, 18 May 2025 08:56:27 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo Stack Play Tutoral</title>
+        <link>https://riyasushin.github.io/p/hugo-stack-play-tutoral/</link>
+        <pubDate>Sun, 18 May 2025 08:56:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/hugo-stack-play-tutoral/</guid>
+        <description>&lt;h1 id=&#34;基本-hugo-操作&#34;&gt;基本 hugo 操作
+&lt;/h1&gt;&lt;p&gt;hugo -D
+hugo&lt;/p&gt;
+&lt;p&gt;hugo server&lt;/p&gt;
+&lt;p&gt;hugo new content/post/hugo-stack-play-tutoral/index.md&lt;/p&gt;
+&lt;h1 id=&#34;stack-的哲学&#34;&gt;stack 的哲学
+&lt;/h1&gt;&lt;p&gt;如上&lt;/p&gt;
+&lt;h1 id=&#34;坑&#34;&gt;坑
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;安 hugo 记得开终端代理..(或者镜像站)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;workflows 一直无法正确渲染图片，所以不得已才用了本地脚本的方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;没成功：mermaid 的优雅的支持&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;参考&#34;&gt;参考
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://brume.top/p/build-your-personal-blog-with-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://brume.top/p/build-your-personal-blog-with-hugo/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hyrtee.github.io/2023/start-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://hyrtee.github.io/2023/start-blog/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.blain.top/p/renovation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.blain.top/p/renovation/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://oxidane-uni.github.io/p/%E4%BD%BF%E7%94%A8-hugo-%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E5%BB%BA%E4%B8%8E-stack-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/#%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5%E6%94%B9%E4%B8%BA%E5%8F%8C%E5%88%97%E6%98%BE%E7%A4%BA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://oxidane-uni.github.io/p/%E4%BD%BF%E7%94%A8-hugo-%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E5%BB%BA%E4%B8%8E-stack-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/#%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5%E6%94%B9%E4%B8%BA%E5%8F%8C%E5%88%97%E6%98%BE%E7%A4%BA&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;共用时 6h, 不好，探索的方法论不够充足&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

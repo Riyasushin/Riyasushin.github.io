@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>FAI on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/tags/fai/</link>
+        <description>Recent content in FAI on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Tue, 20 May 2025 10:16:03 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/fai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>FAI Camel Ai 04 RAG的使用</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-04-rag%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Tue, 20 May 2025 10:16:03 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-04-rag%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 03 提示词调优大法</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/</link>
+        <pubDate>Tue, 20 May 2025 10:14:38 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 02 前端后端交互设计</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Tue, 20 May 2025 10:12:57 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;p&gt;TODO&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 01 基本调用方法</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Tue, 20 May 2025 10:12:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;h1 id=&#34;第一个agent&#34;&gt;第一个Agent
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ModelFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model_platform&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ModelPlatformType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GEMINI&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ModelType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GEMINI_2_0_FLASH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model_config_dict&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;max_tokens&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4096&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 设置合理的最大令牌数（根据模型支持调整）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;temperature&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 可选：其他模型参数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;api_key&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GEMINI_API_KEY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ChatAgent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;system_message&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SystemAnalysePrompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;message_window_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;usr_msg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;agent1_competitor_analysis_summary_str: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;agent1_competitor_analysis_summary_str&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;brand_industry_str: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;brand_industry_str&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;target_audience_persona_data = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target_audience_persona_data&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;social_media_platform_names_str: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;social_media_platform_names_str&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;usr_msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;content&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;`&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;JSONDecodeError&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;analyze_existing_visual_assets, JSON解析错误： &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;An error occured when ask for AI response: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Model
+&lt;ul&gt;
+&lt;li&gt;GEMINI&lt;/li&gt;
+&lt;li&gt;SF的得手写，enum没更新目前&lt;/li&gt;
+&lt;li&gt;DpSk-R1必须用流式输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Agent&lt;/li&gt;
+&lt;li&gt;Json处理&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI 12 Basic Ideas of RL</title>
+        <link>https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/</link>
+        <pubDate>Mon, 19 May 2025 12:41:17 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/</guid>
+        <description>&lt;h1 id=&#34;强化学习的生物学基础&#34;&gt;强化学习的生物学基础
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;斯金纳的操作性条件反射&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结起来，从生物学基础来看，强化理论是&lt;strong&gt;通过给予奖励和惩罚、来改变智能体的行为方式&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;智能体表现好、就通过某些方式给奖励；表现不好，就给予惩罚。&lt;/p&gt;
+&lt;p&gt;（随机奖励指的是 &lt;strong&gt;不确定何时会获得奖励的机制&lt;/strong&gt;。研究表明，这种不确定性会使智能体更投入于某种行为，因为它们总是期待下一次可能的奖励。）&lt;/p&gt;
+&lt;h1 id=&#34;强化学习建模&#34;&gt;强化学习建模
+&lt;/h1&gt;&lt;h2 id=&#34;状态模型&#34;&gt;状态模型
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2012.44.46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏 2025-05-19%12.44.46&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初始状态 $S_0$&lt;/li&gt;
+&lt;li&gt;当前玩家 $C$&lt;/li&gt;
+&lt;li&gt;动作集合 $A$&lt;/li&gt;
+&lt;li&gt;状态转移 $P$
+&lt;ul&gt;
+&lt;li&gt;$P(S_{t+1}|S_t,A_t)$表示在时间 t, Agent 在状态$S_t$下采取动作$A_t$ 后转到下一个状态$S_{t+1}$的概率。&lt;/li&gt;
+&lt;li&gt;如何衡量一个环境的复杂程度呢？环境可能达到的所有状态、我们称为&lt;strong&gt;状态空间&lt;/strong&gt;。智能体可能执行的所有动作，称为&lt;strong&gt;动作空间&lt;/strong&gt;。如果这两个空间越大，那么环境就越复杂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;终止状态 $S_T$&lt;/li&gt;
+&lt;li&gt;奖励 ： 某个状态下，智能体采取某动作后得到的分数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;智能体问题的解模型&#34;&gt;智能体（问题的解）模型
+&lt;/h2&gt;&lt;p&gt;那智能体优化的目标是什么呢？什么叫做聪明呢？&lt;/p&gt;
+&lt;p&gt;寻找一个最优策略，就是要最大化，从初始状态$S_0$到终止状态$S_T$上、每一步收益 R 的累积。&lt;/p&gt;
+&lt;p&gt;强化学习就是要得到一个好的策略 π ，使之可以得到好的收益。&lt;/p&gt;
+&lt;h3 id=&#34;策略-pi&#34;&gt;策略 $\pi$
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;$A_t \leftarrow \pi(S_i)$ 用以表示智能体的策略，也即在每一个状态 $S_t$下选择动作 $A_t$的规则或函数。&lt;/li&gt;
+&lt;li&gt;策略 π 是状态 S 到动作 A 的映射关系，给出了智能体在状态 &lt;em&gt;S&lt;/em&gt; 下如何选择动作 &lt;em&gt;A&lt;/em&gt; 的决策方法。&lt;/li&gt;
+&lt;li&gt;注意：策略 &lt;em&gt;π&lt;/em&gt; 是 &lt;strong&gt;全局性&lt;/strong&gt; 的，任何状态下都要能够给出动作选择。&lt;/li&gt;
+&lt;li&gt;确定性策略 π：对于每个状态 $s \in S$，策略 $\pi(S)$ 总是返回一个确定的动作$A$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;目标&#34;&gt;目标
+&lt;/h3&gt;&lt;p&gt;寻找最优策略使得收益最大&lt;/p&gt;
+&lt;h2 id=&#34;例子井字棋的建模&#34;&gt;例子：井字棋的建模
+&lt;/h2&gt;&lt;p&gt;与先前学习的假设对弈双方都是最聪明（双方都采用最优策略）的 MINIMAX 算法不同，强化学习仅仅&lt;strong&gt;假设&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;敌人采用的是 &lt;strong&gt;确定性策略&lt;/strong&gt; （给定 &lt;em&gt;S&lt;/em&gt; 下有确定的 &lt;em&gt;A&lt;/em&gt;，而不是随机的 &lt;em&gt;A&lt;/em&gt;），但是不一定是最优策略。&lt;/li&gt;
+&lt;li&gt;我们可以和敌人进行 &lt;strong&gt;多次对弈&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;基本思想&lt;/strong&gt;：从而学习到一个好的对敌策略。&lt;/p&gt;
+&lt;p&gt;显然，这样的假设更为真实，因为我们能够利用真实情况中，敌人决策的失误来对应的调整我们的策略。&lt;/p&gt;
+&lt;h3 id=&#34;问题建模&#34;&gt;问题建模
+&lt;/h3&gt;&lt;p&gt;初始状态：空棋盘&lt;/p&gt;
+&lt;p&gt;当前玩家：下子的一方&lt;/p&gt;
+&lt;p&gt;动作：落子到空的位置&lt;/p&gt;
+&lt;p&gt;状态转移：落子后棋盘的状态&lt;/p&gt;
+&lt;p&gt;终止状态：棋盘满或者一方获胜&lt;/p&gt;
+&lt;p&gt;奖励：胜利+1，失败-1，平 0&lt;/p&gt;
+&lt;h3 id=&#34;解与目标&#34;&gt;解与目标
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;策略$\pi$&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;使用 &lt;strong&gt;状态估值表&lt;/strong&gt;，每个状态一个入口（表项），记录从该状态出发到终局的胜率。根据状态估值表选择动作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;学习策略$\pi_1$&lt;/strong&gt;：大概率选择估值最高的下一个状态，小概率随机选一个动作（探索）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目标策略 $\pi_2$&lt;/strong&gt;：每次选择通往估值最高的下一个状态（贪心）的动作，也即表示在每个状态下选择最优动作的规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;目标（问题的解）：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最优策略 $\pi^*$&lt;/strong&gt;：使得智能体从初始状态$S_0$ 下到最终的效率 / 胜率最大&lt;/p&gt;
+&lt;h3 id=&#34;训练过程&#34;&gt;训练过程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;建立状态估值表 $3^9$的最多状态，直接存&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;估值表函数初值&lt;/strong&gt;：（根据游戏规则）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;三个 X 连成一线的状态，价值为 1，因为我们已经贏了。&lt;/li&gt;
+&lt;li&gt;三个 O 连成一线的状态，价值为 0，因为我们已经输了。&lt;/li&gt;
+&lt;li&gt;其他状态的值都为 0.5，表示有 50% 的概率能贏。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多次玩
+目的：让估值表更加准确&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;利用&lt;/strong&gt;：大概率贪心选价值最大的地方下&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;探索&lt;/strong&gt;：偶尔随机地选择以便探索之前没有探索过的地方&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;利用和探索要平衡&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;边下边修改状态的值, 使得它更接近真实的胜率。&lt;/p&gt;
+$$
+   V(S_t) \leftarrow V(S_t) + \alpha[V(S_{t+1})-V(S_t)]
+   $$&lt;p&gt;其中 $\alpha$是一个小的正的分数，称为步长参数，或者学习率&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;初值 $S_0$&lt;/strong&gt;：只有终局的价值是正确的，中间局面的价值都是估计值 0.5（而这是错的）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过程中&lt;/strong&gt;：状态价值从后面向前传导&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分析&lt;/strong&gt;：假设我们一直在一条路径上反复走，每走到终点一次，&lt;strong&gt;终局价值至少向上传一步&lt;/strong&gt;，走多了终将把这个终局的输赢带到最上面的初始节点，于是我们在初始节点就会知道最后的输赢&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;将对手建模在环境里；每次采取动作后面临的状态都是对手执行完它的动作后的新状态；（也可以建模成多智能体博弈问题，有一个对手决策模型，轮到对手落子时让对手模型决策）&lt;/li&gt;
+&lt;li&gt;用值函数表存储状态估值/值函数表 V(S)&lt;/li&gt;
+&lt;li&gt;通过不断对弈更新值函数表&lt;/li&gt;
+&lt;li&gt;根据值函数表、可以得到贪心选最优动作 π*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;问题模型的泛化和分析&#34;&gt;问题模型的泛化和分析
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;将概率加进来&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;环境--智能体&#34;&gt;环境 &amp;amp;&amp;amp; 智能体
+&lt;/h2&gt;&lt;h3 id=&#34;模型&#34;&gt;模型
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;初始状态 $S_0$(state)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当前玩家 C（current player(s)）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;动作 A(action)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;状态转移 P(transition)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;终止状态 ST(terminate state)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;奖励 R(reward)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;策略 π&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目标（问题的解）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最大化期望累积收益 G&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;环境状态转移模型-p-和奖励-r&#34;&gt;环境：状态转移模型 P 和奖励 R
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;那么，我们让这个模型能表达更宽泛的问题，我们就要把概率加入这个模型。就是我做一个动作之后，我下一时刻的状态不是确定性的。而是有概率的。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;状态不一定是确定性的，可以按照概率转移&lt;/li&gt;
+&lt;li&gt;奖励也不一定是确定性的，可以一个概率奖励&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;智能体策略-π-和累积收益-g&#34;&gt;智能体：策略 π 和累积收益 G
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;策略 π 给出的动作选择可以是确定的，也可以是一个概率分布&lt;/li&gt;
+&lt;li&gt;折扣因子 γ ：（ 0 ≤ γ ≤ 1 ），描述未来收益的重要程度
+&lt;ul&gt;
+&lt;li&gt;若为 1，则近的收益和远的收益一样重要&lt;/li&gt;
+&lt;li&gt;若为 0，则只看下一步的收益（最贪心）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;累积收益$G = R&lt;em&gt;1+γR_2+γ^2R_3+…=∑&lt;/em&gt;{i=1}^Tγ^{i−1}R_i $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.39.02.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.39.02&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;奖励函数对智能体最优策略的影响&#34;&gt;奖励函数对智能体最优策略的影响
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.44.31.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.44.31&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;奖励力度对智能体策略影响&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;策略的评估和最优策略&#34;&gt;策略的评估和最优策略
+&lt;/h2&gt;&lt;p&gt;策略 π 的好坏用 状态价值$V_π$ 来评估：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态价值$V_π$（S&lt;/strong&gt;） 表示从 S 出发执行策略 π 能获得的累积收益；&lt;/li&gt;
+&lt;li&gt;结束状态（如果有）的价值，总是零
+&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519134637786.png&#34;
+	width=&#34;626&#34;
+	height=&#34;88&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519134637786_hu_60fa20a90550271b.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519134637786_hu_2212841c6c8b66c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519134637786&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;711&#34;
+		data-flex-basis=&#34;1707px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;状态价值v_pi和动作价值q_pi&#34;&gt;状态价值$V_{\pi}$和动作价值$Q_{\pi}$
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;动作价值$V_\pi(s， \alpha)$ ： 表示从 s 出发并做出动作 $\alpha$ ，之后执行策略 $\pi$ 能够获得的累计收益&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135025004.png&#34;
+	width=&#34;654&#34;
+	height=&#34;91&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135025004_hu_fcd108742734847d.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135025004_hu_88a6766454dbe1d9.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519135025004&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;718&#34;
+		data-flex-basis=&#34;1724px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.51.05.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.51.05&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;V,Q 关系：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.54.07.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.54.07&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;强化学习的任务&#34;&gt;强化学习的任务
+&lt;/h2&gt;&lt;h1 id=&#34;智能体寻找最优策略的路径&#34;&gt;智能体寻找最优策略的路径
+&lt;/h1&gt;&lt;p&gt;智能体使用策略 π0（开始可能是随机的）与环境交互，产生经验（Experience&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;s01,a01,r11,s11,a11,r21,s21,a21,r31,s31,a31,……. 计算 G1 以更新 π0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π0s02,a02,r12,s12,a12,r22,s22,a22,r32,s32,a32,……. 计算 G2 以更新 π0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π0s03,a03,r13,s13,a13,r23,s23,a23,r33,s33,a33,……. 计算 G3 以更新 π0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;智能体根据经验改进 π0 得到 π1，再用 π1 与环境交互以期获得更大&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gs01,a01,r11,s11,a11,r21,s21,a21,r31,s31,a31,……. 计算 G1 以更&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π1s02,a02,r12,s12,a12,r22,s22,a22,r32,s32,a32,……. 计算 G2 以更&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π1s03,a03,r13,s13,a13,r23,s23,a23,r33,s33,a33,……. 计算 G3 以更新 π1……&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如此往复，直到得到最（更）好的 π 前面看到的打砖块 AI 和王者鲁班七号 AI 都是这么得来&lt;/p&gt;
+&lt;h2 id=&#34;多臂老虎机问题&#34;&gt;多臂老虎机问题
+&lt;/h2&gt;&lt;p&gt;一个单臂老虎机，就是你给它投个币，相当于你摇它一下，它会给你吐出个随机的收益，这么一个赌博机器。这个收益服从正态分布。&lt;/p&gt;
+&lt;p&gt;但是多臂老虎机，指的是有一排老虎机摆在你面前，一个人占一排。不同机器的收益是不一样的，服从分布的均值和方差你是不知道的。&lt;/p&gt;
+&lt;p&gt;![截屏2025-05-19%13.57.59](截屏 2025-05-19%13.57.59.png)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;没摇过的有个缺省值，例如：0&lt;/li&gt;
+&lt;li&gt;时间 t 时选的动作为 At, 对应的奖励为 Rt. 动&lt;/li&gt;
+&lt;li&gt;作 a 的价值为 Q*(a)≈ E [ Rt | At = a ] . （老虎机问题中，状态 s 是不变的，不考虑 s 了）&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135933995.png&#34;
+	width=&#34;677&#34;
+	height=&#34;88&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135933995_hu_1a5331e7604533fa.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135933995_hu_23a3b91d1c8bb55b.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519135933995&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;769&#34;
+		data-flex-basis=&#34;1846px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;计算动作价值-qsa&#34;&gt;计算动作价值 q(s,a)
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140525405.png&#34;
+	width=&#34;672&#34;
+	height=&#34;266&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140525405_hu_6e1a53f49cbec49d.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140525405_hu_6c3297e7e8b5e326.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140525405&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;606px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;计算动作价值的一般形式。&lt;/p&gt;
+&lt;p&gt;新的估计 = 老的估值 + 当前步数 X 误差。&lt;/p&gt;
+&lt;p&gt;代码的话，刚开始 Q 和 N 都为 0 循环的时候，有个 epsilon 是一个很小的值。大概率根据 Q 最大的来选择动作 A。但有小概率随机选择动作，达到探索的功能。&lt;/p&gt;
+&lt;p&gt;然后后面就是更新 Q 了&lt;/p&gt;
+&lt;p&gt;大数定理，无限次后, Qt(a) 收敛至 Q*(a)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140216041.png&#34;
+	width=&#34;471&#34;
+	height=&#34;227&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140216041_hu_f862c3942a70a0c5.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140216041_hu_793a62ddb2fea39a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140216041&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;497px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;取 α = 1/nα 随时间变小 Qn 趋近于均值&lt;/p&gt;
+&lt;h2 id=&#34;贪心-vs-epsilon--贪心&#34;&gt;贪心 v.s. $\epsilon $ 贪心
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;贪心核心思想：大部分时间选择贪心动作，&lt;strong&gt;偶尔随机选择&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;$\epsilon $ 通过引入 &lt;strong&gt;随机性&lt;/strong&gt; 来鼓励探索，避免陷入局部最优。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;2000 次多臂老虎机&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140312906.png&#34;
+	width=&#34;582&#34;
+	height=&#34;273&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140312906_hu_fd42d479b7eda1ae.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140312906_hu_30456ddd55b9a17f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140312906&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;511px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;epsilon-贪心-vs-乐观初始值贪心&#34;&gt;$\epsilon 贪心$ v.s. 乐观初始值贪心
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;乐观初始值贪心&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;负面：参数设定依赖&lt;/strong&gt;：初值需要由人工给出，且设定不当可能影响算法性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正面：提供先验知识&lt;/strong&gt;：合理的初值能提供先验经验，帮助算法确定奖励的期望量级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习效率&lt;/strong&gt;：初值越准确，算法需要的调整次数越少，学习效率越高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;p&gt;对比 Q1(a) = +5（&lt;strong&gt;探索鼓励&lt;/strong&gt;） 和 Q1(a) = 0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如同人生，期望高就会勇于尝试新路径！但找到方向的时候，别乱探索了！&lt;/li&gt;
+&lt;li&gt;乐观初值鼓励探索，对于固定问题是非常有效的小技巧，但是并非是普遍有效的鼓励探索的方法&lt;/li&gt;
+&lt;li&gt;所以，如果情况变了，你还是要探索的！例如，对于非固定问题不管用，因为它鼓励探索是临时性的，为什么？并非主动探索，旁边有人变好它是不觉知的，遭遇大挫折时才会改变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;乐观初始值贪心适用性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;固定问题：问题环境和奖励机制在整个学习过程中不发生变化，也即 P(s′∣s,a)&lt;em&gt;P&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;′∣&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;) 和 R(s,a)&lt;em&gt;R&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;) 固定，&lt;strong&gt;乐观初值有效&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;利用 &lt;strong&gt;高初值&lt;/strong&gt; 鼓励探索，&lt;strong&gt;迅速收敛到最优解&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;非固定问题：问题环境或奖励机制会随时间变化，也即 P(s′∣s,a,t)&lt;em&gt;P&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;′∣&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;,&lt;em&gt;t&lt;/em&gt;) 和 R(s,a,t)&lt;em&gt;R&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;,&lt;em&gt;t&lt;/em&gt;) 随时间 t&lt;em&gt;t&lt;/em&gt; 变化，乐观初值探索 &lt;strong&gt;不适用&lt;/strong&gt;，ϵ&lt;em&gt;ϵ&lt;/em&gt; 贪心更适用。&lt;/p&gt;
+&lt;p&gt;通过 &lt;strong&gt;随机选择&lt;/strong&gt; 保持探索，适应环境变化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ucbupper-confidence-bound&#34;&gt;UCB（upper-confidence-bound）
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;实蒙特卡洛搜索的方法，是从这里进化来的。&lt;/p&gt;
+&lt;p&gt;Argmax 选动作的时候，又要看估值、又要看新鲜程度。这个想法在蒙特卡洛树搜索的时候用过。
+UCB &lt;strong&gt;将 “当前估值” 和 “新鲜程度” 加权和。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140858485.png&#34;
+	width=&#34;391&#34;
+	height=&#34;88&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140858485_hu_ce14e0a30787fbdb.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140858485_hu_39f993a8b9d88e40.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140858485&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;444&#34;
+		data-flex-basis=&#34;1066px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gradient-bandit-algorithm&#34;&gt;Gradient Bandit Algorithm
+&lt;/h2&gt;&lt;p&gt;核心思想：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;ϵ&lt;/em&gt; 贪心大概率选最好的动作，其他动作 &lt;strong&gt;等同对待&lt;/strong&gt;，其实也可以给每个动作一个对应的选择概率&lt;/li&gt;
+&lt;li&gt;通过给每个动作 &lt;em&gt;a&lt;/em&gt; 一个 &lt;strong&gt;数值优先度&lt;/strong&gt; $H_t \in \mathbf{R}$来影响选择概率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优先度越大，动作被选中的概率越大。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;据此，我们给出如下设计：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;采用 Softmax 函数归一化，使所有可行动作的概率和为 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;初始时，所有动作的倾向性相同（$H_1$ = 0）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在每一步，按概率选择了动作 $A_t$ 后得到及时奖励 $R_t$，根据奖励 $R_t$ 的大小，修改所有动作的优先度&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2014.18.13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%2014.18.13&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;合理的划分出好的动作和坏的动作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519141906298.png&#34;
+	width=&#34;503&#34;
+	height=&#34;282&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519141906298_hu_8eeb5b138ba45684.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519141906298_hu_bfc821fd2c4969bf.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519141906298&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;428px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;$\epsilon$贪心算法有一小部分时间随机选：固定概率的随机探索&lt;/li&gt;
+&lt;li&gt;UCB 偏向尝试次数小的动作：根据统计的探索、更聪明的探索&lt;/li&gt;
+&lt;li&gt;梯度下降法不是估计动作的价值，而是动作的优先顺序，使用 softmax 选动作. 其实有探索，因为动作采用 softmax 有概率&lt;/li&gt;
+&lt;li&gt;简单的设置乐观初值可以使得贪心算法也具有相当的探索性&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI 11 Solving_Problems_by_Searching</title>
+        <link>https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/</link>
+        <pubDate>Sun, 18 May 2025 12:03:50 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/</guid>
+        <description>&lt;h1 id=&#34;问题描述模型&#34;&gt;问题描述模型
+&lt;/h1&gt;&lt;h2 id=&#34;一个问题的定义&#34;&gt;一个问题的定义
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;初始状态 $S_0$。&lt;/li&gt;
+&lt;li&gt;可选动作。在一个给定状态 s, ACTIONS(s) 返回一组可能的动作。&lt;/li&gt;
+&lt;li&gt;状态转移模型。在状态 s 下执行动作 a 之后所到达的状态用 RESULT(s,a) 表示。
+一个状态经过一个动作后来到的下一个状态我们称之为&lt;strong&gt;后继状态&lt;/strong&gt; 。
+&lt;strong&gt;初始状态、动作、状态转移模型构成了状态空间&lt;/strong&gt;。
+状态空间构成一幅有向图。
+&lt;strong&gt;路径是从一个状态出发通过一系列动作所经过的状态序列&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;目标状态。&lt;/li&gt;
+&lt;li&gt;路径花费。每条路径可以有一个花费，用来度量解的好坏。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个问题的解 是从初始状态出发到达目标状态的一个&lt;strong&gt;动作序列&lt;/strong&gt;。解的质量可以用路径的花费来度量。
+&lt;strong&gt;最优解&lt;/strong&gt;是所有解中花费最小的一个。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;eg-罗马尼亚寻径问题&#34;&gt;eg: 罗马尼亚寻径问题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;初始状态：In（Arad）&lt;/li&gt;
+&lt;li&gt;可行动作：在 Arad，可选的动作是三个，分别去到 Z，S，T 三市&lt;/li&gt;
+&lt;li&gt;状态转移，走了一条路之后到了哪里呢？例如说走了去 Z 市的路，后继状态就是 In（Z）。这里所有城市构成状态空间，所有道路构成动作空间。路径就是从一个城市到另一个城市的通路。&lt;/li&gt;
+&lt;li&gt;目标状态：因为最终要去 Bucharest，所以到了 Bucharest，就不用再往下走了。&lt;/li&gt;
+&lt;li&gt;路径花费，就是把从 Arad 走到 Bucharest，的路径上的每段路的长度加起来&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;e-g-八数码问题&#34;&gt;e g: 八数码问题
+&lt;/h2&gt;&lt;p&gt;状态: 一个状态描述了八个数字和一个空格所在的位置。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始状态: 任何一个状态都可以是初始状态。&lt;/li&gt;
+&lt;li&gt;动作: 空格可以上、下、左、右移动。只要移动后还在 3*3 的方格内。&lt;/li&gt;
+&lt;li&gt;状态转移模型: 给定一个状态和动作，给出之后的状态。&lt;/li&gt;
+&lt;li&gt;目标: 给出想要达到的数字和空格分布状态&lt;/li&gt;
+&lt;li&gt;路径花费: 每步花费 1, 路径花费就是移动的总步数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;搜索求解&#34;&gt;搜索求解
+&lt;/h1&gt;&lt;h2 id=&#34;搜索树&#34;&gt;搜索树
+&lt;/h2&gt;&lt;h3 id=&#34;父节点子节点开节点闭节点搜索策略&#34;&gt;父节点，子节点，开节点，闭节点，搜索策略
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;一个状态经过一个动作，到了另一个状态。那么我们称发生动作之前的状态是&lt;strong&gt;父节点&lt;/strong&gt;，而动作发生后的后继状态，称为&lt;strong&gt;子节点&lt;/strong&gt;。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果一个状态，没有节点，也就是说不能再往下搜索了，那么这个状态称为叶节点。没有儿子可展开的点叫叶节点。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;开节点和闭节点&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最开始，树上只有根节点，也就是初始状态。搜索是一个动态过程。整个搜索的过程就是不断依据可行动作展开搜索树的过程。&lt;/li&gt;
+&lt;li&gt;然后展开一步以后，我们多了几个新的叶节点，也就是对于根节点的子节点，这几个节点称为开节点，因为是刚刚展开的。英文叫做 frontier 也叫 open list。&lt;/li&gt;
+&lt;li&gt;再展开一步以后，我们看多了几个新的叶节点，这些新的叶节点和原来的叶节点一起，都是叶节点。这个时候，闭节点是什么呢？图中灰色的节点称为闭节点，因为他们是&lt;strong&gt;已经被展开过的了&lt;/strong&gt;。英文叫做 closed list 或者 explored set，explored 的意思是已经被探索过的节点。&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;搜索策略
+对于一个算法而言，我们在一个时刻有那么多的开节点，先展开谁、后展开谁，就构成了不同的搜索策略搜索策略&lt;/p&gt;
+&lt;p&gt;就是如何在开节点集上，选择一个节点，把它优先展开。在最开始，树上只有根节点，也就是初始状态。事实上，搜索是一个动态过程。整个搜索的过程就是不断依据可行动作展开搜索树的过程。展开搜索树我们要做的就是先展开谁，后展开谁。如何选择下一个节点去展开被称为 search strategy 搜索策略。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121211877.png&#34;
+	width=&#34;253&#34;
+	height=&#34;228&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121211877_hu_7d4861bd94fd538a.png 480w, https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121211877_hu_864ae005222e714d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250518121211877&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;110&#34;
+		data-flex-basis=&#34;266px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;树搜索图搜索&#34;&gt;树搜索，图搜索
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121628601.png&#34;
+	width=&#34;560&#34;
+	height=&#34;327&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121628601_hu_c97afd9dc62a5f3a.png 480w, https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121628601_hu_a7b0ee633d83e153.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250518121628601&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;411px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;树搜索：&lt;/p&gt;
+&lt;p&gt;我们看看这个 Tree-Search 的函数，输入的是一个问题 problem，就是我们刚刚定义的&lt;strong&gt;问题五元组&lt;/strong&gt;。函数返回 return 的是一个解决方案 solution，或者告诉我们找不到解 failure。&lt;/p&gt;
+&lt;p&gt;最开始初始化 frontier，frontier 就是一个开节点，最开始把开节点设置为问题的初始状态，问题开始于一个点。然后，我们做一个循环，首先看看 frontier 能不能被展开，如果不能被展开，就代表没有解，则返回失败。如果 frontier 有解的话，我们就从 frontier 里面拿出一个叶节点，然后判断一下拿出来的节点是不是目标，如果是的话，我们就可以返回解决方案了。&lt;/p&gt;
+&lt;p&gt;如果不是目标的话，那我们还要继续展开这个叶节点，然后把新获得的节点加到 frontier 开节点集合里面。提供给下一次循环来选择展开用。&lt;/p&gt;
+&lt;p&gt;这些叶节点都是开节点，因为它们都没有被展开过。&lt;/p&gt;
+&lt;p&gt;那么不断循环，这就是树搜索。我们最开始有一个根节点，开展以后把叶节点都放到 frontier 集合里面，然后取出一个来再展开，然后新获得的节点再放到 frontier 集合里面。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这个树搜索，并没记住我们以前展开过什么的，只是在不停地展开&lt;/strong&gt;。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图搜索：&lt;/p&gt;
+&lt;p&gt;我们看看 Graph-Search 这个函数。它的输入输出和树搜索是一样的。输入。。。输出。。。&lt;/p&gt;
+&lt;p&gt;那么这里黑体字是新加的一些操作。&lt;/p&gt;
+&lt;p&gt;Initialize the explored set to be empty，我们初始化一个空的闭节点集合，定义这个新变量的目的是用来存储哪些节点已经被展开搜索过的。然后开始循环，这跟刚才树搜索是一样的。Frontier 如果为空，则返回 failure。如果有也叶节点，则选择一个叶节点，如果叶节点是目标，则找到解了。否则的话，add the node to the explored set，把这个节点放到闭节点集合里面，代表这个节点已经被探索展开过了。后面就是把它的儿子都加到 frontier 集里面。但这里有个条件，only if not in the frontier or explored set，这个地方我做了一个重复判断，就是如果加这个新节点的时候，我们要看看这个节点在不在 frontier 里面，以及在不在已经被搜索过的节点集合里面，如果在的话就不加了。只有它不在的时候，我们才做这个事情。那么这个就是图搜索和树搜索的不同。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图搜索用 explored set 这个机制，就可以避免重复地搜索某些节点。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;搜索算法的评价&#34;&gt;搜索算法的评价
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;完备性 Completeness: 如果存在解，该算法是否一定会找到解?&lt;/li&gt;
+&lt;li&gt;最优性 Optimality: 该算法是否能够找到最优解?&lt;/li&gt;
+&lt;li&gt;时间复杂度 Time complexity: 算法找到解需要花长时间?&lt;/li&gt;
+&lt;li&gt;空间复杂度 Space complexity: 算法需要多少内存用于搜索?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;问题难度和算法复杂度&#34;&gt;问题难度和算法复杂度
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;问题的难度 problem difficulty 两种方法来度量：图规模和搜索树规模：
+&lt;ul&gt;
+&lt;li&gt;图规模（对应图搜索）
+&lt;ul&gt;
+&lt;li&gt;当输入是一个图时，例如罗马尼亚地图寻径问题，理论上，我们用状态空间图的大小来衡量问题的规模 |V | + |E|, V 是点数 ，E 边数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;搜索树的规模（对应树搜索）
+&lt;ul&gt;
+&lt;li&gt;用如下二个指标来度量:
+&lt;ul&gt;
+&lt;li&gt;b, 分支数 branching factor 或者节点所具有的最大子节点数目；&lt;/li&gt;
+&lt;li&gt;d, depth，最浅的目标状态所在；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;算法复杂度
+&lt;ul&gt;
+&lt;li&gt;时间复杂度经常用搜索树展开的节点的数目表示。&lt;/li&gt;
+&lt;li&gt;空间复杂度通常用需要存储的最大节点数目来估计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;无信息搜索&#34;&gt;无信息搜索
+&lt;/h1&gt;&lt;p&gt;无信息搜索是指在搜索过程中不使用任何启发信息的搜索方法。无信息搜索方法通常会遍历整个搜索空间，直到找到解或者确定无解。&lt;/p&gt;
+&lt;p&gt;无信息搜索可以理解为，没有任何的先验知识，就是盲目地去试（尽管盲目地试的时候也可以有些尝试时优先级策略）。&lt;/p&gt;
+&lt;h2 id=&#34;搜索算法的一般存储框架&#34;&gt;搜索算法的一般存储框架
+&lt;/h2&gt;&lt;h2 id=&#34;bfs&#34;&gt;BFS
+&lt;/h2&gt;&lt;h2 id=&#34;dfs&#34;&gt;DFS
+&lt;/h2&gt;&lt;h1 id=&#34;有信息搜索&#34;&gt;有信息搜索
+&lt;/h1&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="强化学习的生物学基础 斯金纳的操作性条件反射\n总结起来，从生物学基础来看，强化理论是通过给予奖励和惩罚、来改变智能体的行为方式。\n智能体表现好、就通过某些方式给奖励；表现不好，就给予惩罚。\n">
+<title>FAI 12 Basic Ideas of RL</title>
+
+<link rel='canonical' href='https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/'>
+
+<link rel="stylesheet" href="/scss/style.min.9e4644e1248cb7554587d90b023e226811a193d8aaeb09d2785da6d726ee580a.css"><meta property='og:title' content="FAI 12 Basic Ideas of RL">
+<meta property='og:description' content="强化学习的生物学基础 斯金纳的操作性条件反射\n总结起来，从生物学基础来看，强化理论是通过给予奖励和惩罚、来改变智能体的行为方式。\n智能体表现好、就通过某些方式给奖励；表现不好，就给予惩罚。\n">
+<meta property='og:url' content='https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/'>
+<meta property='og:site_name' content='Rijoshin&#39;s notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='FAI' /><meta property='article:published_time' content='2025-05-19T12:41:17&#43;08:00'/><meta property='article:modified_time' content='2025-05-19T12:41:17&#43;08:00'/>
+<meta name="twitter:title" content="FAI 12 Basic Ideas of RL">
+<meta name="twitter:description" content="强化学习的生物学基础 斯金纳的操作性条件反射\n总结起来，从生物学基础来看，强化理论是通过给予奖励和惩罚、来改变智能体的行为方式。\n智能体表现好、就通过某些方式给奖励；表现不好，就给予惩罚。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_5120372bca6142c.png" width="300"
+                            height="301" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Rijoshin&#39;s notes</a></h1>
+            <h2 class="site-description">昔之善战者，先为不可胜，以待敌之可胜。不可胜在己，可胜在敌。故善战者，能为不可胜，不能使敌之必可胜。激水之疾，至于漂石者，势也；鸷鸟之疾，至于毁折者，节也。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Riyasushin'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://riyasushin.github.io/" selected>English</option>
+                                
+                                    <option value="https://riyasushin.github.io/zh-cn/" >中文</option>
+                                
+                                    <option value="https://riyasushin.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#状态模型">状态模型</a></li>
+    <li><a href="#智能体问题的解模型">智能体（问题的解）模型</a>
+      <ol>
+        <li><a href="#策略-pi">策略 $\pi$</a></li>
+        <li><a href="#目标">目标</a></li>
+      </ol>
+    </li>
+    <li><a href="#例子井字棋的建模">例子：井字棋的建模</a>
+      <ol>
+        <li><a href="#问题建模">问题建模</a></li>
+        <li><a href="#解与目标">解与目标</a></li>
+        <li><a href="#训练过程">训练过程</a></li>
+      </ol>
+    </li>
+    <li><a href="#小结">小结</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#环境--智能体">环境 &amp;&amp; 智能体</a>
+      <ol>
+        <li><a href="#模型">模型</a></li>
+        <li><a href="#环境状态转移模型-p-和奖励-r">环境：状态转移模型 P 和奖励 R</a></li>
+        <li><a href="#智能体策略-π-和累积收益-g">智能体：策略 π 和累积收益 G</a></li>
+      </ol>
+    </li>
+    <li><a href="#奖励函数对智能体最优策略的影响">奖励函数对智能体最优策略的影响</a></li>
+    <li><a href="#策略的评估和最优策略">策略的评估和最优策略</a></li>
+    <li><a href="#状态价值v_pi和动作价值q_pi">状态价值$V_{\pi}$和动作价值$Q_{\pi}$</a></li>
+    <li><a href="#强化学习的任务">强化学习的任务</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#多臂老虎机问题">多臂老虎机问题</a></li>
+    <li><a href="#计算动作价值-qsa">计算动作价值 q(s,a)</a></li>
+    <li><a href="#贪心-vs-epsilon--贪心">贪心 v.s. $\epsilon $ 贪心</a>
+      <ol>
+        <li><a href="#epsilon-贪心-vs-乐观初始值贪心">$\epsilon 贪心$ v.s. 乐观初始值贪心</a></li>
+      </ol>
+    </li>
+    <li><a href="#ucbupper-confidence-bound">UCB（upper-confidence-bound）</a></li>
+    <li><a href="#gradient-bandit-algorithm">Gradient Bandit Algorithm</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" >
+                课程笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/fai-12-basic-ideas-of-rl/">FAI 12 Basic Ideas of RL</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 19, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="强化学习的生物学基础">强化学习的生物学基础
+</h1><blockquote>
+<p>斯金纳的操作性条件反射</p></blockquote>
+<p>总结起来，从生物学基础来看，强化理论是<strong>通过给予奖励和惩罚、来改变智能体的行为方式</strong>。</p>
+<p>智能体表现好、就通过某些方式给奖励；表现不好，就给予惩罚。</p>
+<p>（随机奖励指的是 <strong>不确定何时会获得奖励的机制</strong>。研究表明，这种不确定性会使智能体更投入于某种行为，因为它们总是期待下一次可能的奖励。）</p>
+<h1 id="强化学习建模">强化学习建模
+</h1><h2 id="状态模型">状态模型
+</h2><p><img src="/%e6%88%aa%e5%b1%8f2025-05-19%2012.44.46.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏 2025-05-19%12.44.46"
+	
+	
+></p>
+<ul>
+<li>初始状态 $S_0$</li>
+<li>当前玩家 $C$</li>
+<li>动作集合 $A$</li>
+<li>状态转移 $P$
+<ul>
+<li>$P(S_{t+1}|S_t,A_t)$表示在时间 t, Agent 在状态$S_t$下采取动作$A_t$ 后转到下一个状态$S_{t+1}$的概率。</li>
+<li>如何衡量一个环境的复杂程度呢？环境可能达到的所有状态、我们称为<strong>状态空间</strong>。智能体可能执行的所有动作，称为<strong>动作空间</strong>。如果这两个空间越大，那么环境就越复杂</li>
+</ul>
+</li>
+<li>终止状态 $S_T$</li>
+<li>奖励 ： 某个状态下，智能体采取某动作后得到的分数。</li>
+</ul>
+<h2 id="智能体问题的解模型">智能体（问题的解）模型
+</h2><p>那智能体优化的目标是什么呢？什么叫做聪明呢？</p>
+<p>寻找一个最优策略，就是要最大化，从初始状态$S_0$到终止状态$S_T$上、每一步收益 R 的累积。</p>
+<p>强化学习就是要得到一个好的策略 π ，使之可以得到好的收益。</p>
+<h3 id="策略-pi">策略 $\pi$
+</h3><ul>
+<li>$A_t \leftarrow \pi(S_i)$ 用以表示智能体的策略，也即在每一个状态 $S_t$下选择动作 $A_t$的规则或函数。</li>
+<li>策略 π 是状态 S 到动作 A 的映射关系，给出了智能体在状态 <em>S</em> 下如何选择动作 <em>A</em> 的决策方法。</li>
+<li>注意：策略 <em>π</em> 是 <strong>全局性</strong> 的，任何状态下都要能够给出动作选择。</li>
+<li>确定性策略 π：对于每个状态 $s \in S$，策略 $\pi(S)$ 总是返回一个确定的动作$A$</li>
+</ul>
+<h3 id="目标">目标
+</h3><p>寻找最优策略使得收益最大</p>
+<h2 id="例子井字棋的建模">例子：井字棋的建模
+</h2><p>与先前学习的假设对弈双方都是最聪明（双方都采用最优策略）的 MINIMAX 算法不同，强化学习仅仅<strong>假设</strong>：</p>
+<ol>
+<li>敌人采用的是 <strong>确定性策略</strong> （给定 <em>S</em> 下有确定的 <em>A</em>，而不是随机的 <em>A</em>），但是不一定是最优策略。</li>
+<li>我们可以和敌人进行 <strong>多次对弈</strong></li>
+</ol>
+<p><strong>基本思想</strong>：从而学习到一个好的对敌策略。</p>
+<p>显然，这样的假设更为真实，因为我们能够利用真实情况中，敌人决策的失误来对应的调整我们的策略。</p>
+<h3 id="问题建模">问题建模
+</h3><p>初始状态：空棋盘</p>
+<p>当前玩家：下子的一方</p>
+<p>动作：落子到空的位置</p>
+<p>状态转移：落子后棋盘的状态</p>
+<p>终止状态：棋盘满或者一方获胜</p>
+<p>奖励：胜利+1，失败-1，平 0</p>
+<h3 id="解与目标">解与目标
+</h3><p><strong>策略$\pi$</strong>:</p>
+<p>使用 <strong>状态估值表</strong>，每个状态一个入口（表项），记录从该状态出发到终局的胜率。根据状态估值表选择动作。</p>
+<ul>
+<li><strong>学习策略$\pi_1$</strong>：大概率选择估值最高的下一个状态，小概率随机选一个动作（探索）</li>
+<li><strong>目标策略 $\pi_2$</strong>：每次选择通往估值最高的下一个状态（贪心）的动作，也即表示在每个状态下选择最优动作的规则。</li>
+</ul>
+<p><strong>目标（问题的解）：</strong></p>
+<p><strong>最优策略 $\pi^*$</strong>：使得智能体从初始状态$S_0$ 下到最终的效率 / 胜率最大</p>
+<h3 id="训练过程">训练过程
+</h3><ol>
+<li>
+<p>建立状态估值表 $3^9$的最多状态，直接存</p>
+<p><strong>估值表函数初值</strong>：（根据游戏规则）</p>
+<ul>
+<li>三个 X 连成一线的状态，价值为 1，因为我们已经贏了。</li>
+<li>三个 O 连成一线的状态，价值为 0，因为我们已经输了。</li>
+<li>其他状态的值都为 0.5，表示有 50% 的概率能贏。</li>
+</ul>
+</li>
+<li>
+<p>多次玩
+目的：让估值表更加准确</p>
+<ol>
+<li><strong>利用</strong>：大概率贪心选价值最大的地方下</li>
+<li><strong>探索</strong>：偶尔随机地选择以便探索之前没有探索过的地方</li>
+</ol>
+<p><strong>利用和探索要平衡</strong></p>
+</li>
+<li>
+<p>边下边修改状态的值, 使得它更接近真实的胜率。</p>
+$$
+   V(S_t) \leftarrow V(S_t) + \alpha[V(S_{t+1})-V(S_t)]
+   $$<p>其中 $\alpha$是一个小的正的分数，称为步长参数，或者学习率</p>
+<ul>
+<li><strong>初值 $S_0$</strong>：只有终局的价值是正确的，中间局面的价值都是估计值 0.5（而这是错的）</li>
+<li><strong>过程中</strong>：状态价值从后面向前传导</li>
+<li><strong>分析</strong>：假设我们一直在一条路径上反复走，每走到终点一次，<strong>终局价值至少向上传一步</strong>，走多了终将把这个终局的输赢带到最上面的初始节点，于是我们在初始节点就会知道最后的输赢</li>
+</ul>
+</li>
+</ol>
+<h2 id="小结">小结
+</h2><ul>
+<li>将对手建模在环境里；每次采取动作后面临的状态都是对手执行完它的动作后的新状态；（也可以建模成多智能体博弈问题，有一个对手决策模型，轮到对手落子时让对手模型决策）</li>
+<li>用值函数表存储状态估值/值函数表 V(S)</li>
+<li>通过不断对弈更新值函数表</li>
+<li>根据值函数表、可以得到贪心选最优动作 π*</li>
+</ul>
+<h1 id="问题模型的泛化和分析">问题模型的泛化和分析
+</h1><blockquote>
+<p>将概率加进来</p></blockquote>
+<h2 id="环境--智能体">环境 &amp;&amp; 智能体
+</h2><h3 id="模型">模型
+</h3><ul>
+<li>
+<p>初始状态 $S_0$(state)</p>
+</li>
+<li>
+<p>当前玩家 C（current player(s)）</p>
+</li>
+<li>
+<p>动作 A(action)</p>
+</li>
+<li>
+<p>状态转移 P(transition)</p>
+</li>
+<li>
+<p>终止状态 ST(terminate state)</p>
+</li>
+<li>
+<p>奖励 R(reward)</p>
+</li>
+<li>
+<p>策略 π</p>
+</li>
+<li>
+<p>目标（问题的解）</p>
+</li>
+<li>
+<p>最大化期望累积收益 G</p>
+</li>
+</ul>
+<h3 id="环境状态转移模型-p-和奖励-r">环境：状态转移模型 P 和奖励 R
+</h3><blockquote>
+<p>那么，我们让这个模型能表达更宽泛的问题，我们就要把概率加入这个模型。就是我做一个动作之后，我下一时刻的状态不是确定性的。而是有概率的。</p></blockquote>
+<ul>
+<li>状态不一定是确定性的，可以按照概率转移</li>
+<li>奖励也不一定是确定性的，可以一个概率奖励</li>
+</ul>
+<h3 id="智能体策略-π-和累积收益-g">智能体：策略 π 和累积收益 G
+</h3><ul>
+<li>策略 π 给出的动作选择可以是确定的，也可以是一个概率分布</li>
+<li>折扣因子 γ ：（ 0 ≤ γ ≤ 1 ），描述未来收益的重要程度
+<ul>
+<li>若为 1，则近的收益和远的收益一样重要</li>
+<li>若为 0，则只看下一步的收益（最贪心）</li>
+</ul>
+</li>
+<li>累积收益$G = R<em>1+γR_2+γ^2R_3+…=∑</em>{i=1}^Tγ^{i−1}R_i $</li>
+</ul>
+<p><img src="/%e6%88%aa%e5%b1%8f2025-05-19%2013.39.02.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2025-05-19%13.39.02"
+	
+	
+></p>
+<h2 id="奖励函数对智能体最优策略的影响">奖励函数对智能体最优策略的影响
+</h2><p><img src="/%e6%88%aa%e5%b1%8f2025-05-19%2013.44.31.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2025-05-19%13.44.31"
+	
+	
+></p>
+<ul>
+<li>奖励力度对智能体策略影响</li>
+</ul>
+<h2 id="策略的评估和最优策略">策略的评估和最优策略
+</h2><p>策略 π 的好坏用 状态价值$V_π$ 来评估：</p>
+<ul>
+<li><strong>状态价值$V_π$（S</strong>） 表示从 S 出发执行策略 π 能获得的累积收益；</li>
+<li>结束状态（如果有）的价值，总是零
+<img src="/p/fai-12-basic-ideas-of-rl/image-20250519134637786.png"
+	width="626"
+	height="88"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519134637786_hu_60fa20a90550271b.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519134637786_hu_2212841c6c8b66c.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519134637786"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="711"
+		data-flex-basis="1707px"
+	
+></li>
+</ul>
+<h2 id="状态价值v_pi和动作价值q_pi">状态价值$V_{\pi}$和动作价值$Q_{\pi}$
+</h2><ul>
+<li>
+<p>动作价值$V_\pi(s， \alpha)$ ： 表示从 s 出发并做出动作 $\alpha$ ，之后执行策略 $\pi$ 能够获得的累计收益</p>
+<p><img src="/p/fai-12-basic-ideas-of-rl/image-20250519135025004.png"
+	width="654"
+	height="91"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519135025004_hu_fcd108742734847d.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519135025004_hu_88a6766454dbe1d9.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519135025004"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="718"
+		data-flex-basis="1724px"
+	
+></p>
+</li>
+</ul>
+<p><img src="/%e6%88%aa%e5%b1%8f2025-05-19%2013.51.05.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2025-05-19%13.51.05"
+	
+	
+></p>
+<p><strong>V,Q 关系：</strong></p>
+<p><img src="/%e6%88%aa%e5%b1%8f2025-05-19%2013.54.07.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2025-05-19%13.54.07"
+	
+	
+></p>
+<h2 id="强化学习的任务">强化学习的任务
+</h2><h1 id="智能体寻找最优策略的路径">智能体寻找最优策略的路径
+</h1><p>智能体使用策略 π0（开始可能是随机的）与环境交互，产生经验（Experience</p>
+<ul>
+<li>
+<p>s01,a01,r11,s11,a11,r21,s21,a21,r31,s31,a31,……. 计算 G1 以更新 π0</p>
+</li>
+<li>
+<p>π0s02,a02,r12,s12,a12,r22,s22,a22,r32,s32,a32,……. 计算 G2 以更新 π0</p>
+</li>
+<li>
+<p>π0s03,a03,r13,s13,a13,r23,s23,a23,r33,s33,a33,……. 计算 G3 以更新 π0</p>
+<p><strong>智能体根据经验改进 π0 得到 π1，再用 π1 与环境交互以期获得更大</strong></p>
+</li>
+<li>
+<p>Gs01,a01,r11,s11,a11,r21,s21,a21,r31,s31,a31,……. 计算 G1 以更</p>
+</li>
+<li>
+<p>π1s02,a02,r12,s12,a12,r22,s22,a22,r32,s32,a32,……. 计算 G2 以更</p>
+</li>
+<li>
+<p>π1s03,a03,r13,s13,a13,r23,s23,a23,r33,s33,a33,……. 计算 G3 以更新 π1……</p>
+</li>
+</ul>
+<p>如此往复，直到得到最（更）好的 π 前面看到的打砖块 AI 和王者鲁班七号 AI 都是这么得来</p>
+<h2 id="多臂老虎机问题">多臂老虎机问题
+</h2><p>一个单臂老虎机，就是你给它投个币，相当于你摇它一下，它会给你吐出个随机的收益，这么一个赌博机器。这个收益服从正态分布。</p>
+<p>但是多臂老虎机，指的是有一排老虎机摆在你面前，一个人占一排。不同机器的收益是不一样的，服从分布的均值和方差你是不知道的。</p>
+<p>![截屏2025-05-19%13.57.59](截屏 2025-05-19%13.57.59.png)</p>
+<ul>
+<li>没摇过的有个缺省值，例如：0</li>
+<li>时间 t 时选的动作为 At, 对应的奖励为 Rt. 动</li>
+<li>作 a 的价值为 Q*(a)≈ E [ Rt | At = a ] . （老虎机问题中，状态 s 是不变的，不考虑 s 了）</li>
+<li><img src="/p/fai-12-basic-ideas-of-rl/image-20250519135933995.png"
+	width="677"
+	height="88"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519135933995_hu_1a5331e7604533fa.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519135933995_hu_23a3b91d1c8bb55b.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519135933995"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="769"
+		data-flex-basis="1846px"
+	
+></li>
+</ul>
+<h2 id="计算动作价值-qsa">计算动作价值 q(s,a)
+</h2><p><img src="/p/fai-12-basic-ideas-of-rl/image-20250519140525405.png"
+	width="672"
+	height="266"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519140525405_hu_6e1a53f49cbec49d.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519140525405_hu_6c3297e7e8b5e326.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519140525405"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="252"
+		data-flex-basis="606px"
+	
+></p>
+<p>计算动作价值的一般形式。</p>
+<p>新的估计 = 老的估值 + 当前步数 X 误差。</p>
+<p>代码的话，刚开始 Q 和 N 都为 0 循环的时候，有个 epsilon 是一个很小的值。大概率根据 Q 最大的来选择动作 A。但有小概率随机选择动作，达到探索的功能。</p>
+<p>然后后面就是更新 Q 了</p>
+<p>大数定理，无限次后, Qt(a) 收敛至 Q*(a)</p>
+<p><img src="/p/fai-12-basic-ideas-of-rl/image-20250519140216041.png"
+	width="471"
+	height="227"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519140216041_hu_f862c3942a70a0c5.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519140216041_hu_793a62ddb2fea39a.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519140216041"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="497px"
+	
+></p>
+<p>取 α = 1/nα 随时间变小 Qn 趋近于均值</p>
+<h2 id="贪心-vs-epsilon--贪心">贪心 v.s. $\epsilon $ 贪心
+</h2><blockquote>
+<p>贪心核心思想：大部分时间选择贪心动作，<strong>偶尔随机选择</strong>。</p>
+<p>$\epsilon $ 通过引入 <strong>随机性</strong> 来鼓励探索，避免陷入局部最优。</p></blockquote>
+<p>2000 次多臂老虎机</p>
+<p><img src="/p/fai-12-basic-ideas-of-rl/image-20250519140312906.png"
+	width="582"
+	height="273"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519140312906_hu_fd42d479b7eda1ae.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519140312906_hu_30456ddd55b9a17f.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519140312906"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="213"
+		data-flex-basis="511px"
+	
+></p>
+<h3 id="epsilon-贪心-vs-乐观初始值贪心">$\epsilon 贪心$ v.s. 乐观初始值贪心
+</h3><blockquote>
+<p>乐观初始值贪心</p>
+<ul>
+<li><strong>负面：参数设定依赖</strong>：初值需要由人工给出，且设定不当可能影响算法性能。</li>
+<li><strong>正面：提供先验知识</strong>：合理的初值能提供先验经验，帮助算法确定奖励的期望量级。</li>
+<li><strong>学习效率</strong>：初值越准确，算法需要的调整次数越少，学习效率越高。</li>
+</ul></blockquote>
+<p>对比 Q1(a) = +5（<strong>探索鼓励</strong>） 和 Q1(a) = 0</p>
+<ul>
+<li>如同人生，期望高就会勇于尝试新路径！但找到方向的时候，别乱探索了！</li>
+<li>乐观初值鼓励探索，对于固定问题是非常有效的小技巧，但是并非是普遍有效的鼓励探索的方法</li>
+<li>所以，如果情况变了，你还是要探索的！例如，对于非固定问题不管用，因为它鼓励探索是临时性的，为什么？并非主动探索，旁边有人变好它是不觉知的，遭遇大挫折时才会改变</li>
+</ul>
+<p>乐观初始值贪心适用性：</p>
+<ul>
+<li>
+<p>固定问题：问题环境和奖励机制在整个学习过程中不发生变化，也即 P(s′∣s,a)<em>P</em>(<em>s</em>′∣<em>s</em>,<em>a</em>) 和 R(s,a)<em>R</em>(<em>s</em>,<em>a</em>) 固定，<strong>乐观初值有效</strong></p>
+<p>利用 <strong>高初值</strong> 鼓励探索，<strong>迅速收敛到最优解</strong>。</p>
+</li>
+<li>
+<p>非固定问题：问题环境或奖励机制会随时间变化，也即 P(s′∣s,a,t)<em>P</em>(<em>s</em>′∣<em>s</em>,<em>a</em>,<em>t</em>) 和 R(s,a,t)<em>R</em>(<em>s</em>,<em>a</em>,<em>t</em>) 随时间 t<em>t</em> 变化，乐观初值探索 <strong>不适用</strong>，ϵ<em>ϵ</em> 贪心更适用。</p>
+<p>通过 <strong>随机选择</strong> 保持探索，适应环境变化。</p>
+</li>
+</ul>
+<h2 id="ucbupper-confidence-bound">UCB（upper-confidence-bound）
+</h2><blockquote>
+<p>实蒙特卡洛搜索的方法，是从这里进化来的。</p>
+<p>Argmax 选动作的时候，又要看估值、又要看新鲜程度。这个想法在蒙特卡洛树搜索的时候用过。
+UCB <strong>将 “当前估值” 和 “新鲜程度” 加权和。</strong></p></blockquote>
+<p><img src="/p/fai-12-basic-ideas-of-rl/image-20250519140858485.png"
+	width="391"
+	height="88"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519140858485_hu_ce14e0a30787fbdb.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519140858485_hu_39f993a8b9d88e40.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519140858485"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="444"
+		data-flex-basis="1066px"
+	
+></p>
+<h2 id="gradient-bandit-algorithm">Gradient Bandit Algorithm
+</h2><p>核心思想：</p>
+<ul>
+<li><em>ϵ</em> 贪心大概率选最好的动作，其他动作 <strong>等同对待</strong>，其实也可以给每个动作一个对应的选择概率</li>
+<li>通过给每个动作 <em>a</em> 一个 <strong>数值优先度</strong> $H_t \in \mathbf{R}$来影响选择概率。</li>
+<li><strong>优先度越大，动作被选中的概率越大。</strong></li>
+</ul>
+<p>据此，我们给出如下设计：</p>
+<ul>
+<li>
+<p>采用 Softmax 函数归一化，使所有可行动作的概率和为 1</p>
+</li>
+<li>
+<p>初始时，所有动作的倾向性相同（$H_1$ = 0）</p>
+</li>
+<li>
+<p>在每一步，按概率选择了动作 $A_t$ 后得到及时奖励 $R_t$，根据奖励 $R_t$ 的大小，修改所有动作的优先度<img src="/%e6%88%aa%e5%b1%8f2025-05-19%2014.18.13.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="截屏2025-05-19%2014.18.13"
+	
+	
+></p>
+<p><strong>合理的划分出好的动作和坏的动作</strong></p>
+<p><img src="/p/fai-12-basic-ideas-of-rl/image-20250519141906298.png"
+	width="503"
+	height="282"
+	srcset="/p/fai-12-basic-ideas-of-rl/image-20250519141906298_hu_8eeb5b138ba45684.png 480w, /p/fai-12-basic-ideas-of-rl/image-20250519141906298_hu_bfc821fd2c4969bf.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250519141906298"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="178"
+		data-flex-basis="428px"
+	
+></p>
+</li>
+</ul>
+<h2 id="总结">总结
+</h2><ul>
+<li>$\epsilon$贪心算法有一小部分时间随机选：固定概率的随机探索</li>
+<li>UCB 偏向尝试次数小的动作：根据统计的探索、更聪明的探索</li>
+<li>梯度下降法不是估计动作的价值，而是动作的优先顺序，使用 softmax 选动作. 其实有探索，因为动作采用 softmax 有概率</li>
+<li>简单的设置乐观初值可以使得贪心算法也具有相当的探索性</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/fai/">FAI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-04-rag%E7%9A%84%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 04 RAG的使用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 03 提示词调优大法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 02 前端后端交互设计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 01 基本调用方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-11-solving_problems_by_searching/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI 11 Solving_Problems_by_Searching</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+  <section class="copyright">
+    &copy;  2025 Rijoshin
+  </section>
+
+  <section class="powerby">
+    Built with <a
+      href="https://gohugo.io/"
+      target="_blank"
+      rel="noopener"
+      >Hugo</a
+    >
+    <br />
+    Theme <b
+      ><a
+        href="https://github.com/CaiJimmy/hugo-theme-stack"
+        target="_blank"
+        rel="noopener"
+        data-version="3.30.0"
+        >Stack</a
+      ></b
+    > designed by <a
+      href="https://jimmycai.com"
+      target="_blank"
+      rel="noopener"
+      >Jimmy</a
+    >
+  </section>
+
+  
+  <section class="totalcount">
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+      发表了46篇文章 · 总计29.22k字
+  </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="正确性和健壮性 正确性 行为要严格符合贵越重定义的行为 永远不给错误的结果 让开发者更容易；输入错误，直接结束 对内的实现，倾向于正确 健壮性 指的是在异常情况下，软件能够正常运行的能力\n">
+<title>RJSJ 15: 面向健壮性的设计</title>
+
+<link rel='canonical' href='https://riyasushin.github.io/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/'>
+
+<link rel="stylesheet" href="/scss/style.min.9e4644e1248cb7554587d90b023e226811a193d8aaeb09d2785da6d726ee580a.css"><meta property='og:title' content="RJSJ 15: 面向健壮性的设计">
+<meta property='og:description' content="正确性和健壮性 正确性 行为要严格符合贵越重定义的行为 永远不给错误的结果 让开发者更容易；输入错误，直接结束 对内的实现，倾向于正确 健壮性 指的是在异常情况下，软件能够正常运行的能力\n">
+<meta property='og:url' content='https://riyasushin.github.io/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/'>
+<meta property='og:site_name' content='Rijoshin&#39;s notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='RJSJ' /><meta property='article:published_time' content='2025-05-18T10:25:48&#43;08:00'/><meta property='article:modified_time' content='2025-05-18T10:25:48&#43;08:00'/>
+<meta name="twitter:title" content="RJSJ 15: 面向健壮性的设计">
+<meta name="twitter:description" content="正确性和健壮性 正确性 行为要严格符合贵越重定义的行为 永远不给错误的结果 让开发者更容易；输入错误，直接结束 对内的实现，倾向于正确 健壮性 指的是在异常情况下，软件能够正常运行的能力\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_5120372bca6142c.png" width="300"
+                            height="301" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Rijoshin&#39;s notes</a></h1>
+            <h2 class="site-description">昔之善战者，先为不可胜，以待敌之可胜。不可胜在己，可胜在敌。故善战者，能为不可胜，不能使敌之必可胜。激水之疾，至于漂石者，势也；鸷鸟之疾，至于毁折者，节也。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Riyasushin'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://riyasushin.github.io/" selected>English</option>
+                                
+                                    <option value="https://riyasushin.github.io/zh-cn/" >中文</option>
+                                
+                                    <option value="https://riyasushin.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#正确性">正确性</a></li>
+    <li><a href="#健壮性">健壮性</a></li>
+    <li><a href="#eg">e.g.</a></li>
+    <li><a href="#健壮性原则postels-law">健壮性原则（Postel`s Law）</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#fault--error--failure">Fault =&gt; Error =&gt; Failure</a></li>
+    <li><a href="#mistake-和-defect">Mistake 和 Defect</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#输入检查">输入检查</a></li>
+    <li><a href="#assert">Assert</a>
+      <ol>
+        <li><a href="#c中的assert">C++中的Assert</a></li>
+        <li><a href="#技巧">技巧</a></li>
+      </ol>
+    </li>
+    <li><a href="#错误处理">错误处理</a></li>
+    <li><a href="#异常">异常</a></li>
+    <li><a href="#隔栏">隔栏</a></li>
+    <li><a href="#防御式编程的使用考虑">防御式编程的使用考虑</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" >
+                课程笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/">RJSJ 15: 面向健壮性的设计</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 18, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="正确性和健壮性">正确性和健壮性
+</h1><h2 id="正确性">正确性
+</h2><ul>
+<li>行为要严格符合贵越重定义的行为</li>
+<li>永远不给错误的结果</li>
+<li>让开发者更容易；输入错误，直接结束</li>
+<li>对内的实现，倾向于正确</li>
+</ul>
+<h2 id="健壮性">健壮性
+</h2><blockquote>
+<p>指的是在异常情况下，软件能够正常运行的能力</p></blockquote>
+<ul>
+<li>没有被规约覆盖的情况是“异常情况”，出现规约定义外的情形时，软件要做出恰当的反应</li>
+<li>尽可能让软件运行而不是总是推出</li>
+<li>让用户变得更容易；出错也可以容忍</li>
+<li>对外的接口倾向于健壮</li>
+</ul>
+<h2 id="eg">e.g.
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>问题</th>
+          <th>正确性做法</th>
+          <th>健壮性做法</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>视频文件有坏帧</td>
+          <td>停止播放，提醒损坏</td>
+          <td>跳过坏帧，从下一正确的继续播放</td>
+      </tr>
+      <tr>
+          <td>用户输入奇怪的格式</td>
+          <td>提示输入错误</td>
+          <td>尝试用不同日期格式解析，告诉用户解析结果</td>
+      </tr>
+      <tr>
+          <td>代码的括号不匹配</td>
+          <td>编译错误</td>
+          <td>尝试补充不匹配的括号继续编译</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="健壮性原则postels-law">健壮性原则（Postel`s Law）
+</h2><ul>
+<li>对自己的代码要保守，对用户的行为要开放
+<ul>
+<li>严于律己，宽以待人</li>
+</ul>
+</li>
+<li>总是假定用户恶意，家底自己代码可能失败</li>
+<li>吧用户想象成可能输入任何东西的傻瓜</li>
+</ul>
+<h1 id="软件中的问题">软件中的问题
+</h1><ul>
+<li>
+<p>Fault，故障</p>
+<ul>
+<li>bugs</li>
+<li>代码实现的错误</li>
+</ul>
+</li>
+<li>
+<p>Error 错误</p>
+<ul>
+<li>不正确的内部运行状态</li>
+</ul>
+</li>
+<li>
+<p>Failure</p>
+<ul>
+<li>运行时候表现出来的、外在的、和规约不一致的行为</li>
+</ul>
+</li>
+<li>
+<p>Problem</p>
+<ul>
+<li>笼统/泛指各种不正确的情况</li>
+</ul>
+</li>
+<li>
+<p>Mistake</p>
+<ul>
+<li>侧重描述人的行为存在失误</li>
+</ul>
+</li>
+<li>
+<p>Defect</p>
+<ul>
+<li>泛指各类设计和实现中存在的问题，导致bug的根源</li>
+</ul>
+</li>
+<li>
+<p>Bug</p>
+<ul>
+<li>同fault</li>
+</ul>
+</li>
+<li>
+<p>Exception</p>
+<ul>
+<li>一种应对故障、处理错误的编程机制</li>
+</ul>
+</li>
+<li>
+<p>Anomaly</p>
+<ul>
+<li>常用于算法领域描述与正常分布不一致的情况</li>
+</ul>
+</li>
+</ul>
+<h2 id="fault--error--failure">Fault =&gt; Error =&gt; Failure
+</h2><p>导致Failure的必要条件:</p>
+<ul>
+<li>可达性
+<ul>
+<li>执行到包含Fault的代码</li>
+</ul>
+</li>
+<li>感染性
+<ul>
+<li>执行Fault的代码后，程序状态是Error</li>
+<li>（错误状态和运行环境有关，在特定环境下才出错）</li>
+</ul>
+</li>
+<li>传播性
+<ul>
+<li>Error能传递到程序的输出，被外界感知</li>
+</ul>
+</li>
+</ul>
+<h2 id="mistake-和-defect">Mistake 和 Defect
+</h2><p>mistake指的是程序员的错误行为</p>
+<p>defect是软件的内在性质，可能导致执行结果和预期（用户希望的结果）不一致</p>
+<ul>
+<li>程序的果实可能导致软件出现defect</li>
+<li>并非所有defect都是由于mistake导致的</li>
+</ul>
+<h1 id="提升正确性和健壮性的方法">提升正确性和健壮性的方法
+</h1><ul>
+<li>故障拒绝
+<ul>
+<li>防御性变成、代码审查、形式化验证</li>
+</ul>
+</li>
+<li>故障检测
+<ul>
+<li>测试、调试、测试驱动开发</li>
+</ul>
+</li>
+<li>容错
+<ul>
+<li>在运行时通过一定手段消除影响</li>
+<li>冗余、备份、重试</li>
+</ul>
+</li>
+</ul>
+<h1 id="防御性编程">防御性编程
+</h1><ul>
+<li>
+<p>子程序不因传入错误数据而被破坏，哪怕是由其它子程序产生的错误数据</p>
+</li>
+<li>
+<p>其核心是承认程序都会有问题，都需要被修改，这是保护的基础</p>
+</li>
+</ul>
+<p>常用技术：</p>
+<ol>
+<li>输入检查</li>
+<li>断言</li>
+<li>错误处理</li>
+<li>异常处理</li>
+<li>隔栏</li>
+</ol>
+<h2 id="输入检查">输入检查
+</h2><p>检查：</p>
+<ul>
+<li>文件</li>
+<li>用户输入</li>
+<li>网络</li>
+<li>其他外部接口</li>
+</ul>
+<ol>
+<li>参数类型是否一致</li>
+<li>参数值是否合法</li>
+<li>长度要求</li>
+</ol>
+<h2 id="assert">Assert
+</h2><p>用来检查永远不应该发生的状况</p>
+<p>断言只在开发阶段被编译到目标代码中，而在生成产品代码时不编译到产品代码中</p>
+<h3 id="c中的assert">C++中的Assert
+</h3><ul>
+<li>在头文件<cassert>中定义的assert宏</li>
+<li>false时候会停止运行</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">func1</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;func1 finish&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">func1</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;first&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">func1</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;second&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>func1 finish</p>
+</li>
+<li>
+<p>first</p>
+</li>
+<li>
+<p>Assertion failed: n==1, file example1.cpp, line 6</p>
+</li>
+</ul>
+<h3 id="技巧">技巧
+</h3><ul>
+<li>可用断言在函数开始处检查传入参数的合法性</li>
+<li>每个assert只检验一个条件</li>
+<li>不要在断言中使用改变环境的语句，因为assert仅在debug阶段生效，如果这么做，会使程序在真正运行时出错</li>
+</ul>
+<h2 id="错误处理">错误处理
+</h2><p>理想情况：希望在发生错误情况时，不只是简单地终止程序运行，而是能够反馈错误情况的信息，并且能够对程序运行中已发生的事情做些处理。</p>
+<h2 id="异常">异常
+</h2><blockquote>
+<p>异常（Exception）是把代码中的错误或不正常事件传递给调用方代码的一种特殊手段</p></blockquote>
+<ul>
+<li>
+<p>当一个函数出现自己无法处理的错误时，可以抛出异常，然后由该函数的直接或者间接调用者处理这个错误</p>
+</li>
+<li>
+<p>异常不是bug</p>
+<ul>
+<li>“异常” 是在程序开发中必须考虑的一些特殊情况，是程序运行时就可预料的执行分支（注：异常是不可避免的，如程序运行时产生除 0 的情况、打开的外部文件不存在、数组访问的越界等）</li>
+<li>“Bug”是程序的缺陷，是程序运行时不被预期的运行方式（注：Bug是人为的、可避免的；如使用野指针、动态分配内存使用结束后未释放等）</li>
+</ul>
+</li>
+</ul>
+<p>![截屏2025-05-18 10.46.46](截屏2025-05-18 10.46.46.png)</p>
+<ul>
+<li>
+<p>异常的抛出规则</p>
+<ul>
+<li>
+<p>异常时通过抛出对象而引发的，该对象的类型决定了应该激活哪个catch的处理代码</p>
+</li>
+<li>
+<p>被选中的处理代码的调用链是，找到与该类型匹配且离抛出异常位置最近的那一个catch</p>
+</li>
+<li>
+<p>抛出异常对象后会生成一个异常对象的拷贝，因为抛出的异常对象可能是一个临时对象，所以会调用复制构造函数生成一个拷贝对象</p>
+</li>
+</ul>
+</li>
+<li>
+<p>异常的匹配规则</p>
+<ul>
+<li>首先检查throw语句本身是否在try块内部，如果是，再在当前函数栈中查找匹配的catch语句。如果有匹配的直接跳到catch的地方执行</li>
+<li>如果没有匹配的catch块或者throw语句不在try块内部，则退出当前函数栈，在调用函数的栈中查找匹配的catch</li>
+<li>如果到达main函数，都没有匹配的catch，就会终止程序</li>
+<li>找到匹配的catch会直接跳到catch语句执行，执行完后，会继续沿着catch语句后面执行</li>
+</ul>
+</li>
+</ul>
+<p>![截屏2025-05-18 10.49.46](截屏2025-05-18 10.49.46.png)</p>
+<ol>
+<li>bad_alloc: new的时候内存不足</li>
+<li>out_of_range</li>
+<li>&hellip;&hellip;</li>
+</ol>
+<p>用智能指针，放着catch后内存没有释放</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">SmatrPrt</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">T</span><span class="o">*</span> <span class="n">_ptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//将外面申请的资源，托管给类的成员
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">SmatrPrt</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="n">_ptr</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">*</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">*</span><span class="n">_ptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">T</span><span class="o">*</span> <span class="k">operator</span><span class="o">-&gt;</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">_ptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//在对象析构时，自动释放资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">~</span><span class="n">SmatrPrt</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">_ptr</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">			<span class="k">delete</span> <span class="n">_ptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="隔栏">隔栏
+</h2><p>如果所有的代码都做异常和错误处理，会使代码变得臃肿，可读性下降</p>
+<blockquote>
+<p>隔栏（barricade）是在设计上简化错误处理的策略，将程序的外部和内部进行隔离</p>
+<p>​	把某些接口选定为安全区域的边界，对穿越安全区域边界的数据进行合法性校验，并当数据非法时进行处理</p></blockquote>
+<ul>
+<li>隔栏的使用使断言和错误处理有了清晰的区分
+<ul>
+<li>隔栏外部的程序使用错误处理技术，外部的数据是不安全的</li>
+<li>隔栏内部的程序就应该使用断言技术，因为传入程序内部的数据都已经过了隔栏的处理，应该是正确的，如果出错，则说明程序本身出错</li>
+</ul>
+</li>
+</ul>
+<h2 id="防御式编程的使用考虑">防御式编程的使用考虑
+</h2><ol>
+<li>防御式编程的矛盾
+<ol>
+<li>在产品开发阶段，希望显示出的错误越多越好，引入很多防御性的代码</li>
+<li>在产品发布阶段，希望错误尽可能偃旗息鼓，尽量不要在使用中出现</li>
+<li>如何权衡</li>
+</ol>
+</li>
+<li>过度的防御式编程也会引入问题
+<ol>
+<li>如果在程序的每一个想到的地方都进行参数检查、错误保护等，那么程序将变得臃肿而缓慢</li>
+<li>更糟糕的是，防御式编程引入的额外代码增加了软件的复杂度，反而容易造成错误</li>
+</ol>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/rjsj/">RJSJ</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RJSJ 17 面向可复用性的设计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/rjsj-mini_lisp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RJSJ Mini_lisp</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/rjsj-16-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RJSJ 16: 软件测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/rjsj-14/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RJSJ 14</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/rjsj-13/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">RJSJ 13</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+  <section class="copyright">
+    &copy;  2025 Rijoshin
+  </section>
+
+  <section class="powerby">
+    Built with <a
+      href="https://gohugo.io/"
+      target="_blank"
+      rel="noopener"
+      >Hugo</a
+    >
+    <br />
+    Theme <b
+      ><a
+        href="https://github.com/CaiJimmy/hugo-theme-stack"
+        target="_blank"
+        rel="noopener"
+        data-version="3.30.0"
+        >Stack</a
+      ></b
+    > designed by <a
+      href="https://jimmycai.com"
+      target="_blank"
+      rel="noopener"
+      >Jimmy</a
+    >
+  </section>
+
+  
+  <section class="totalcount">
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+      发表了46篇文章 · 总计29.22k字
+  </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

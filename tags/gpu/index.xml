@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GPU on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/tags/gpu/</link>
+        <description>Recent content in GPU on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Mon, 19 May 2025 23:52:27 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/gpu/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cuda Example 01</title>
+        <link>https://riyasushin.github.io/p/cuda-example-01/</link>
+        <pubDate>Mon, 19 May 2025 23:52:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/cuda-example-01/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

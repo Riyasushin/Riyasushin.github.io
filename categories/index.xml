@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/categories/</link>
+        <description>Recent content in Categories on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Wed, 21 May 2025 14:43:16 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>课程笔记</title>
+        <link>https://riyasushin.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Wed, 21 May 2025 14:43:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>AISystem</title>
+        <link>https://riyasushin.github.io/categories/aisystem/</link>
+        <pubDate>Tue, 20 May 2025 16:23:52 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/aisystem/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Lab</title>
+        <link>https://riyasushin.github.io/categories/lab/</link>
+        <pubDate>Tue, 20 May 2025 16:23:52 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/lab/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FAI</title>
+        <link>https://riyasushin.github.io/categories/fai/</link>
+        <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/fai/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CSDiy</title>
+        <link>https://riyasushin.github.io/categories/csdiy/</link>
+        <pubDate>Tue, 20 May 2025 10:26:47 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/csdiy/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>HPC</title>
+        <link>https://riyasushin.github.io/categories/hpc/</link>
+        <pubDate>Mon, 19 May 2025 23:52:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/hpc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Daily</title>
+        <link>https://riyasushin.github.io/categories/daily/</link>
+        <pubDate>Sun, 18 May 2025 15:53:02 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/daily/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FakeDiary</title>
+        <link>https://riyasushin.github.io/categories/fakediary/</link>
+        <pubDate>Sun, 18 May 2025 12:31:21 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/fakediary/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>折腾电脑</title>
+        <link>https://riyasushin.github.io/categories/%E6%8A%98%E8%85%BE%E7%94%B5%E8%84%91/</link>
+        <pubDate>Sun, 18 May 2025 08:56:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/%E6%8A%98%E8%85%BE%E7%94%B5%E8%84%91/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Syntax</title>
+        <link>https://riyasushin.github.io/categories/syntax/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/syntax/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Themes</title>
+        <link>https://riyasushin.github.io/categories/themes/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/themes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Test</title>
+        <link>https://riyasushin.github.io/categories/test/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/test/</guid>
+        <description>&lt;img src="https://riyasushin.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        </item>
+        <item>
+        <title>Test With Whitespaces</title>
+        <link>https://riyasushin.github.io/categories/test-with-whitespaces/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/test-with-whitespaces/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

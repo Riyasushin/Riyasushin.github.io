@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>CSDiy on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/categories/csdiy/</link>
+        <description>Recent content in CSDiy on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Tue, 20 May 2025 10:26:47 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/categories/csdiy/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Self AISystemLearning Syllabus</title>
+        <link>https://riyasushin.github.io/p/self-aisystemlearning-syllabus/</link>
+        <pubDate>Tue, 20 May 2025 10:26:47 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/self-aisystemlearning-syllabus/</guid>
+        <description>&lt;h1 id=&#34;大纲&#34;&gt;大纲
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://chenzomi12.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ZOMI的简单介绍&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;课程mit65940-tinyml-and-efficient-deep-learning-computing&#34;&gt;课程：MIT6.5940: TinyML and Efficient Deep Learning Computing
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;课程主要分为三个部分，首先讲授了让神经网络轻量化的各种关键技术，例如剪枝、量化、蒸馏、网络架构搜索等等。有了这些基础之后，课程第二部分会讲授面向特定领域场景的各种高效优化技术，涉及了目前深度学习最前沿热门的各个方向，例如大语言模型的推理、长上下文支持、后训练加速、多模态大语言模型、GAN、扩散模型等等。课程第三部分主要涉及各类高效训练技术，例如大规模分布式并行、自动并行优化、梯度压缩、边缘训练等等。Song Han 教授的讲解深入浅出，覆盖的知识面很广，且都是当前热门的领域方向，如果是想对大语言模型有初步了解也可以重点关注第二和第三部分的内容。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;视频在油管上有官方版本，B站也有生肉和熟肉搬运。&lt;/p&gt;
+&lt;p&gt;课程作业一共有5个，前三个分别考察了量化、剪枝和 NAS，后两个主要是对大语言模型的压缩和高效部署，&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hanlab.mit.edu/courses/2024-fall-65940&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官网24fall&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/playlist?list=PL80kAHvQbh-qGtNc54A6KW4i4bkTPjiRF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;课程视频24fall&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/PKUFlyingPig/MIT6.5940_TinyML&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;飞猪学长的实现&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;课程暑校深度学习中的高效计算方法&#34;&gt;课程（暑校）：深度学习中的高效计算方法
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cse.cuhk.edu.hk/~byu/CMSC5743/2024Fall/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;往年课程内容&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;书cuda-example&#34;&gt;书：CUDA Example
+&lt;/h1&gt;&lt;h1 id=&#34;书体系结构量化研究方法&#34;&gt;书：体系结构：量化研究方法
+&lt;/h1&gt;&lt;h1 id=&#34;大规模并行处理器编程实战&#34;&gt;大规模并行处理器编程实战
+&lt;/h1&gt;&lt;p&gt;来自&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/orion-orion/p/15376727.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;blog&lt;/a&gt;的推荐&lt;/p&gt;
+&lt;h1 id=&#34;书大规模并行处理器程序设计&#34;&gt;书：大规模并行处理器程序设计
+&lt;/h1&gt;&lt;p&gt;买上一本呢，买错了，这本还更贵（&lt;/p&gt;
+&lt;h1 id=&#34;课程并行计算&#34;&gt;课程：并行计算
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gfxcourses.stanford.edu/cs149/fall24/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官网&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;todo离散数学基础&#34;&gt;TODO：离散数学基础
+&lt;/h1&gt;&lt;h1 id=&#34;todo算法导论基础&#34;&gt;TODO：算法导论基础
+&lt;/h1&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

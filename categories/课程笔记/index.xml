@@ -1,0 +1,3941 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>课程笔记 on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
+        <description>Recent content in 课程笔记 on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Wed, 21 May 2025 14:43:16 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RJSJ 17 面向可复用性的设计</title>
+        <link>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Wed, 21 May 2025 14:43:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;面向可复用性的设计&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;软件复用&#34;&gt;软件复用
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;软件复用：将已有的软件及其有效成分用于构造新的软件&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;复用的优点&#34;&gt;复用的优点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;降低开发成本&lt;/li&gt;
+&lt;li&gt;复用的程序已经过充分测试，可靠且稳定&lt;/li&gt;
+&lt;li&gt;有助于实现标准化，在不同的软件中保持一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复用的代价&#34;&gt;复用的代价？
+&lt;/h2&gt;&lt;h2 id=&#34;开发可复用的软件development-for-reuse&#34;&gt;开发可复用的软件（Development for reuse）
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;由于要有足够高的适应性，开发成本高于一般软件&lt;/li&gt;
+&lt;li&gt;由于针对更普适的场景进行开发，缺少足够的针对性，所以性能可能会差一些&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复用已有软件进行开发development-with-reuse&#34;&gt;复用已有软件进行开发（Development with reuse）
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过软件库对可复用软件进行有效的管理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通常无法直接就能使用，需要进行适配&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;白盒复用&#34;&gt;白盒复用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;复制已有代码到正在开发的软件，并进行修改&lt;/li&gt;
+&lt;li&gt;优点：可定制化程度高&lt;/li&gt;
+&lt;li&gt;缺点：对已有代码的修改增加了软件的复杂度，且需要充分了解其内部实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;黑盒复用&#34;&gt;黑盒复用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;通过接口（如类、函数调用）来复用已有的代码，无法修改代码&lt;/li&gt;
+&lt;li&gt;优点：简单、清晰&lt;/li&gt;
+&lt;li&gt;缺点：某些情况适应性差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;可复用的软件来源&#34;&gt;可复用的软件来源
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;开源软件的代码&lt;/li&gt;
+&lt;li&gt;已有系统内的代码&lt;/li&gt;
+&lt;li&gt;组织内部的代码库&lt;/li&gt;
+&lt;li&gt;来自同学和同事的代码&lt;/li&gt;
+&lt;li&gt;自己日积月累的代码&lt;/li&gt;
+&lt;li&gt;来自教材、教程、论坛的代码示例
+&lt;ul&gt;
+&lt;li&gt;如，CppReference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;程序设计语言自身提供的库
+&lt;ul&gt;
+&lt;li&gt;如，C++的标准库、STL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第三方提供的库
+&lt;ul&gt;
+&lt;li&gt;如，C++的Boost库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复用的形态&#34;&gt;复用的形态
+&lt;/h2&gt;&lt;h3 id=&#34;复制粘贴源代码&#34;&gt;复制粘贴（源代码）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可能的问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;维护成本高&lt;/li&gt;
+&lt;li&gt;同一个代码粘贴到多处地方，改动时需同时修改多处&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复制粘贴操作过程中出错&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;需要看懂被复制的代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;复用函数或类模块&#34;&gt;复用“函数”或“类”（模块）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;封装性有助于复用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;规约或文档对使用者的重要意义&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可能的问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;版本更新导致后向兼容问题&lt;/li&gt;
+&lt;li&gt;需要将相关的类或函数链接到一起&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复用类的两种方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;继承&lt;/li&gt;
+&lt;li&gt;委托：将某些职责由其他类来完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;库提供可复用功能的一组类或函数&#34;&gt;库：提供可复用功能的一组类或函数
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;库提供的类和函数常被称为API（Application Programming Interface，应用编程接口）&lt;/li&gt;
+&lt;li&gt;开发者在编写软件的代码时调用库提供的API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;框架一组类及其之间的连接关系&#34;&gt;框架：一组类及其之间的连接关系
+&lt;/h3&gt;&lt;p&gt;开发者根据框架的规约，将自己编写的代码填充到框架中，形成完整的软件&lt;/p&gt;
+&lt;h1 id=&#34;设计可复用的类&#34;&gt;设计可复用的类
+&lt;/h1&gt;&lt;h2 id=&#34;回顾对象之间的关系&#34;&gt;回顾：对象之间的关系
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;面向对象将现实世界中的概念抽象为“类”，&lt;/p&gt;
+&lt;p&gt;而把符合这些概念的事物抽象为“对象”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;两个对象之间可能存在各种各样的关系:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;泛化：分类法中一般和特殊的关系&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是（is-a）：大学生是学生(&lt;strong&gt;使用公有继承机制可以实现“是”关系&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关联：静态结构上的关系，长期的、稳定的(&lt;strong&gt;用类的成员变量可以实现关联关系&lt;/strong&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有（has-a）：汽车有轮子&lt;/p&gt;
+&lt;p&gt;(成员变量使用类类型的指针可以表示“有”关系，UML中称为“聚合”关系)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部分于（part-of）：例如头是人体的一部分&lt;/p&gt;
+&lt;p&gt;(成员变量使用类类型对象可以表示“部分于”关系，UML中称为“组合”关系)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.20.01.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.20.01&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;依赖：动态行为上的关系，偶发的、临时性的(&lt;strong&gt;使用类类型的成员函数参数可以实现依赖关系&lt;/strong&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用（uses-a）：程序员使用键盘&lt;/li&gt;
+&lt;li&gt;依赖于（depends-a）：花依赖于蜜蜂传粉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.20.43.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.20.43&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;通过继承实现复用&#34;&gt;通过继承实现复用
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;通过继承关系，子类可以继承父类已有的功能，在此基础上增加子类的特殊功能，从而实现复用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;如何设计继承以减少因复用带来的bug？&lt;/strong&gt;
+&lt;/p&gt;
+$$
+里氏替换原则（LSP）
+$$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;继承必须确保父类所拥有的性质在子类中仍然成立，当一个子类的对象能够替换任何其父类的对象时，它们之间才具有泛化（is-a）关系&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;里氏替换原则是继承复用的基石&lt;/p&gt;
+&lt;p&gt;只有当派生类可以替换掉其基类，而软件功能不受影响时，基类才能真正被复用，派生类也才能够在基类的基础上增加新的行为&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LSP本质：同一个继承体系中的对象应有共同的行为特征&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;违反LSP的后果：有可能需要修改调用父类的代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;通过委派实现复用&#34;&gt;通过委派实现复用
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;委派/委托：类B对象使用类A对象的功能，从而实现对类A的复用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;通过某种方式将类A的对象传入类B中&lt;/li&gt;
+&lt;li&gt;在类B中通过调用类A的成员函数，实现复用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%25202025-05-21%2520at%252014.24.35.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.24.35&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;继承和委派&#34;&gt;继承和委派
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;继承和委派常同时使用，来实现特定的设计目标&lt;/li&gt;
+&lt;li&gt;继承发生在“类”层面，委派发生在“对象”层面
+&lt;ul&gt;
+&lt;li&gt;如果子类只需要复用父类中的一小部分方法，可以不需要使用继承，而是通过委派机制来实现&lt;/li&gt;
+&lt;li&gt;可避免大量无用的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;合成复用原则&#34;&gt;&lt;strong&gt;合成复用原则&lt;/strong&gt;：
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;优先使用委派而不是继承来实现复用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;原因：降低类与类之间的耦合度&lt;/p&gt;
+&lt;p&gt;通过继承来进行复用的主要问题在于继承复用会破坏系统的封装性，因为继承会将父类的实现细节暴露给子类&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实践方法：通过抽象类或接口来实现委派，兼具可复用性和可扩展性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&#34;../../../../../../Screenshot%25202025-05-21%2520at%252014.26.59.png&#34; alt=&#34;Screenshot 2025-05-21 at 14.26.59&#34; style=&#34;zoom:150%;&#34; /&gt;
+&lt;h1 id=&#34;面向复用的设计模式&#34;&gt;面向复用的设计模式
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;广义讲，软件设计模式是可解决一类软件问题并能重复使用的软件设计方案&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;狭义讲，软件设计模式是对被用来在特定场景下解决一般设计问题的类和相互通信的对象的描述&lt;/p&gt;
+&lt;p&gt;(是在类和对象的层次描述的、可重复使用的软件设计问题的解决方案)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.28.17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.28.17&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;适配器模式&#34;&gt;适配器模式
+&lt;/h2&gt;&lt;h3 id=&#34;定义&#34;&gt;定义
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;适配器（Adaptor）模式将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的类可以一起工作&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;类适配器&lt;/li&gt;
+&lt;li&gt;对象适配器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.29.13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.29.13&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;适配器模式的使用过程&#34;&gt;适配器模式的使用过程
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;客户通过目标接口调用适配器的方法对适配器发出请求&lt;/li&gt;
+&lt;li&gt;适配器使用被适配者接口把请求转换成被适配者的一个或者多个调用接口&lt;/li&gt;
+&lt;li&gt;客户接收到调用的结果，但并未察觉这一切是适配器在起转换作用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方便设计者自由定义接口，不用担心匹配问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;属于静态结构，不适用于多种不同的源适配到同一个目标（如果支持多继承可解决此问题）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;装饰器模式&#34;&gt;装饰器模式
+&lt;/h2&gt;&lt;h3 id=&#34;定义-1&#34;&gt;定义
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;对每一个特性构造子类，通过委派机制增加到对象上&lt;/p&gt;
+&lt;p&gt;装饰器（Decorator）模式动态地给一个对象添加一些额外的职责&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.33.02.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.33.02&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在不影响其他对象的情况下，以动态、透明的方式给单个对象添加职责&lt;/li&gt;
+&lt;li&gt;当不能采用生成子类的方法进行复用时。一种情况是，可能有大量独立扩展，每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。另一种情况是因为类定义被隐藏，或类定义不能用于生成子类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优缺点&#34;&gt;优缺点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用装饰器模式可以很容易地向对象添加职责。可以用添加和分离的方法，在运行时添加和删除职责&lt;/li&gt;
+&lt;li&gt;使用装饰器模式可以很容易地重复添加一个特性，而两次继承则极容易出错&lt;/li&gt;
+&lt;li&gt;避免在层次结构高层的类有太多的特征：可以从简单的部件组合出复杂的功能。具有低依赖性和低复杂性&lt;/li&gt;
+&lt;li&gt;缺点是产生了许多小对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;外观模式&#34;&gt;外观模式
+&lt;/h2&gt;&lt;h3 id=&#34;define&#34;&gt;Define
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.35.07.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.35.07&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;外观（Facade）模式提供一个统一的接口，用来访问子系统中的一群接口&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外观定义了一个高层接口，让子系统更容易使用&lt;/li&gt;
+&lt;li&gt;解除客户程序与抽象类具体实现部分的依赖性，有利于移植和更改&lt;/li&gt;
+&lt;li&gt;外观模式的本质是让接口变得更简单&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;使用效果&#34;&gt;使用效果
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;对客户端屏蔽子系统组件，减少客户端使用对象数目&lt;/li&gt;
+&lt;li&gt;实现了子系统与客户之间松耦合的关系，使得子系统组件的变化不会影响到客户&lt;/li&gt;
+&lt;li&gt;不限制客户应用子系统类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;策略模式&#34;&gt;策略模式
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.36.55.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.36.55&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;策略（Strategy）模式是指定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使得算法可独立于使用它的客户而变化&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;适用场景&#34;&gt;适用场景：
+&lt;/h3&gt;&lt;p&gt;某些对象使用的算法可能多种多样，经常改变，如果将这些算法都编码到对象中，将会使得对象变得异常复杂；而且有时候支持不同的算法也是一个性能负担&lt;/p&gt;
+&lt;h3 id=&#34;优点&#34;&gt;优点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;算法和使用算法的对象相互分离，客户程序可以在运行时动态选择算法，代码复用性好，便于修改和维护&lt;/li&gt;
+&lt;li&gt;消除了冗长的条件语句序列&lt;/li&gt;
+&lt;li&gt;提供相同行为的不同实现，客户可以根据不同的上下文从不同的策略中选择算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;缺点&#34;&gt;缺点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;客户必须了解不同的Strategy&lt;/li&gt;
+&lt;li&gt;Strategy和Context之间的通信开销加大&lt;/li&gt;
+&lt;li&gt;增加了类和对象数目，在算法较多时更加严重&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;模板方法模式&#34;&gt;模板方法模式
+&lt;/h2&gt;&lt;h3 id=&#34;define-1&#34;&gt;define
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;模板方法（Template Method）模式定义操作中算法的骨架，将一些步骤的执行延迟到其子类中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;子类不需要改变算法结构即可重定义算法的某些步骤&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;适用场景-1&#34;&gt;适用场景：
+&lt;/h3&gt;&lt;p&gt;具有统一的操作步骤或操作过程，具有不同的操作细节，即存在多个具有同样操作步骤的应用场景，但某些具体的操作细节却各不相同&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.41.16.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.41.16&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用效果-1&#34;&gt;使用效果
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;模板方法是一种代码复用技术，模板提取了子类的公共行为&lt;/li&gt;
+&lt;li&gt;模板方法模式形成一种反向的控制结构（依赖倒置原则）
+&lt;ul&gt;
+&lt;li&gt;父类调用子类的操作（高层模块调用低层模块的操作），低层模块实现高层模块声明的接口&lt;/li&gt;
+&lt;li&gt;这样控制权在父类（高层模块），低层模块反而要依赖高层模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;可通过在抽象模板定义模板方法给出成熟算法步骤，同时又不限制步骤细节，具体模板实现算法细节不会改变整个算法骨架&lt;/li&gt;
+&lt;li&gt;在抽象模板模式中，可以通过钩子方法对某些步骤进行挂钩，具体模板通过钩子可以选择算法骨架中的某些步骤&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;策略模式vs-模板方法模式&#34;&gt;策略模式vs 模板方法模式
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.42.38.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.42.38&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Introduction to Psychology 13 心理病理学</title>
+        <link>https://riyasushin.github.io/p/introduction-to-psychology-13-%E5%BF%83%E7%90%86%E7%97%85%E7%90%86%E5%AD%A6/</link>
+        <pubDate>Tue, 20 May 2025 20:34:28 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/introduction-to-psychology-13-%E5%BF%83%E7%90%86%E7%97%85%E7%90%86%E5%AD%A6/</guid>
+        <description>&lt;h1 id=&#34;问题与病因学&#34;&gt;问题与病因学
+&lt;/h1&gt;&lt;h2 id=&#34;从魔鬼到疾病&#34;&gt;从魔鬼到疾病
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;中世纪&lt;/li&gt;
+&lt;li&gt;16世纪伯利恒皇家医院，俗称疯人院&lt;/li&gt;
+&lt;li&gt;19世纪，Phillipe Pinel，虽然治疗方法没用，但是人文关怀&lt;/li&gt;
+&lt;li&gt;《逃离疯人院》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;从精神到肉体&#34;&gt;从精神到肉体
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;精神疾病是一种强烈损伤正常的思维与情感的躯体生理反应&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;“精神分裂症并不仅仅包含心理上的改变，事实上也包含了我们可以观察到的&lt;del&gt;大脑里&lt;/del&gt;实际的的器质性病变”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有心理上的变化都依赖于特定的生理变化&lt;/li&gt;
+&lt;li&gt;并非所有生理变化都会导致心理变化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;抑郁症有相关关系的基因&lt;/li&gt;
+&lt;li&gt;精神分裂症患者的亲属一生中得精神分裂的风险 $\sim$ 基因，基因相关高&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;基因与环境的影响&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基因易感性（$\Leftarrow$ 受损的T细胞）&lt;/li&gt;
+&lt;li&gt;环境刺激（$\Leftarrow$ 过敏原）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;素质-压力互动模型&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特定的素质&lt;/li&gt;
+&lt;li&gt;足够的&lt;del&gt;作业&lt;/del&gt;压力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;基因如何导致精神疾病&#34;&gt;基因如何导致精神疾病
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;基因影响大脑的功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基因影响人们对外界的反应方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基因影响人们与之反应的外界环境&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;诊断标准&#34;&gt;诊断标准
+&lt;/h2&gt;&lt;p&gt;“异常”是按照群体的情况定义的&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;非典型行为 ～ 偏离标准或统计标准&lt;/li&gt;
+&lt;li&gt;扰乱社会 ～ 随时间与文化而变化&lt;/li&gt;
+&lt;li&gt;适应不良 ～ 形式社会功能困难&lt;/li&gt;
+&lt;li&gt;伤害自己会他人 ～ 凶杀/自杀&lt;/li&gt;
+&lt;li&gt;个体的精神痛苦 ～ 主观感觉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;标准与文化、时代有密切关系的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;DSM-5-TR (Diagnostic and Statistical Manual of Mental Disorders, 精神疾病的诊断和统计手册)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;焦虑障碍&lt;/li&gt;
+&lt;li&gt;心境障碍&lt;/li&gt;
+&lt;li&gt;精神分裂症&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;情绪失调&#34;&gt;情绪失调
+&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%E6%88%AA%E5%B1%8F2025-05-20%2019.23.44.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-20 19.23.44&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;高负性的情绪-伤害自己&lt;/li&gt;
+&lt;li&gt;高唤醒的情绪-做出向外的行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;焦虑症GAD&lt;br /&gt;惊恐障碍PANCI&lt;br /&gt;恐怖症PHOBIA&lt;br /&gt;强迫症OCD&lt;br /&gt;PTSD&lt;/td&gt;
+          &lt;td&gt;躁狂症&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;抑郁症&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;疾病&lt;/th&gt;
+          &lt;th&gt;负性情感体验来源&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GAD&lt;/td&gt;
+          &lt;td&gt;将来&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Panic&lt;/td&gt;
+          &lt;td&gt;躯体&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Phobia&lt;/td&gt;
+          &lt;td&gt;事件/物体&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;OCD&lt;/td&gt;
+          &lt;td&gt;思维&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;PTSD&lt;/td&gt;
+          &lt;td&gt;记忆&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;heading&#34;&gt;.
+&lt;/h2&gt;&lt;h3 id=&#34;焦虑症&#34;&gt;焦虑症
+&lt;/h3&gt;&lt;p&gt;广泛性焦虑症&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;信念 $\Rightarrow$ 焦虑&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对一些活动活时间过度焦虑或者担心，至少在6个月内经常发生&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无法控制的担忧&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这种焦虑至少和下面三项相关联&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;警长，或者处于边缘状态&lt;/li&gt;
+&lt;li&gt;容易疲倦&lt;/li&gt;
+&lt;li&gt;难以集中注意力&lt;/li&gt;
+&lt;li&gt;烦躁不安&lt;/li&gt;
+&lt;li&gt;肌肉紧张&lt;/li&gt;
+&lt;li&gt;睡眠障碍&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;信念，躯体唤醒水平增加，焦虑；事情被解决了，信念水平降低，焦虑减轻&lt;/p&gt;
+&lt;p&gt;但是，漂浮不定的高唤醒水平状态，大脑没有任何线索解释这种高唤醒水平，大脑用“合适”的信念去解释这种状态。&lt;/p&gt;
+&lt;p&gt;焦虑症患者，躯体一种处于一种高唤醒状态！&lt;/p&gt;
+&lt;h3 id=&#34;惊恐障碍&#34;&gt;惊恐障碍
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;简短的极其短暂的但是及其强烈的惊恐状态&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;心悸、心跳或心率加快&lt;/li&gt;
+&lt;li&gt;出汗&lt;/li&gt;
+&lt;li&gt;颤抖、发抖&lt;/li&gt;
+&lt;li&gt;呼吸急促或窒息感&lt;/li&gt;
+&lt;li&gt;胸部疼痛或不舒服&lt;/li&gt;
+&lt;li&gt;恶心或腹部不适&lt;/li&gt;
+&lt;li&gt;感到头昏、头重脚轻或昏厥&lt;/li&gt;
+&lt;li&gt;对死亡的恐惧&lt;/li&gt;
+&lt;li&gt;疼痛&lt;/li&gt;
+&lt;li&gt;寒颤或潮热&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;恐怖症&#34;&gt;恐怖症
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;与客观危险不相称的恐惧感&lt;/p&gt;
+&lt;p&gt;对恐惧症对象过度警觉&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;强迫症ocd&#34;&gt;强迫症(OCD)
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;反复出现、无法控制的强迫性的信念、行为&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;执念&lt;/li&gt;
+&lt;li&gt;能够消除执念的行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;强迫性观念：刻板的、不断进入患者观念的（Obsessions）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;脏&lt;/li&gt;
+&lt;li&gt;对行为的疑惑&lt;/li&gt;
+&lt;li&gt;对秩序的需要&lt;/li&gt;
+&lt;li&gt;暴力和令人不安的图像&lt;/li&gt;
+&lt;li&gt;侵入性的色情想法和幻想&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;强迫性行为：（Compulsive）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;反复吸收&lt;/li&gt;
+&lt;li&gt;包东西摆放整齐&lt;/li&gt;
+&lt;li&gt;检查&lt;/li&gt;
+&lt;li&gt;计数&lt;/li&gt;
+&lt;li&gt;默读重读单词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ptsd&#34;&gt;PTSD
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;遭受痛苦事件后，痛苦持续存在&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;对创伤事件反复的生动的体验（记忆、梦境、闪回）&lt;/li&gt;
+&lt;li&gt;对于创伤刺激的回避以及对正常反应的麻木&lt;/li&gt;
+&lt;li&gt;高唤醒状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;抑郁与躁狂&#34;&gt;抑郁与躁狂
+&lt;/h2&gt;&lt;h3 id=&#34;抑郁症&#34;&gt;抑郁症
+&lt;/h3&gt;&lt;p&gt;满足一下一条或两条&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;大部分时间都有悲伤情绪并且几乎天天如此&lt;/li&gt;
+&lt;li&gt;对正常的快乐失去兴趣&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;满足四条或以上：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;体重明显下降或增加，或食欲下降或增加&lt;/li&gt;
+&lt;li&gt;睡眠紊乱，失眠或嗜睡&lt;/li&gt;
+&lt;li&gt;精神运动性迟缓或激越&lt;/li&gt;
+&lt;li&gt;疲劳或精力缺失&lt;/li&gt;
+&lt;li&gt;无价值感或不适当的内疚感&lt;/li&gt;
+&lt;li&gt;思考和集中注意力能力减弱，或优柔寡断&lt;/li&gt;
+&lt;li&gt;反复出现死亡的念头，反复出现自杀想法，自杀未遂，或有具体的自杀计划&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;父性思维&lt;/li&gt;
+&lt;li&gt;缺乏人际交往行为&lt;/li&gt;
+&lt;li&gt;特定生理状态&lt;/li&gt;
+&lt;li&gt;负性的经历与记忆&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;双相障碍&#34;&gt;双相障碍
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;躁狂&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;活动增加（社交与性）&lt;/li&gt;
+&lt;li&gt;滔滔不绝且语速很快&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;思维障碍&#34;&gt;思维障碍
+&lt;/h1&gt;&lt;h2 id=&#34;精神分裂&#34;&gt;精神分裂
+&lt;/h2&gt;&lt;p&gt;偏执型&lt;/p&gt;
+&lt;p&gt;破裂型&lt;/p&gt;
+&lt;p&gt;紧张型&lt;/p&gt;
+&lt;p&gt;未分化&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;阳性症状&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;妄想：给予对外部显示不正确推断而产生的?????
+&lt;ul&gt;
+&lt;li&gt;夸大妄想&lt;/li&gt;
+&lt;li&gt;被害妄想&lt;/li&gt;
+&lt;li&gt;受控妄想&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;幻觉：没有外部事件刺激感官，却能够产生的和现实不符的感知觉
+&lt;ul&gt;
+&lt;li&gt;评论性和描述性&lt;/li&gt;
+&lt;li&gt;争论性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;破裂的语言与行为&lt;/li&gt;
+&lt;li&gt;不恰当的情感&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;隐性症状&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动机缺乏&lt;/li&gt;
+&lt;li&gt;社会退缩性&lt;/li&gt;
+&lt;li&gt;语言贫乏&lt;/li&gt;
+&lt;li&gt;注意力不集中&lt;/li&gt;
+&lt;li&gt;表现或感受情感困难&lt;/li&gt;
+&lt;li&gt;紧张症&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;原因&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;素质：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;遗传&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;易感性的生物学标志&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;压力：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;产前创伤&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;冬天出生&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;社会隔离&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;家庭动力&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;边缘人格障碍&#34;&gt;边缘人格障碍
+&lt;/h1&gt;</description>
+        </item>
+        <item>
+        <title>RJSJ Mini_lisp</title>
+        <link>https://riyasushin.github.io/p/rjsj-mini_lisp/</link>
+        <pubDate>Tue, 20 May 2025 11:40:18 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-mini_lisp/</guid>
+        <description>&lt;h1 id=&#34;记录没有实现的功能都有哪些&#34;&gt;记录没有实现的功能都有哪些
+&lt;/h1&gt;&lt;p&gt;现在最关键的是实现list相关的一切！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; cond else&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; let&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; begin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; equal?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; eq?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; ```scheme
+&amp;lsquo;(a . (b . (c . (d . ())))) ⇒ &amp;lsquo;(a b c d)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;img src=&#34;https://riyasushin.github.io/%E6%88%AA%E5%B1%8F2025-05-20%2011.54.56.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-20 11.54.56&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; apply&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; error&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; exit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; eval&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; newline&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; print&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; list&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; append&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; cdr&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; car&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; cons&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; length&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; list&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; map&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; filter&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;modulo 和 reminder 的 是整数还是 Num都可以！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你也可以不用函数指针，改用 &lt;code&gt;std::function&lt;/code&gt;，然后在创建 &lt;code&gt;EvalEnv&lt;/code&gt; 的时候直接以 Lambda 表达式加捕获的形式塞进去&lt;a class=&#34;link&#34; href=&#34;https://pku-software.github.io/project-doc/levels/7.html#%e4%bb%bb%e5%8a%a1-7-2-%e8%a1%a5%e5%85%a8-47-%e4%b8%aa%e5%86%85%e7%bd%ae%e8%bf%87%e7%a8%8b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个怎么实现的??&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 04 RAG的使用</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-04-rag%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Tue, 20 May 2025 10:16:03 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-04-rag%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 03 提示词调优大法</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/</link>
+        <pubDate>Tue, 20 May 2025 10:14:38 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 02 前端后端交互设计</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Tue, 20 May 2025 10:12:57 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;p&gt;TODO&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI Camel Ai 01 基本调用方法</title>
+        <link>https://riyasushin.github.io/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Tue, 20 May 2025 10:12:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;h1 id=&#34;第一个agent&#34;&gt;第一个Agent
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ModelFactory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;create&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model_platform&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ModelPlatformType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GEMINI&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ModelType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GEMINI_2_0_FLASH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model_config_dict&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;max_tokens&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4096&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 设置合理的最大令牌数（根据模型支持调整）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;temperature&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 可选：其他模型参数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;api_key&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GEMINI_API_KEY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ChatAgent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;system_message&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SystemAnalysePrompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;message_window_size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;usr_msg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;agent1_competitor_analysis_summary_str: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;agent1_competitor_analysis_summary_str&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;brand_industry_str: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;brand_industry_str&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;target_audience_persona_data = &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target_audience_persona_data&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;social_media_platform_names_str: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;social_media_platform_names_str&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;        &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;usr_msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;content&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;`&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strRes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;JSONDecodeError&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;analyze_existing_visual_assets, JSON解析错误： &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;An error occured when ask for AI response: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Model
+&lt;ul&gt;
+&lt;li&gt;GEMINI&lt;/li&gt;
+&lt;li&gt;SF的得手写，enum没更新目前&lt;/li&gt;
+&lt;li&gt;DpSk-R1必须用流式输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Agent&lt;/li&gt;
+&lt;li&gt;Json处理&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI 12 Basic Ideas of RL</title>
+        <link>https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/</link>
+        <pubDate>Mon, 19 May 2025 12:41:17 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/</guid>
+        <description>&lt;h1 id=&#34;强化学习的生物学基础&#34;&gt;强化学习的生物学基础
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;斯金纳的操作性条件反射&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结起来，从生物学基础来看，强化理论是&lt;strong&gt;通过给予奖励和惩罚、来改变智能体的行为方式&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;智能体表现好、就通过某些方式给奖励；表现不好，就给予惩罚。&lt;/p&gt;
+&lt;p&gt;（随机奖励指的是 &lt;strong&gt;不确定何时会获得奖励的机制&lt;/strong&gt;。研究表明，这种不确定性会使智能体更投入于某种行为，因为它们总是期待下一次可能的奖励。）&lt;/p&gt;
+&lt;h1 id=&#34;强化学习建模&#34;&gt;强化学习建模
+&lt;/h1&gt;&lt;h2 id=&#34;状态模型&#34;&gt;状态模型
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2012.44.46.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏 2025-05-19%12.44.46&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初始状态 $S_0$&lt;/li&gt;
+&lt;li&gt;当前玩家 $C$&lt;/li&gt;
+&lt;li&gt;动作集合 $A$&lt;/li&gt;
+&lt;li&gt;状态转移 $P$
+&lt;ul&gt;
+&lt;li&gt;$P(S_{t+1}|S_t,A_t)$表示在时间 t, Agent 在状态$S_t$下采取动作$A_t$ 后转到下一个状态$S_{t+1}$的概率。&lt;/li&gt;
+&lt;li&gt;如何衡量一个环境的复杂程度呢？环境可能达到的所有状态、我们称为&lt;strong&gt;状态空间&lt;/strong&gt;。智能体可能执行的所有动作，称为&lt;strong&gt;动作空间&lt;/strong&gt;。如果这两个空间越大，那么环境就越复杂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;终止状态 $S_T$&lt;/li&gt;
+&lt;li&gt;奖励 ： 某个状态下，智能体采取某动作后得到的分数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;智能体问题的解模型&#34;&gt;智能体（问题的解）模型
+&lt;/h2&gt;&lt;p&gt;那智能体优化的目标是什么呢？什么叫做聪明呢？&lt;/p&gt;
+&lt;p&gt;寻找一个最优策略，就是要最大化，从初始状态$S_0$到终止状态$S_T$上、每一步收益 R 的累积。&lt;/p&gt;
+&lt;p&gt;强化学习就是要得到一个好的策略 π ，使之可以得到好的收益。&lt;/p&gt;
+&lt;h3 id=&#34;策略-pi&#34;&gt;策略 $\pi$
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;$A_t \leftarrow \pi(S_i)$ 用以表示智能体的策略，也即在每一个状态 $S_t$下选择动作 $A_t$的规则或函数。&lt;/li&gt;
+&lt;li&gt;策略 π 是状态 S 到动作 A 的映射关系，给出了智能体在状态 &lt;em&gt;S&lt;/em&gt; 下如何选择动作 &lt;em&gt;A&lt;/em&gt; 的决策方法。&lt;/li&gt;
+&lt;li&gt;注意：策略 &lt;em&gt;π&lt;/em&gt; 是 &lt;strong&gt;全局性&lt;/strong&gt; 的，任何状态下都要能够给出动作选择。&lt;/li&gt;
+&lt;li&gt;确定性策略 π：对于每个状态 $s \in S$，策略 $\pi(S)$ 总是返回一个确定的动作$A$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;目标&#34;&gt;目标
+&lt;/h3&gt;&lt;p&gt;寻找最优策略使得收益最大&lt;/p&gt;
+&lt;h2 id=&#34;例子井字棋的建模&#34;&gt;例子：井字棋的建模
+&lt;/h2&gt;&lt;p&gt;与先前学习的假设对弈双方都是最聪明（双方都采用最优策略）的 MINIMAX 算法不同，强化学习仅仅&lt;strong&gt;假设&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;敌人采用的是 &lt;strong&gt;确定性策略&lt;/strong&gt; （给定 &lt;em&gt;S&lt;/em&gt; 下有确定的 &lt;em&gt;A&lt;/em&gt;，而不是随机的 &lt;em&gt;A&lt;/em&gt;），但是不一定是最优策略。&lt;/li&gt;
+&lt;li&gt;我们可以和敌人进行 &lt;strong&gt;多次对弈&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;基本思想&lt;/strong&gt;：从而学习到一个好的对敌策略。&lt;/p&gt;
+&lt;p&gt;显然，这样的假设更为真实，因为我们能够利用真实情况中，敌人决策的失误来对应的调整我们的策略。&lt;/p&gt;
+&lt;h3 id=&#34;问题建模&#34;&gt;问题建模
+&lt;/h3&gt;&lt;p&gt;初始状态：空棋盘&lt;/p&gt;
+&lt;p&gt;当前玩家：下子的一方&lt;/p&gt;
+&lt;p&gt;动作：落子到空的位置&lt;/p&gt;
+&lt;p&gt;状态转移：落子后棋盘的状态&lt;/p&gt;
+&lt;p&gt;终止状态：棋盘满或者一方获胜&lt;/p&gt;
+&lt;p&gt;奖励：胜利+1，失败-1，平 0&lt;/p&gt;
+&lt;h3 id=&#34;解与目标&#34;&gt;解与目标
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;策略$\pi$&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;使用 &lt;strong&gt;状态估值表&lt;/strong&gt;，每个状态一个入口（表项），记录从该状态出发到终局的胜率。根据状态估值表选择动作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;学习策略$\pi_1$&lt;/strong&gt;：大概率选择估值最高的下一个状态，小概率随机选一个动作（探索）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目标策略 $\pi_2$&lt;/strong&gt;：每次选择通往估值最高的下一个状态（贪心）的动作，也即表示在每个状态下选择最优动作的规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;目标（问题的解）：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最优策略 $\pi^*$&lt;/strong&gt;：使得智能体从初始状态$S_0$ 下到最终的效率 / 胜率最大&lt;/p&gt;
+&lt;h3 id=&#34;训练过程&#34;&gt;训练过程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;建立状态估值表 $3^9$的最多状态，直接存&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;估值表函数初值&lt;/strong&gt;：（根据游戏规则）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;三个 X 连成一线的状态，价值为 1，因为我们已经贏了。&lt;/li&gt;
+&lt;li&gt;三个 O 连成一线的状态，价值为 0，因为我们已经输了。&lt;/li&gt;
+&lt;li&gt;其他状态的值都为 0.5，表示有 50% 的概率能贏。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多次玩
+目的：让估值表更加准确&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;利用&lt;/strong&gt;：大概率贪心选价值最大的地方下&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;探索&lt;/strong&gt;：偶尔随机地选择以便探索之前没有探索过的地方&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;利用和探索要平衡&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;边下边修改状态的值, 使得它更接近真实的胜率。&lt;/p&gt;
+$$
+   V(S_t) \leftarrow V(S_t) + \alpha[V(S_{t+1})-V(S_t)]
+   $$&lt;p&gt;其中 $\alpha$是一个小的正的分数，称为步长参数，或者学习率&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;初值 $S_0$&lt;/strong&gt;：只有终局的价值是正确的，中间局面的价值都是估计值 0.5（而这是错的）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过程中&lt;/strong&gt;：状态价值从后面向前传导&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分析&lt;/strong&gt;：假设我们一直在一条路径上反复走，每走到终点一次，&lt;strong&gt;终局价值至少向上传一步&lt;/strong&gt;，走多了终将把这个终局的输赢带到最上面的初始节点，于是我们在初始节点就会知道最后的输赢&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;将对手建模在环境里；每次采取动作后面临的状态都是对手执行完它的动作后的新状态；（也可以建模成多智能体博弈问题，有一个对手决策模型，轮到对手落子时让对手模型决策）&lt;/li&gt;
+&lt;li&gt;用值函数表存储状态估值/值函数表 V(S)&lt;/li&gt;
+&lt;li&gt;通过不断对弈更新值函数表&lt;/li&gt;
+&lt;li&gt;根据值函数表、可以得到贪心选最优动作 π*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;问题模型的泛化和分析&#34;&gt;问题模型的泛化和分析
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;将概率加进来&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;环境--智能体&#34;&gt;环境 &amp;amp;&amp;amp; 智能体
+&lt;/h2&gt;&lt;h3 id=&#34;模型&#34;&gt;模型
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;初始状态 $S_0$(state)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当前玩家 C（current player(s)）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;动作 A(action)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;状态转移 P(transition)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;终止状态 ST(terminate state)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;奖励 R(reward)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;策略 π&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目标（问题的解）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最大化期望累积收益 G&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;环境状态转移模型-p-和奖励-r&#34;&gt;环境：状态转移模型 P 和奖励 R
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;那么，我们让这个模型能表达更宽泛的问题，我们就要把概率加入这个模型。就是我做一个动作之后，我下一时刻的状态不是确定性的。而是有概率的。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;状态不一定是确定性的，可以按照概率转移&lt;/li&gt;
+&lt;li&gt;奖励也不一定是确定性的，可以一个概率奖励&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;智能体策略-π-和累积收益-g&#34;&gt;智能体：策略 π 和累积收益 G
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;策略 π 给出的动作选择可以是确定的，也可以是一个概率分布&lt;/li&gt;
+&lt;li&gt;折扣因子 γ ：（ 0 ≤ γ ≤ 1 ），描述未来收益的重要程度
+&lt;ul&gt;
+&lt;li&gt;若为 1，则近的收益和远的收益一样重要&lt;/li&gt;
+&lt;li&gt;若为 0，则只看下一步的收益（最贪心）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;累积收益$G = R&lt;em&gt;1+γR_2+γ^2R_3+…=∑&lt;/em&gt;{i=1}^Tγ^{i−1}R_i $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.39.02.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.39.02&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;奖励函数对智能体最优策略的影响&#34;&gt;奖励函数对智能体最优策略的影响
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.44.31.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.44.31&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;奖励力度对智能体策略影响&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;策略的评估和最优策略&#34;&gt;策略的评估和最优策略
+&lt;/h2&gt;&lt;p&gt;策略 π 的好坏用 状态价值$V_π$ 来评估：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态价值$V_π$（S&lt;/strong&gt;） 表示从 S 出发执行策略 π 能获得的累积收益；&lt;/li&gt;
+&lt;li&gt;结束状态（如果有）的价值，总是零
+&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519134637786.png&#34;
+	width=&#34;626&#34;
+	height=&#34;88&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519134637786_hu_60fa20a90550271b.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519134637786_hu_2212841c6c8b66c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519134637786&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;711&#34;
+		data-flex-basis=&#34;1707px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;状态价值v_pi和动作价值q_pi&#34;&gt;状态价值$V_{\pi}$和动作价值$Q_{\pi}$
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;动作价值$V_\pi(s， \alpha)$ ： 表示从 s 出发并做出动作 $\alpha$ ，之后执行策略 $\pi$ 能够获得的累计收益&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135025004.png&#34;
+	width=&#34;654&#34;
+	height=&#34;91&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135025004_hu_fcd108742734847d.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135025004_hu_88a6766454dbe1d9.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519135025004&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;718&#34;
+		data-flex-basis=&#34;1724px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.51.05.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.51.05&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;V,Q 关系：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2013.54.07.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%13.54.07&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;强化学习的任务&#34;&gt;强化学习的任务
+&lt;/h2&gt;&lt;h1 id=&#34;智能体寻找最优策略的路径&#34;&gt;智能体寻找最优策略的路径
+&lt;/h1&gt;&lt;p&gt;智能体使用策略 π0（开始可能是随机的）与环境交互，产生经验（Experience&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;s01,a01,r11,s11,a11,r21,s21,a21,r31,s31,a31,……. 计算 G1 以更新 π0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π0s02,a02,r12,s12,a12,r22,s22,a22,r32,s32,a32,……. 计算 G2 以更新 π0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π0s03,a03,r13,s13,a13,r23,s23,a23,r33,s33,a33,……. 计算 G3 以更新 π0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;智能体根据经验改进 π0 得到 π1，再用 π1 与环境交互以期获得更大&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gs01,a01,r11,s11,a11,r21,s21,a21,r31,s31,a31,……. 计算 G1 以更&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π1s02,a02,r12,s12,a12,r22,s22,a22,r32,s32,a32,……. 计算 G2 以更&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;π1s03,a03,r13,s13,a13,r23,s23,a23,r33,s33,a33,……. 计算 G3 以更新 π1……&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如此往复，直到得到最（更）好的 π 前面看到的打砖块 AI 和王者鲁班七号 AI 都是这么得来&lt;/p&gt;
+&lt;h2 id=&#34;多臂老虎机问题&#34;&gt;多臂老虎机问题
+&lt;/h2&gt;&lt;p&gt;一个单臂老虎机，就是你给它投个币，相当于你摇它一下，它会给你吐出个随机的收益，这么一个赌博机器。这个收益服从正态分布。&lt;/p&gt;
+&lt;p&gt;但是多臂老虎机，指的是有一排老虎机摆在你面前，一个人占一排。不同机器的收益是不一样的，服从分布的均值和方差你是不知道的。&lt;/p&gt;
+&lt;p&gt;![截屏2025-05-19%13.57.59](截屏 2025-05-19%13.57.59.png)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;没摇过的有个缺省值，例如：0&lt;/li&gt;
+&lt;li&gt;时间 t 时选的动作为 At, 对应的奖励为 Rt. 动&lt;/li&gt;
+&lt;li&gt;作 a 的价值为 Q*(a)≈ E [ Rt | At = a ] . （老虎机问题中，状态 s 是不变的，不考虑 s 了）&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135933995.png&#34;
+	width=&#34;677&#34;
+	height=&#34;88&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135933995_hu_1a5331e7604533fa.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519135933995_hu_23a3b91d1c8bb55b.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519135933995&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;769&#34;
+		data-flex-basis=&#34;1846px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;计算动作价值-qsa&#34;&gt;计算动作价值 q(s,a)
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140525405.png&#34;
+	width=&#34;672&#34;
+	height=&#34;266&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140525405_hu_6e1a53f49cbec49d.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140525405_hu_6c3297e7e8b5e326.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140525405&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;606px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;计算动作价值的一般形式。&lt;/p&gt;
+&lt;p&gt;新的估计 = 老的估值 + 当前步数 X 误差。&lt;/p&gt;
+&lt;p&gt;代码的话，刚开始 Q 和 N 都为 0 循环的时候，有个 epsilon 是一个很小的值。大概率根据 Q 最大的来选择动作 A。但有小概率随机选择动作，达到探索的功能。&lt;/p&gt;
+&lt;p&gt;然后后面就是更新 Q 了&lt;/p&gt;
+&lt;p&gt;大数定理，无限次后, Qt(a) 收敛至 Q*(a)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140216041.png&#34;
+	width=&#34;471&#34;
+	height=&#34;227&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140216041_hu_f862c3942a70a0c5.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140216041_hu_793a62ddb2fea39a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140216041&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;497px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;取 α = 1/nα 随时间变小 Qn 趋近于均值&lt;/p&gt;
+&lt;h2 id=&#34;贪心-vs-epsilon--贪心&#34;&gt;贪心 v.s. $\epsilon $ 贪心
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;贪心核心思想：大部分时间选择贪心动作，&lt;strong&gt;偶尔随机选择&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;$\epsilon $ 通过引入 &lt;strong&gt;随机性&lt;/strong&gt; 来鼓励探索，避免陷入局部最优。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;2000 次多臂老虎机&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140312906.png&#34;
+	width=&#34;582&#34;
+	height=&#34;273&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140312906_hu_fd42d479b7eda1ae.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140312906_hu_30456ddd55b9a17f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140312906&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;511px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;epsilon-贪心-vs-乐观初始值贪心&#34;&gt;$\epsilon 贪心$ v.s. 乐观初始值贪心
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;乐观初始值贪心&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;负面：参数设定依赖&lt;/strong&gt;：初值需要由人工给出，且设定不当可能影响算法性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正面：提供先验知识&lt;/strong&gt;：合理的初值能提供先验经验，帮助算法确定奖励的期望量级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习效率&lt;/strong&gt;：初值越准确，算法需要的调整次数越少，学习效率越高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;p&gt;对比 Q1(a) = +5（&lt;strong&gt;探索鼓励&lt;/strong&gt;） 和 Q1(a) = 0&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如同人生，期望高就会勇于尝试新路径！但找到方向的时候，别乱探索了！&lt;/li&gt;
+&lt;li&gt;乐观初值鼓励探索，对于固定问题是非常有效的小技巧，但是并非是普遍有效的鼓励探索的方法&lt;/li&gt;
+&lt;li&gt;所以，如果情况变了，你还是要探索的！例如，对于非固定问题不管用，因为它鼓励探索是临时性的，为什么？并非主动探索，旁边有人变好它是不觉知的，遭遇大挫折时才会改变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;乐观初始值贪心适用性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;固定问题：问题环境和奖励机制在整个学习过程中不发生变化，也即 P(s′∣s,a)&lt;em&gt;P&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;′∣&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;) 和 R(s,a)&lt;em&gt;R&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;) 固定，&lt;strong&gt;乐观初值有效&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;利用 &lt;strong&gt;高初值&lt;/strong&gt; 鼓励探索，&lt;strong&gt;迅速收敛到最优解&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;非固定问题：问题环境或奖励机制会随时间变化，也即 P(s′∣s,a,t)&lt;em&gt;P&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;′∣&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;,&lt;em&gt;t&lt;/em&gt;) 和 R(s,a,t)&lt;em&gt;R&lt;/em&gt;(&lt;em&gt;s&lt;/em&gt;,&lt;em&gt;a&lt;/em&gt;,&lt;em&gt;t&lt;/em&gt;) 随时间 t&lt;em&gt;t&lt;/em&gt; 变化，乐观初值探索 &lt;strong&gt;不适用&lt;/strong&gt;，ϵ&lt;em&gt;ϵ&lt;/em&gt; 贪心更适用。&lt;/p&gt;
+&lt;p&gt;通过 &lt;strong&gt;随机选择&lt;/strong&gt; 保持探索，适应环境变化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ucbupper-confidence-bound&#34;&gt;UCB（upper-confidence-bound）
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;实蒙特卡洛搜索的方法，是从这里进化来的。&lt;/p&gt;
+&lt;p&gt;Argmax 选动作的时候，又要看估值、又要看新鲜程度。这个想法在蒙特卡洛树搜索的时候用过。
+UCB &lt;strong&gt;将 “当前估值” 和 “新鲜程度” 加权和。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140858485.png&#34;
+	width=&#34;391&#34;
+	height=&#34;88&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140858485_hu_ce14e0a30787fbdb.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519140858485_hu_39f993a8b9d88e40.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519140858485&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;444&#34;
+		data-flex-basis=&#34;1066px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gradient-bandit-algorithm&#34;&gt;Gradient Bandit Algorithm
+&lt;/h2&gt;&lt;p&gt;核心思想：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;ϵ&lt;/em&gt; 贪心大概率选最好的动作，其他动作 &lt;strong&gt;等同对待&lt;/strong&gt;，其实也可以给每个动作一个对应的选择概率&lt;/li&gt;
+&lt;li&gt;通过给每个动作 &lt;em&gt;a&lt;/em&gt; 一个 &lt;strong&gt;数值优先度&lt;/strong&gt; $H_t \in \mathbf{R}$来影响选择概率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优先度越大，动作被选中的概率越大。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;据此，我们给出如下设计：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;采用 Softmax 函数归一化，使所有可行动作的概率和为 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;初始时，所有动作的倾向性相同（$H_1$ = 0）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在每一步，按概率选择了动作 $A_t$ 后得到及时奖励 $R_t$，根据奖励 $R_t$ 的大小，修改所有动作的优先度&lt;img src=&#34;https://riyasushin.github.io/%e6%88%aa%e5%b1%8f2025-05-19%2014.18.13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-19%2014.18.13&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;合理的划分出好的动作和坏的动作&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519141906298.png&#34;
+	width=&#34;503&#34;
+	height=&#34;282&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519141906298_hu_8eeb5b138ba45684.png 480w, https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/image-20250519141906298_hu_bfc821fd2c4969bf.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250519141906298&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;428px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;$\epsilon$贪心算法有一小部分时间随机选：固定概率的随机探索&lt;/li&gt;
+&lt;li&gt;UCB 偏向尝试次数小的动作：根据统计的探索、更聪明的探索&lt;/li&gt;
+&lt;li&gt;梯度下降法不是估计动作的价值，而是动作的优先顺序，使用 softmax 选动作. 其实有探索，因为动作采用 softmax 有概率&lt;/li&gt;
+&lt;li&gt;简单的设置乐观初值可以使得贪心算法也具有相当的探索性&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Introduction to Psychology Concepts</title>
+        <link>https://riyasushin.github.io/p/introduction-to-psychology-concepts/</link>
+        <pubDate>Sun, 18 May 2025 14:18:05 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/introduction-to-psychology-concepts/</guid>
+        <description>&lt;h1 id=&#34;概念解释&#34;&gt;概念解释
+&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/introduction-to-psychology-concepts/image-20250518144319510.png&#34;
+	width=&#34;804&#34;
+	height=&#34;448&#34;
+	srcset=&#34;https://riyasushin.github.io/p/introduction-to-psychology-concepts/image-20250518144319510_hu_9d20678923a9e089.png 480w, https://riyasushin.github.io/p/introduction-to-psychology-concepts/image-20250518144319510_hu_6782d7b70664a10d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250518144319510&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;430px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/introduction-to-psychology-concepts/image-20250518144336315.png&#34;
+	width=&#34;760&#34;
+	height=&#34;720&#34;
+	srcset=&#34;https://riyasushin.github.io/p/introduction-to-psychology-concepts/image-20250518144336315_hu_bbcc7de510eeedce.png 480w, https://riyasushin.github.io/p/introduction-to-psychology-concepts/image-20250518144336315_hu_93e150aeda81fc9a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250518144336315&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;105&#34;
+		data-flex-basis=&#34;253px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;颞叶&#34;&gt;颞叶
+&lt;/h2&gt;&lt;p&gt;负责听觉过程，位于外侧裂下部，每个大脑半球的侧面&lt;/p&gt;
+&lt;p&gt;听觉、语言理解&lt;/p&gt;
+&lt;h2 id=&#34;额叶&#34;&gt;额叶
+&lt;/h2&gt;&lt;p&gt;参与运动的控制和认知过程，如计划、决策、设定目标&lt;/p&gt;
+&lt;p&gt;说话、想象、思考&lt;/p&gt;
+&lt;h2 id=&#34;布洛卡broca失语症运动性失语症&#34;&gt;布洛卡(Broca)失语症/运动性失语症
+&lt;/h2&gt;&lt;p&gt;有意义但无语法&lt;/p&gt;
+&lt;h2 id=&#34;维尔尼克wernicke失语症接受性失语症&#34;&gt;维尔尼克(Wernicke)失语症/接受性失语症
+&lt;/h2&gt;&lt;p&gt;无内容但语法完整&lt;/p&gt;
+&lt;h2 id=&#34;顶叶&#34;&gt;顶叶
+&lt;/h2&gt;&lt;p&gt;负责触觉、痛觉、温度觉，中央沟之后&lt;/p&gt;
+&lt;p&gt;躯体感觉，空间位置&lt;/p&gt;
+&lt;h2 id=&#34;枕叶&#34;&gt;枕叶
+&lt;/h2&gt;&lt;p&gt;视觉信息处理&lt;/p&gt;
+&lt;p&gt;头后部&lt;/p&gt;
+&lt;h2 id=&#34;胼胝体&#34;&gt;胼胝体
+&lt;/h2&gt;&lt;p&gt;大脑半球由胼胝体联系起来（神经纤维）&lt;/p&gt;
+&lt;p&gt;通路，半球间发送、传递信息&lt;/p&gt;
+&lt;h2 id=&#34;丘脑&#34;&gt;丘脑
+&lt;/h2&gt;&lt;p&gt;网状结构，伸向丘脑的长纤维束，传入的感觉信息通过丘脑到达大脑皮层适当地区并在那里进一步加工&lt;/p&gt;
+&lt;p&gt;感觉传导接替站&lt;/p&gt;
+&lt;h2 id=&#34;交感神经&#34;&gt;交感神经
+&lt;/h2&gt;&lt;p&gt;自主神经系统的重要组成部分，支配应对紧急情况的反应&lt;/p&gt;
+&lt;h2 id=&#34;副交感神经&#34;&gt;副交感神经
+&lt;/h2&gt;&lt;p&gt;自主神经系统的重要组成部分，检测身体内部功能的常规运行&lt;/p&gt;
+&lt;h2 id=&#34;边缘系统&#34;&gt;边缘系统
+&lt;/h2&gt;&lt;p&gt;与动机、情绪状态和记忆过程相关，参与体温、血压、血糖水平的调节，执行其他体内环境的调节活动。&lt;/p&gt;
+&lt;p&gt;边缘系统包括：海马、杏仁核、下丘脑&lt;/p&gt;
+&lt;h2 id=&#34;海马&#34;&gt;海马
+&lt;/h2&gt;&lt;p&gt;边缘系统最大的脑结构&lt;/p&gt;
+&lt;p&gt;记忆获得中有重要作用&lt;/p&gt;
+&lt;h2 id=&#34;杏仁核&#34;&gt;杏仁核
+&lt;/h2&gt;&lt;p&gt;情绪控制和情绪记忆的形成&lt;/p&gt;
+&lt;h2 id=&#34;下丘脑&#34;&gt;下丘脑
+&lt;/h2&gt;&lt;p&gt;脑内最小的结构之一，在时常生活中重要作用&lt;/p&gt;
+&lt;p&gt;调节动机行为，包括饮水、设施、体温调节和性唤醒，维持身体内部的炳恒或者内稳态；&lt;/p&gt;
+&lt;p&gt;调节内分泌系统的活动&lt;/p&gt;
+&lt;h2 id=&#34;心理物理学&#34;&gt;心理物理学
+&lt;/h2&gt;&lt;p&gt;中心任务是研究物理刺激与其所产生的心理行为和体验之间的关系&lt;/p&gt;
+&lt;h2 id=&#34;最小可觉差差别阙值jnd&#34;&gt;最小可觉差/差别阙值/JND
+&lt;/h2&gt;&lt;p&gt;差别阈限是能够识别出两个刺激之间的最小物理差异，其操作性定义是：有一半次数觉察出差异的刺激值。差别阈限也被称为最小可觉差。&lt;/p&gt;
+&lt;h2 id=&#34;绝对阙值&#34;&gt;绝对阙值
+&lt;/h2&gt;&lt;p&gt;产生感觉体验所需的最小物理刺激量。操作性定义是：有一半次数能够觉察到感觉信号的刺激水平。&lt;/p&gt;
+&lt;h2 id=&#34;费希纳定律&#34;&gt;费希纳定律
+&lt;/h2&gt;&lt;p&gt;感觉量与物理量的对数成正比&lt;/p&gt;
+&lt;p&gt;（似乎解释了人的观察，亮度、震级的感知）&lt;/p&gt;
+&lt;h2 id=&#34;韦伯定律&#34;&gt;韦伯定律
+&lt;/h2&gt;&lt;p&gt;刺激之间的JND（最小可觉差）与标准刺激强度的比值是恒定的。（刺激强度极高时韦伯定律不适用）&lt;/p&gt;
+&lt;h2 id=&#34;脑电-eegelectroencephalogram技术&#34;&gt;脑电 (EEG，electroencephalogram)技术
+&lt;/h2&gt;&lt;p&gt;对于人类参与者，研究者们经常在其头皮上放置一些电极，记录大范围整合性的电活动模式。这些电极提供脑电图数据或者是放大了的脑活动信号。EEG用于研究心理活动和大脑反应之间的关系。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>FAI 11 Solving_Problems_by_Searching</title>
+        <link>https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/</link>
+        <pubDate>Sun, 18 May 2025 12:03:50 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/</guid>
+        <description>&lt;h1 id=&#34;问题描述模型&#34;&gt;问题描述模型
+&lt;/h1&gt;&lt;h2 id=&#34;一个问题的定义&#34;&gt;一个问题的定义
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;初始状态 $S_0$。&lt;/li&gt;
+&lt;li&gt;可选动作。在一个给定状态 s, ACTIONS(s) 返回一组可能的动作。&lt;/li&gt;
+&lt;li&gt;状态转移模型。在状态 s 下执行动作 a 之后所到达的状态用 RESULT(s,a) 表示。
+一个状态经过一个动作后来到的下一个状态我们称之为&lt;strong&gt;后继状态&lt;/strong&gt; 。
+&lt;strong&gt;初始状态、动作、状态转移模型构成了状态空间&lt;/strong&gt;。
+状态空间构成一幅有向图。
+&lt;strong&gt;路径是从一个状态出发通过一系列动作所经过的状态序列&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;目标状态。&lt;/li&gt;
+&lt;li&gt;路径花费。每条路径可以有一个花费，用来度量解的好坏。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个问题的解 是从初始状态出发到达目标状态的一个&lt;strong&gt;动作序列&lt;/strong&gt;。解的质量可以用路径的花费来度量。
+&lt;strong&gt;最优解&lt;/strong&gt;是所有解中花费最小的一个。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;eg-罗马尼亚寻径问题&#34;&gt;eg: 罗马尼亚寻径问题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;初始状态：In（Arad）&lt;/li&gt;
+&lt;li&gt;可行动作：在 Arad，可选的动作是三个，分别去到 Z，S，T 三市&lt;/li&gt;
+&lt;li&gt;状态转移，走了一条路之后到了哪里呢？例如说走了去 Z 市的路，后继状态就是 In（Z）。这里所有城市构成状态空间，所有道路构成动作空间。路径就是从一个城市到另一个城市的通路。&lt;/li&gt;
+&lt;li&gt;目标状态：因为最终要去 Bucharest，所以到了 Bucharest，就不用再往下走了。&lt;/li&gt;
+&lt;li&gt;路径花费，就是把从 Arad 走到 Bucharest，的路径上的每段路的长度加起来&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;e-g-八数码问题&#34;&gt;e g: 八数码问题
+&lt;/h2&gt;&lt;p&gt;状态: 一个状态描述了八个数字和一个空格所在的位置。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始状态: 任何一个状态都可以是初始状态。&lt;/li&gt;
+&lt;li&gt;动作: 空格可以上、下、左、右移动。只要移动后还在 3*3 的方格内。&lt;/li&gt;
+&lt;li&gt;状态转移模型: 给定一个状态和动作，给出之后的状态。&lt;/li&gt;
+&lt;li&gt;目标: 给出想要达到的数字和空格分布状态&lt;/li&gt;
+&lt;li&gt;路径花费: 每步花费 1, 路径花费就是移动的总步数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;搜索求解&#34;&gt;搜索求解
+&lt;/h1&gt;&lt;h2 id=&#34;搜索树&#34;&gt;搜索树
+&lt;/h2&gt;&lt;h3 id=&#34;父节点子节点开节点闭节点搜索策略&#34;&gt;父节点，子节点，开节点，闭节点，搜索策略
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;一个状态经过一个动作，到了另一个状态。那么我们称发生动作之前的状态是&lt;strong&gt;父节点&lt;/strong&gt;，而动作发生后的后继状态，称为&lt;strong&gt;子节点&lt;/strong&gt;。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果一个状态，没有节点，也就是说不能再往下搜索了，那么这个状态称为叶节点。没有儿子可展开的点叫叶节点。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;开节点和闭节点&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最开始，树上只有根节点，也就是初始状态。搜索是一个动态过程。整个搜索的过程就是不断依据可行动作展开搜索树的过程。&lt;/li&gt;
+&lt;li&gt;然后展开一步以后，我们多了几个新的叶节点，也就是对于根节点的子节点，这几个节点称为开节点，因为是刚刚展开的。英文叫做 frontier 也叫 open list。&lt;/li&gt;
+&lt;li&gt;再展开一步以后，我们看多了几个新的叶节点，这些新的叶节点和原来的叶节点一起，都是叶节点。这个时候，闭节点是什么呢？图中灰色的节点称为闭节点，因为他们是&lt;strong&gt;已经被展开过的了&lt;/strong&gt;。英文叫做 closed list 或者 explored set，explored 的意思是已经被探索过的节点。&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;搜索策略
+对于一个算法而言，我们在一个时刻有那么多的开节点，先展开谁、后展开谁，就构成了不同的搜索策略搜索策略&lt;/p&gt;
+&lt;p&gt;就是如何在开节点集上，选择一个节点，把它优先展开。在最开始，树上只有根节点，也就是初始状态。事实上，搜索是一个动态过程。整个搜索的过程就是不断依据可行动作展开搜索树的过程。展开搜索树我们要做的就是先展开谁，后展开谁。如何选择下一个节点去展开被称为 search strategy 搜索策略。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121211877.png&#34;
+	width=&#34;253&#34;
+	height=&#34;228&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121211877_hu_7d4861bd94fd538a.png 480w, https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121211877_hu_864ae005222e714d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250518121211877&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;110&#34;
+		data-flex-basis=&#34;266px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;树搜索图搜索&#34;&gt;树搜索，图搜索
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121628601.png&#34;
+	width=&#34;560&#34;
+	height=&#34;327&#34;
+	srcset=&#34;https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121628601_hu_c97afd9dc62a5f3a.png 480w, https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/image-20250518121628601_hu_a7b0ee633d83e153.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250518121628601&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;411px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;树搜索：&lt;/p&gt;
+&lt;p&gt;我们看看这个 Tree-Search 的函数，输入的是一个问题 problem，就是我们刚刚定义的&lt;strong&gt;问题五元组&lt;/strong&gt;。函数返回 return 的是一个解决方案 solution，或者告诉我们找不到解 failure。&lt;/p&gt;
+&lt;p&gt;最开始初始化 frontier，frontier 就是一个开节点，最开始把开节点设置为问题的初始状态，问题开始于一个点。然后，我们做一个循环，首先看看 frontier 能不能被展开，如果不能被展开，就代表没有解，则返回失败。如果 frontier 有解的话，我们就从 frontier 里面拿出一个叶节点，然后判断一下拿出来的节点是不是目标，如果是的话，我们就可以返回解决方案了。&lt;/p&gt;
+&lt;p&gt;如果不是目标的话，那我们还要继续展开这个叶节点，然后把新获得的节点加到 frontier 开节点集合里面。提供给下一次循环来选择展开用。&lt;/p&gt;
+&lt;p&gt;这些叶节点都是开节点，因为它们都没有被展开过。&lt;/p&gt;
+&lt;p&gt;那么不断循环，这就是树搜索。我们最开始有一个根节点，开展以后把叶节点都放到 frontier 集合里面，然后取出一个来再展开，然后新获得的节点再放到 frontier 集合里面。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这个树搜索，并没记住我们以前展开过什么的，只是在不停地展开&lt;/strong&gt;。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图搜索：&lt;/p&gt;
+&lt;p&gt;我们看看 Graph-Search 这个函数。它的输入输出和树搜索是一样的。输入。。。输出。。。&lt;/p&gt;
+&lt;p&gt;那么这里黑体字是新加的一些操作。&lt;/p&gt;
+&lt;p&gt;Initialize the explored set to be empty，我们初始化一个空的闭节点集合，定义这个新变量的目的是用来存储哪些节点已经被展开搜索过的。然后开始循环，这跟刚才树搜索是一样的。Frontier 如果为空，则返回 failure。如果有也叶节点，则选择一个叶节点，如果叶节点是目标，则找到解了。否则的话，add the node to the explored set，把这个节点放到闭节点集合里面，代表这个节点已经被探索展开过了。后面就是把它的儿子都加到 frontier 集里面。但这里有个条件，only if not in the frontier or explored set，这个地方我做了一个重复判断，就是如果加这个新节点的时候，我们要看看这个节点在不在 frontier 里面，以及在不在已经被搜索过的节点集合里面，如果在的话就不加了。只有它不在的时候，我们才做这个事情。那么这个就是图搜索和树搜索的不同。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;图搜索用 explored set 这个机制，就可以避免重复地搜索某些节点。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;搜索算法的评价&#34;&gt;搜索算法的评价
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;完备性 Completeness: 如果存在解，该算法是否一定会找到解?&lt;/li&gt;
+&lt;li&gt;最优性 Optimality: 该算法是否能够找到最优解?&lt;/li&gt;
+&lt;li&gt;时间复杂度 Time complexity: 算法找到解需要花长时间?&lt;/li&gt;
+&lt;li&gt;空间复杂度 Space complexity: 算法需要多少内存用于搜索?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;问题难度和算法复杂度&#34;&gt;问题难度和算法复杂度
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;问题的难度 problem difficulty 两种方法来度量：图规模和搜索树规模：
+&lt;ul&gt;
+&lt;li&gt;图规模（对应图搜索）
+&lt;ul&gt;
+&lt;li&gt;当输入是一个图时，例如罗马尼亚地图寻径问题，理论上，我们用状态空间图的大小来衡量问题的规模 |V | + |E|, V 是点数 ，E 边数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;搜索树的规模（对应树搜索）
+&lt;ul&gt;
+&lt;li&gt;用如下二个指标来度量:
+&lt;ul&gt;
+&lt;li&gt;b, 分支数 branching factor 或者节点所具有的最大子节点数目；&lt;/li&gt;
+&lt;li&gt;d, depth，最浅的目标状态所在；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;算法复杂度
+&lt;ul&gt;
+&lt;li&gt;时间复杂度经常用搜索树展开的节点的数目表示。&lt;/li&gt;
+&lt;li&gt;空间复杂度通常用需要存储的最大节点数目来估计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;无信息搜索&#34;&gt;无信息搜索
+&lt;/h1&gt;&lt;p&gt;无信息搜索是指在搜索过程中不使用任何启发信息的搜索方法。无信息搜索方法通常会遍历整个搜索空间，直到找到解或者确定无解。&lt;/p&gt;
+&lt;p&gt;无信息搜索可以理解为，没有任何的先验知识，就是盲目地去试（尽管盲目地试的时候也可以有些尝试时优先级策略）。&lt;/p&gt;
+&lt;h2 id=&#34;搜索算法的一般存储框架&#34;&gt;搜索算法的一般存储框架
+&lt;/h2&gt;&lt;h2 id=&#34;bfs&#34;&gt;BFS
+&lt;/h2&gt;&lt;h2 id=&#34;dfs&#34;&gt;DFS
+&lt;/h2&gt;&lt;h1 id=&#34;有信息搜索&#34;&gt;有信息搜索
+&lt;/h1&gt;</description>
+        </item>
+        <item>
+        <title>RJSJ 16: 软件测试</title>
+        <link>https://riyasushin.github.io/p/rjsj-16-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</link>
+        <pubDate>Sun, 18 May 2025 10:25:56 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-16-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;h1 id=&#34;测试背景&#34;&gt;测试背景
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;验证&lt;/strong&gt;(Validation)： 在开发过程结束后评估系统或组件以确定其是否满足规定要求&lt;/p&gt;
+&lt;p&gt;关注是否构建正确的产品&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;确认(Verification)&lt;/strong&gt;：评估系统或组件以确定给定开发阶段的产品是否满足该阶段开始时的条件&lt;/p&gt;
+&lt;p&gt;关注是否正确地构建了产品&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;为什么要测试&#34;&gt;为什么要测试
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;提升质量– 找错误(faults)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;度量质量&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;证明没有错误? (可能吗?)&lt;/li&gt;
+&lt;li&gt;确认软件是否已做好准备可以被发布&lt;/li&gt;
+&lt;li&gt;确认下一步测哪里&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;学习/了解软件的手段之一&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Testing shows the presence, not the absence of bugs.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;谁去写测试用例&#34;&gt;谁去写测试用例
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;开发者去测&lt;/li&gt;
+&lt;li&gt;独立的测试人员&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;用户&amp;rdquo;——灰度更新&lt;/li&gt;
+&lt;li&gt;有领域知识的人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;什么时候写测试用例&#34;&gt;什么时候写测试用例
+&lt;/h2&gt;&lt;p&gt;![截屏2025-05-18 11.01.58](截屏2025-05-18 11.01.58.png)&lt;/p&gt;
+&lt;h1 id=&#34;测试用例&#34;&gt;测试用例
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;有意义的名称&lt;/li&gt;
+&lt;li&gt;前置条件、流程&lt;/li&gt;
+&lt;li&gt;期望结果&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;什么事测试用例&#34;&gt;什么事测试用例
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;用已知的输入（测试输入/数据）运行被测软件，检查运行结果（基于测试预言）&lt;/p&gt;
+&lt;p&gt;测试结果：通过(pass)或失败(fail)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;测试用例可以对错误(faults)起到文档作用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测试用例可以对被测代码起到文档作用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;测试自动化&#34;&gt;测试自动化
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;测试用例是可自动执行的代码/脚本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;产业界项目里经常测试代码比产品代码体量更大&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测试代码可能比较无趣（并非可能）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构造一些（复杂）的数据值&lt;/li&gt;
+&lt;li&gt;运行一个或多个函数&lt;/li&gt;
+&lt;li&gt;检查运行结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;测试用例的类型&#34;&gt;测试用例的类型
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;开发者测试/ 非开发者测试&lt;/li&gt;
+&lt;li&gt;单元测试/ 集成测试/ 系统测试 / ……&lt;/li&gt;
+&lt;li&gt;自动测试用例(Automated tests)/ 手动测试用例(Manual tests)&lt;/li&gt;
+&lt;li&gt;功能测试 / 性能测试/ 负载测试 / 安全测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;单元测试&#34;&gt;单元测试
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;测试输入+测试断言&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;![截屏2025-05-18 11.05.27](截屏2025-05-18 11.05.27.png)&lt;/p&gt;
+&lt;h3 id=&#34;作为规约的测试用例&#34;&gt;作为规约的测试用例
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;测试用例展示如何使用系统&lt;/li&gt;
+&lt;li&gt;测试用例需要可读性强
+&lt;ul&gt;
+&lt;li&gt;需要注释/命名来描述其目&lt;/li&gt;
+&lt;li&gt;保持简短，删除重复或冗余的测试用例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;单元测试度量质量&#34;&gt;单元测试：度量质量
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;覆盖率：所有的程序部分都测到了吗？
+&lt;ul&gt;
+&lt;li&gt;语句&lt;/li&gt;
+&lt;li&gt;分支&lt;/li&gt;
+&lt;li&gt;基本块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;断言：程序做对的事情?&lt;/li&gt;
+&lt;li&gt;只是高覆盖率或大量断言并不是高质量的测试用例。只有两者兼有才是！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;黑盒-vs-白盒&#34;&gt;黑盒 v.s. 白盒
+&lt;/h2&gt;&lt;p&gt;黑盒（基于规约）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;等价类划分&lt;/li&gt;
+&lt;li&gt;边界值分析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;白盒（基于代码）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码覆盖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;黑盒测试&#34;&gt;黑盒测试
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;规范软件的行为&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;应当明确、一致、清晰、简单……&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例：“高中生和初中生请举手”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JavaDoc 用于规范 Java 中的类和方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaDoc 从代码中的注释开始&lt;/li&gt;
+&lt;li&gt;自动生成网页便于浏览&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;黑盒测试等价类划分&#34;&gt;黑盒测试：等价类划分
+&lt;/h3&gt;&lt;p&gt;将输入域划分为不同组，组内情形等价&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同一个类中的输入应当在程序中表现出相似行为&lt;/li&gt;
+&lt;li&gt;应当划分为有效等价类与无效等价类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;确保检验每个类中的中间值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;eg&lt;/strong&gt;（等价类划分）:某城市的电话号码由三部分组成。这三部分的名称和内容的合法情况是:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;地区码：空白或三位数字&lt;/li&gt;
+&lt;li&gt;前缀：非’0’和’1’开头的三位数字&lt;/li&gt;
+&lt;li&gt;后缀：四位数字&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;程序检测输入的数据是否合法，如何划分等价类？&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;地区码&lt;/th&gt;
+          &lt;th&gt;空白、三位数字&lt;/th&gt;
+          &lt;th&gt;非数字存在，少于3位，多于3位&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;前缀&lt;/td&gt;
+          &lt;td&gt;非’0’和’1’开头的三位数字&lt;/td&gt;
+          &lt;td&gt;有非数字、0开头的数字、1开头的数字、少于3位数字、多余3位数字&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;后缀&lt;/td&gt;
+          &lt;td&gt;四位数字&lt;/td&gt;
+          &lt;td&gt;有非数字、少于4位数字、多余4位数字&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;选取位于等价类边界的值进行测试
+&lt;ul&gt;
+&lt;li&gt;错误往往出现在边界值上，而非区间中心&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;设计越过边界的等价类以检测健壮性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;任何对象：空指针&lt;/li&gt;
+&lt;li&gt;字符串：空串&lt;/li&gt;
+&lt;li&gt;集合：
+&lt;ul&gt;
+&lt;li&gt;空集&lt;/li&gt;
+&lt;li&gt;恰含一个元素&lt;/li&gt;
+&lt;li&gt;集合满（或差一个元素满）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;黑盒测试编写指南&#34;&gt;黑盒测试编写指南
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;根据需求书写测试用例&lt;/li&gt;
+&lt;li&gt;测试用例应当对于需求可追踪&lt;/li&gt;
+&lt;li&gt;测试用例应当可重复，使得不同的运行得到相同的结果
+&lt;ul&gt;
+&lt;li&gt;输入应当明确&lt;/li&gt;
+&lt;li&gt;期望结果明确：通过/失败&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;什么时候写黑盒测试用例&#34;&gt;什么时候写黑盒测试用例?
+&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;h2 id=&#34;白盒测试&#34;&gt;白盒测试
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;给定系统内部细节，完整检测内部运行情况&lt;/p&gt;
+&lt;p&gt;检测所有代码片段（PIE模型）&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;测试代码中的逻辑路径&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;方法:覆盖所有语句&lt;/li&gt;
+&lt;li&gt;指令:&lt;/li&gt;
+&lt;li&gt;分支:覆盖所有分支&lt;/li&gt;
+&lt;li&gt;条件:覆盖所有条件/条件组合&lt;/li&gt;
+&lt;li&gt;循环:覆盖“循环”的所有等价类
+&lt;ul&gt;
+&lt;li&gt;不执行循环 (0 passes)&lt;/li&gt;
+&lt;li&gt;执行一遍循环 (1 pass)&lt;/li&gt;
+&lt;li&gt;执行两遍循环 (2 passes)&lt;/li&gt;
+&lt;li&gt;执行n遍循环 (n passes, n &amp;gt; 2)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;仍根据需求决定期望行为&lt;/li&gt;
+&lt;li&gt;数量巨大 – 工作量大、时间长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;白盒测试用例编写指南&#34;&gt;白盒测试用例编写指南
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;评估白盒测试用例的指标
+&lt;ul&gt;
+&lt;li&gt;代码覆盖率：指令覆盖、分支覆盖等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;测试用例生成需要覆盖没有被覆盖的代码状态，如语句、分支等&lt;/li&gt;
+&lt;li&gt;等价类划分/边界值分析任然适用&lt;/li&gt;
+&lt;li&gt;通常在黑盒测试后进行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;什么时候写白盒测试&#34;&gt;什么时候写白盒测试
+&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;h3 id=&#34;代码覆盖工具&#34;&gt;代码覆盖工具
+&lt;/h3&gt;&lt;p&gt;程序插装(instruments)&lt;/p&gt;
+&lt;p&gt;运行测试用例，生成数据库&lt;/p&gt;
+&lt;p&gt;辅助工具检测数据库，报告测试用例覆盖率&lt;/p&gt;
+&lt;h1 id=&#34;数据驱动测试&#34;&gt;数据驱动测试
+&lt;/h1&gt;&lt;h2 id=&#34;带参数单元测试用例&#34;&gt;带参数单元测试用例
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;boost/test/unit_test.hpp&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BOOST_DATA_TEST_CASE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_test_case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;BOOST_TEST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;测试用例泛化&#34;&gt;测试用例泛化
+&lt;/h1&gt;&lt;p&gt;TODO&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>RJSJ 15: 面向健壮性的设计</title>
+        <link>https://riyasushin.github.io/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Sun, 18 May 2025 10:25:48 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;h1 id=&#34;正确性和健壮性&#34;&gt;正确性和健壮性
+&lt;/h1&gt;&lt;h2 id=&#34;正确性&#34;&gt;正确性
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;行为要严格符合贵越重定义的行为&lt;/li&gt;
+&lt;li&gt;永远不给错误的结果&lt;/li&gt;
+&lt;li&gt;让开发者更容易；输入错误，直接结束&lt;/li&gt;
+&lt;li&gt;对内的实现，倾向于正确&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;健壮性&#34;&gt;健壮性
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;指的是在异常情况下，软件能够正常运行的能力&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;没有被规约覆盖的情况是“异常情况”，出现规约定义外的情形时，软件要做出恰当的反应&lt;/li&gt;
+&lt;li&gt;尽可能让软件运行而不是总是推出&lt;/li&gt;
+&lt;li&gt;让用户变得更容易；出错也可以容忍&lt;/li&gt;
+&lt;li&gt;对外的接口倾向于健壮&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;eg&#34;&gt;e.g.
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;问题&lt;/th&gt;
+          &lt;th&gt;正确性做法&lt;/th&gt;
+          &lt;th&gt;健壮性做法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;视频文件有坏帧&lt;/td&gt;
+          &lt;td&gt;停止播放，提醒损坏&lt;/td&gt;
+          &lt;td&gt;跳过坏帧，从下一正确的继续播放&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用户输入奇怪的格式&lt;/td&gt;
+          &lt;td&gt;提示输入错误&lt;/td&gt;
+          &lt;td&gt;尝试用不同日期格式解析，告诉用户解析结果&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;代码的括号不匹配&lt;/td&gt;
+          &lt;td&gt;编译错误&lt;/td&gt;
+          &lt;td&gt;尝试补充不匹配的括号继续编译&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;健壮性原则postels-law&#34;&gt;健壮性原则（Postel`s Law）
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对自己的代码要保守，对用户的行为要开放
+&lt;ul&gt;
+&lt;li&gt;严于律己，宽以待人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;总是假定用户恶意，家底自己代码可能失败&lt;/li&gt;
+&lt;li&gt;吧用户想象成可能输入任何东西的傻瓜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;软件中的问题&#34;&gt;软件中的问题
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Fault，故障&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bugs&lt;/li&gt;
+&lt;li&gt;代码实现的错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Error 错误&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不正确的内部运行状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Failure&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行时候表现出来的、外在的、和规约不一致的行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Problem&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;笼统/泛指各种不正确的情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mistake&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;侧重描述人的行为存在失误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Defect&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;泛指各类设计和实现中存在的问题，导致bug的根源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bug&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同fault&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Exception&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一种应对故障、处理错误的编程机制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Anomaly&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;常用于算法领域描述与正常分布不一致的情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fault--error--failure&#34;&gt;Fault =&amp;gt; Error =&amp;gt; Failure
+&lt;/h2&gt;&lt;p&gt;导致Failure的必要条件:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可达性
+&lt;ul&gt;
+&lt;li&gt;执行到包含Fault的代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;感染性
+&lt;ul&gt;
+&lt;li&gt;执行Fault的代码后，程序状态是Error&lt;/li&gt;
+&lt;li&gt;（错误状态和运行环境有关，在特定环境下才出错）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;传播性
+&lt;ul&gt;
+&lt;li&gt;Error能传递到程序的输出，被外界感知&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mistake-和-defect&#34;&gt;Mistake 和 Defect
+&lt;/h2&gt;&lt;p&gt;mistake指的是程序员的错误行为&lt;/p&gt;
+&lt;p&gt;defect是软件的内在性质，可能导致执行结果和预期（用户希望的结果）不一致&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序的果实可能导致软件出现defect&lt;/li&gt;
+&lt;li&gt;并非所有defect都是由于mistake导致的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;提升正确性和健壮性的方法&#34;&gt;提升正确性和健壮性的方法
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;故障拒绝
+&lt;ul&gt;
+&lt;li&gt;防御性变成、代码审查、形式化验证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;故障检测
+&lt;ul&gt;
+&lt;li&gt;测试、调试、测试驱动开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;容错
+&lt;ul&gt;
+&lt;li&gt;在运行时通过一定手段消除影响&lt;/li&gt;
+&lt;li&gt;冗余、备份、重试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;防御性编程&#34;&gt;防御性编程
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;子程序不因传入错误数据而被破坏，哪怕是由其它子程序产生的错误数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其核心是承认程序都会有问题，都需要被修改，这是保护的基础&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;常用技术：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;输入检查&lt;/li&gt;
+&lt;li&gt;断言&lt;/li&gt;
+&lt;li&gt;错误处理&lt;/li&gt;
+&lt;li&gt;异常处理&lt;/li&gt;
+&lt;li&gt;隔栏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;输入检查&#34;&gt;输入检查
+&lt;/h2&gt;&lt;p&gt;检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件&lt;/li&gt;
+&lt;li&gt;用户输入&lt;/li&gt;
+&lt;li&gt;网络&lt;/li&gt;
+&lt;li&gt;其他外部接口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;参数类型是否一致&lt;/li&gt;
+&lt;li&gt;参数值是否合法&lt;/li&gt;
+&lt;li&gt;长度要求&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;assert&#34;&gt;Assert
+&lt;/h2&gt;&lt;p&gt;用来检查永远不应该发生的状况&lt;/p&gt;
+&lt;p&gt;断言只在开发阶段被编译到目标代码中，而在生成产品代码时不编译到产品代码中&lt;/p&gt;
+&lt;h3 id=&#34;c中的assert&#34;&gt;C++中的Assert
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在头文件&lt;cassert&gt;中定义的assert宏&lt;/li&gt;
+&lt;li&gt;false时候会停止运行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;cassert&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;func1 finish&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;func1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;first&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;func1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;second&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;func1 finish&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;first&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assertion failed: n==1, file example1.cpp, line 6&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;技巧&#34;&gt;技巧
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;可用断言在函数开始处检查传入参数的合法性&lt;/li&gt;
+&lt;li&gt;每个assert只检验一个条件&lt;/li&gt;
+&lt;li&gt;不要在断言中使用改变环境的语句，因为assert仅在debug阶段生效，如果这么做，会使程序在真正运行时出错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;错误处理&#34;&gt;错误处理
+&lt;/h2&gt;&lt;p&gt;理想情况：希望在发生错误情况时，不只是简单地终止程序运行，而是能够反馈错误情况的信息，并且能够对程序运行中已发生的事情做些处理。&lt;/p&gt;
+&lt;h2 id=&#34;异常&#34;&gt;异常
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;异常（Exception）是把代码中的错误或不正常事件传递给调用方代码的一种特殊手段&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;当一个函数出现自己无法处理的错误时，可以抛出异常，然后由该函数的直接或者间接调用者处理这个错误&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;异常不是bug&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“异常” 是在程序开发中必须考虑的一些特殊情况，是程序运行时就可预料的执行分支（注：异常是不可避免的，如程序运行时产生除 0 的情况、打开的外部文件不存在、数组访问的越界等）&lt;/li&gt;
+&lt;li&gt;“Bug”是程序的缺陷，是程序运行时不被预期的运行方式（注：Bug是人为的、可避免的；如使用野指针、动态分配内存使用结束后未释放等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![截屏2025-05-18 10.46.46](截屏2025-05-18 10.46.46.png)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;异常的抛出规则&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;异常时通过抛出对象而引发的，该对象的类型决定了应该激活哪个catch的处理代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;被选中的处理代码的调用链是，找到与该类型匹配且离抛出异常位置最近的那一个catch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抛出异常对象后会生成一个异常对象的拷贝，因为抛出的异常对象可能是一个临时对象，所以会调用复制构造函数生成一个拷贝对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;异常的匹配规则&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先检查throw语句本身是否在try块内部，如果是，再在当前函数栈中查找匹配的catch语句。如果有匹配的直接跳到catch的地方执行&lt;/li&gt;
+&lt;li&gt;如果没有匹配的catch块或者throw语句不在try块内部，则退出当前函数栈，在调用函数的栈中查找匹配的catch&lt;/li&gt;
+&lt;li&gt;如果到达main函数，都没有匹配的catch，就会终止程序&lt;/li&gt;
+&lt;li&gt;找到匹配的catch会直接跳到catch语句执行，执行完后，会继续沿着catch语句后面执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![截屏2025-05-18 10.49.46](截屏2025-05-18 10.49.46.png)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;bad_alloc: new的时候内存不足&lt;/li&gt;
+&lt;li&gt;out_of_range&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&amp;hellip;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;用智能指针，放着catch后内存没有释放&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;template&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SmatrPrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//将外面申请的资源，托管给类的成员
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;SmatrPrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ptr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;nullptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//在对象析构时，自动释放资源
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SmatrPrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;delete&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;隔栏&#34;&gt;隔栏
+&lt;/h2&gt;&lt;p&gt;如果所有的代码都做异常和错误处理，会使代码变得臃肿，可读性下降&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;隔栏（barricade）是在设计上简化错误处理的策略，将程序的外部和内部进行隔离&lt;/p&gt;
+&lt;p&gt;​	把某些接口选定为安全区域的边界，对穿越安全区域边界的数据进行合法性校验，并当数据非法时进行处理&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;隔栏的使用使断言和错误处理有了清晰的区分
+&lt;ul&gt;
+&lt;li&gt;隔栏外部的程序使用错误处理技术，外部的数据是不安全的&lt;/li&gt;
+&lt;li&gt;隔栏内部的程序就应该使用断言技术，因为传入程序内部的数据都已经过了隔栏的处理，应该是正确的，如果出错，则说明程序本身出错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;防御式编程的使用考虑&#34;&gt;防御式编程的使用考虑
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;防御式编程的矛盾
+&lt;ol&gt;
+&lt;li&gt;在产品开发阶段，希望显示出的错误越多越好，引入很多防御性的代码&lt;/li&gt;
+&lt;li&gt;在产品发布阶段，希望错误尽可能偃旗息鼓，尽量不要在使用中出现&lt;/li&gt;
+&lt;li&gt;如何权衡&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;过度的防御式编程也会引入问题
+&lt;ol&gt;
+&lt;li&gt;如果在程序的每一个想到的地方都进行参数检查、错误保护等，那么程序将变得臃肿而缓慢&lt;/li&gt;
+&lt;li&gt;更糟糕的是，防御式编程引入的额外代码增加了软件的复杂度，反而容易造成错误&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>RJSJ 14</title>
+        <link>https://riyasushin.github.io/p/rjsj-14/</link>
+        <pubDate>Sun, 18 May 2025 10:25:31 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-14/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>RJSJ 13</title>
+        <link>https://riyasushin.github.io/p/rjsj-13/</link>
+        <pubDate>Sun, 18 May 2025 10:24:17 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-13/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>心理学导论-12-社会心理</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-12-%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86/</link>
+        <pubDate>Sun, 18 May 2025 09:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-12-%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86/</guid>
+        <description>&lt;h1 id=&#34;社会认知&#34;&gt;社会认知
+&lt;/h1&gt;&lt;p&gt;社会心理学的分支，研究社会知觉、社会判断、社会影响下的认知心理加工过程，研究我们如何知觉、注意、记忆和思考社会生活中其他的人。&lt;/p&gt;
+&lt;p&gt;自动化的对人的加工判断&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;他是什么人（社会刻板印象）&lt;/li&gt;
+&lt;li&gt;他怎么想的，为什么这么做（社会归因）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;社会刻板印象&#34;&gt;社会刻板印象
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;通过书的封面了解多种信息&lt;/p&gt;
+&lt;p&gt;通过人的外表了解人的信息&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;分类与泛化&#34;&gt;分类与泛化
+&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;分类：将新奇刺激归入已知的类别&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;泛化：使用类别益智的信息评价新的刺激&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;define&#34;&gt;Define
+&lt;/h2&gt;&lt;p&gt;社会刻板印象过程：&lt;strong&gt;人们用来将特定的刺激归于某种类别的成员的过程&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;fault&#34;&gt;Fault
+&lt;/h2&gt;&lt;p&gt;社会刻板印象是人类生存重要的工具，但是却会让我们犯很多错误&lt;/p&gt;
+&lt;h3 id=&#34;信息的不精确&#34;&gt;信息的不精确
+&lt;/h3&gt;&lt;p&gt;信息来自：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;观察&lt;/li&gt;
+&lt;li&gt;道听途说&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;虚假相关实验&lt;/p&gt;
+&lt;p&gt;​ 反应出：人们对于坏的（小概率发生的、少见的）事更容易建立起相关关系&lt;/p&gt;
+&lt;h3 id=&#34;错误估计变异&#34;&gt;错误估计变异
+&lt;/h3&gt;&lt;p&gt;组间变异&lt;/p&gt;
+&lt;p&gt;组内变异&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们更倾向于去高估组间差异而低估组内差异&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;同化：倾向于忽略组内成员间差别&lt;/li&gt;
+&lt;li&gt;对比：倾向于夸大类别间成员的差异&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;加工地自动性&#34;&gt;加工地自动性
+&lt;/h3&gt;&lt;p&gt;IAT 内隐连接测验&lt;/p&gt;
+&lt;h1 id=&#34;归因&#34;&gt;归因
+&lt;/h1&gt;&lt;h2 id=&#34;归因公式&#34;&gt;归因公式
+&lt;/h2&gt;&lt;p&gt;（勒温）&lt;/p&gt;
+$$
+B = f(P, E), 行为=环境+个人特质
+$$&lt;ul&gt;
+&lt;li&gt;不完全的内部归因减弱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;符合偏差一致性偏差&#34;&gt;符合偏差（一致性偏差）
+&lt;/h2&gt;&lt;p&gt;我们通常倾向于把一个人的行为归因于他的个人特质&lt;/p&gt;
+&lt;h1 id=&#34;不可避免的错误&#34;&gt;不可避免的错误
+&lt;/h1&gt;&lt;p&gt;会执着的出现、不可避免地出现，表现为&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;寻找有利证据：只寻找那些支持你假设的证据
+&lt;ul&gt;
+&lt;li&gt;取样偏差&lt;/li&gt;
+&lt;li&gt;证实偏差/确认偏差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;解释两可证据：把模棱两可的证据解释为有利证据
+&lt;ul&gt;
+&lt;li&gt;知觉确认&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;创造有力证据：直接造出有利证据
+&lt;ul&gt;
+&lt;li&gt;自证预言/行为确认&lt;/li&gt;
+&lt;li&gt;刻板印象威胁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;否认不利证据：拒绝承认任何与假设矛盾的证据
+&lt;ul&gt;
+&lt;li&gt;态度极化&lt;/li&gt;
+&lt;li&gt;固着效应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-07-感知觉</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-07-%E6%84%9F%E7%9F%A5%E8%A7%89/</link>
+        <pubDate>Sun, 18 May 2025 09:55:01 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-07-%E6%84%9F%E7%9F%A5%E8%A7%89/</guid>
+        <description>&lt;p&gt;前四节：（）&lt;/p&gt;
+&lt;p&gt;繁衍，生存，大脑，发展&lt;/p&gt;
+&lt;p&gt;这一节：了解世界&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们所感知并生存于其中的这个主观世界，只是大脑尝试构建的心智模型而已&lt;/p&gt;&lt;/blockquote&gt;
+&lt;aside&gt;
+💡
+&lt;p&gt;认，从生命开始的认&lt;/p&gt;
+&lt;p&gt;知，从人类开始的知&lt;/p&gt;
+&lt;p&gt;适应性. $\to$ . 自主性，创造性，社会性，抽象性(符号标志，语言，抽象思维，意识，自我概念）&lt;/p&gt;
+&lt;/aside&gt;
+&lt;blockquote&gt;
+&lt;p&gt;什么是智能？
+构建模型从而和世界灵活交互的能力&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;生命的进化进程就是模型作为环境的函数而变化的过程&lt;/p&gt;
+&lt;h1 id=&#34;感觉&#34;&gt;感觉
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;获取重要信息&lt;/li&gt;
+&lt;li&gt;检测重要变化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;感觉是客观世界的变化引起的脑中状态的变化&#34;&gt;&lt;strong&gt;感觉&lt;/strong&gt;是客观世界的变化引起的脑中状态的变化
+&lt;/h2&gt;&lt;p&gt;（BOTTOM-UP）自下而上的加工过程&lt;/p&gt;
+&lt;p&gt;单个刺激的感觉&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $\uparrow$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;刺激的解离/分析&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $\uparrow$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;整体刺激输入&lt;/p&gt;
+&lt;h2 id=&#34;感觉获取重要信息&#34;&gt;感觉：获取重要信息
+&lt;/h2&gt;&lt;p&gt;事实上这世界上有无数维度&lt;/p&gt;
+&lt;p&gt;我们能感觉到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;近距：味（1%），触（1.5%）、（本体感觉）&lt;/li&gt;
+&lt;li&gt;远距：视（83%）、听（11%）、嗅（3.5%）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;都是接触感觉，或者直接接触，或者借助介质&lt;/p&gt;
+&lt;h3 id=&#34;视觉与味觉触觉&#34;&gt;视觉与味觉、触觉
+&lt;/h3&gt;&lt;p&gt;The McGurk Effect: 重要的是你的眼睛认为你在听到什么&lt;/p&gt;
+&lt;p&gt;橡胶假手实验（fake hand）&lt;/p&gt;
+&lt;p&gt;圆盘中的蛋糕比方盘中放到更甜&lt;/p&gt;
+&lt;h3 id=&#34;视觉与本体信息&#34;&gt;视觉与本体信息
+&lt;/h3&gt;&lt;p&gt;视觉修正本体感觉&lt;/p&gt;
+&lt;p&gt;闭眼单脚站立&lt;/p&gt;
+&lt;h3 id=&#34;视觉-多重并行加工&#34;&gt;视觉-多重并行加工
+&lt;/h3&gt;&lt;p&gt;颜色，运动，形状，深度&lt;/p&gt;
+&lt;h2 id=&#34;感觉检测重要变化&#34;&gt;感觉：检测重要变化
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;以差观之，因其所大而大之，则万物莫不大；因其所小而观之，则万物莫不小&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;艾宾浩斯错觉：物理大小相同的，因为相对对比大脑感觉一方更大（各种比较）&lt;/p&gt;
+&lt;p&gt;变化：食物与自身在不同时间下的对比&lt;/p&gt;
+&lt;h3 id=&#34;只有变化才能被感觉检测&#34;&gt;只有变化才能被感觉检测
+&lt;/h3&gt;&lt;p&gt;适应：不变的东西，忽略 ta&lt;/p&gt;
+&lt;p&gt;嗅觉、听觉的适应&lt;/p&gt;
+&lt;p&gt;视觉也有，但是由于眼的颤动，在视网膜上成像的位置不同，任然不是静止的&lt;/p&gt;
+&lt;h3 id=&#34;感觉的是相对变化&#34;&gt;感觉的是相对变化
+&lt;/h3&gt;&lt;h3 id=&#34;不注意盲视&#34;&gt;不注意盲视
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;只关注，没看到了&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;大脑调用注意力到 sth, 忽视别的&lt;/p&gt;
+&lt;h1 id=&#34;知觉&#34;&gt;知觉
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;TODO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;知觉是有主观经验产生主观现实的过程&#34;&gt;&lt;strong&gt;知觉&lt;/strong&gt;是有主观经验产生主观现实的过程
+&lt;/h2&gt;&lt;p&gt;（TOP-DOWN）自上而下的加工过程&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TODO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;唯物论&#34;&gt;唯物论
+&lt;/h2&gt;&lt;p&gt;外部客观存在引发了主观体验&lt;/p&gt;
+&lt;h3 id=&#34;无法感觉却能够知觉&#34;&gt;无法感觉却能够知觉
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;三维世界（是否有足够理由让顺理成章解释成三维）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;唯心论&#34;&gt;唯心论
+&lt;/h2&gt;&lt;p&gt;唯心论认为：如果你不知道你应该看到什么，那么你什么都看不到（现实 $\to$感觉器官 + 经验 $\to$ 看到）&lt;/p&gt;
+&lt;h3 id=&#34;唯心主义顺序效应&#34;&gt;唯心主义：顺序效应
+&lt;/h3&gt;&lt;p&gt;先前获得的被用于后来的 都判断&lt;/p&gt;
+&lt;h3 id=&#34;唯心主义大脑自动化容错加工&#34;&gt;唯心主义：大脑自动化容错加工
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义虚拟轮廓&#34;&gt;唯心主义：虚拟轮廓
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义运动引发的盲视&#34;&gt;唯心主义：运动引发的盲视
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义遮蔽运动&#34;&gt;唯心主义：遮蔽运动
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义整合运动&#34;&gt;唯心主义：整合运动
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义明度错觉&#34;&gt;唯心主义：明度错觉
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义颜色错觉&#34;&gt;唯心主义：颜色错觉
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义color-assimilation-grid-illusion&#34;&gt;唯心主义：Color Assimilation Grid Illusion
+&lt;/h3&gt;&lt;h3 id=&#34;唯心主义生物性运动&#34;&gt;唯心主义：生物性运动
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;大脑最辉煌的成就就是创造了我们生存的主观世界 TODO&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;先天与后天&#34;&gt;先天与后天
+&lt;/h2&gt;&lt;h3 id=&#34;缪勒-莱尔错觉&#34;&gt;缪勒-莱尔错觉
+&lt;/h3&gt;&lt;h3 id=&#34;阴影&#34;&gt;阴影
+&lt;/h3&gt;&lt;p&gt;棋盘格错觉&lt;/p&gt;
+&lt;p&gt;阴影加入，加工的理论&lt;/p&gt;
+&lt;h3 id=&#34;二维到三维&#34;&gt;二维到三维
+&lt;/h3&gt;&lt;p&gt;我们把二维当作三维的投影&lt;/p&gt;
+&lt;h3 id=&#34;面孔知觉&#34;&gt;面孔知觉
+&lt;/h3&gt;</description>
+        </item>
+        <item>
+        <title>心理学导论-08-记忆</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-08-%E8%AE%B0%E5%BF%86/</link>
+        <pubDate>Sun, 18 May 2025 09:55:01 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-08-%E8%AE%B0%E5%BF%86/</guid>
+        <description>&lt;h1 id=&#34;记忆&#34;&gt;&lt;strong&gt;记忆&lt;/strong&gt;
+&lt;/h1&gt;&lt;p&gt;经历事件在大脑中的残余&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是用来创建、维持或提取我们过往信息的工具&lt;/li&gt;
+&lt;li&gt;连接过去和未来&lt;/li&gt;
+&lt;li&gt;使我们成为我们自己&lt;/li&gt;
+&lt;li&gt;组成一个人的灵魂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你头脑中的痕迹，串联起你的过去和未来，使得你成为你自己&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;time&#34;&gt;&lt;strong&gt;Time&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;connect the past to the future&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Time line&lt;/p&gt;
+&lt;p&gt;过去 现在 未来&lt;/p&gt;
+&lt;p&gt;一个点，把线分成两半，这个点是不存在&lt;/p&gt;
+&lt;p&gt;沙滩和海洋的分界线，在哪里&lt;/p&gt;
+&lt;p&gt;“现在”存在吗？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;心理上的现在&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;没有过去发生事件的记忆，没有对未来的预期，没有心理上的现在&lt;/p&gt;
+&lt;p&gt;多久之内是现在而不是记忆，多久之内是现在而不是未来&lt;/p&gt;
+&lt;p&gt;$现在=对过去的记忆 + 对将来的期望$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;过去事物的现在是回忆，现在事物的现在是视觉；未来事物的现在是期望&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This is the PRESENT 在一段到另一端的过程中&lt;/p&gt;
+&lt;h2 id=&#34;失忆症&#34;&gt;&lt;strong&gt;失忆症&lt;/strong&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;逆行性失忆症&#34;&gt;&lt;strong&gt;逆行性失忆症&lt;/strong&gt;：
+&lt;/h3&gt;&lt;p&gt;无法回忆起记忆受损那一个之前的记忆&lt;/p&gt;
+&lt;h3 id=&#34;顺行性失忆症&#34;&gt;&lt;strong&gt;顺行性失忆症&lt;/strong&gt;：
+&lt;/h3&gt;&lt;p&gt;无法去记忆大脑受损后发生的事情&lt;/p&gt;
+&lt;h2 id=&#34;储藏室类比&#34;&gt;&lt;strong&gt;储藏室类比&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;每一个思想都是一个居住着各种鸟类的笼子&lt;/p&gt;
+&lt;p&gt;柏拉图&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;如果是储藏室：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为什么能存下这么多东西&lt;/li&gt;
+&lt;li&gt;为什么有时候取出的东西跟最初放进去的东西不一样&lt;/li&gt;
+&lt;li&gt;储存的东西为什么会自动处理啊&lt;/li&gt;
+&lt;li&gt;为什么经常找不到想要的东西&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;记忆的种类和操作&#34;&gt;&lt;strong&gt;记忆的种类和操作&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;感觉记忆（经验）&lt;/p&gt;
+&lt;p&gt;映像记忆&lt;/p&gt;
+&lt;p&gt;回声记忆&lt;/p&gt;
+&lt;p&gt;工作记忆（觉知）&lt;/p&gt;
+&lt;p&gt;长时记忆（存储）&lt;/p&gt;
+&lt;p&gt;外显记忆&lt;/p&gt;
+&lt;p&gt;描述性记忆&lt;/p&gt;
+&lt;p&gt;情景记忆（自传体记忆）&lt;/p&gt;
+&lt;p&gt;内隐记忆&lt;/p&gt;
+&lt;p&gt;启动&lt;/p&gt;
+&lt;p&gt;程序性记忆&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;attachment:6a825e00-1c92-4e04-8aa6-e62a729e327d:%e6%88%aa%e5%b1%8f2025-04-11_11.21.49.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-04-11 11.21.49.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;基于理论的编码提取&#34;&gt;&lt;strong&gt;基于理论的编码、提取&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;编码=抽取&lt;/p&gt;
+&lt;p&gt;解码=重构&lt;/p&gt;
+&lt;h3 id=&#34;什么影响力记忆的重构&#34;&gt;&lt;strong&gt;什么影响力记忆的重构&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;信念&lt;/li&gt;
+&lt;li&gt;暗示&lt;/li&gt;
+&lt;li&gt;态度&lt;/li&gt;
+&lt;li&gt;动机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;记忆的表征&#34;&gt;&lt;strong&gt;记忆的表征&lt;/strong&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;分布式表征&#34;&gt;&lt;strong&gt;分布式表征&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;激活构成记忆&lt;/p&gt;
+&lt;p&gt;某些神经元的激活代表某些特质&lt;/p&gt;
+&lt;p&gt;有重叠的部分：&lt;/p&gt;
+&lt;p&gt;有重叠的概念？？？&lt;/p&gt;
+&lt;p&gt;语义上&lt;/p&gt;
+&lt;p&gt;语音上&lt;/p&gt;
+&lt;p&gt;评价上&lt;/p&gt;
+&lt;p&gt;情景上&lt;/p&gt;
+&lt;h3 id=&#34;连接网络模型&#34;&gt;&lt;strong&gt;连接网络模型&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;假设：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;距离 $\sim$ 相似性
+&lt;ol&gt;
+&lt;li&gt;语义相似性&lt;/li&gt;
+&lt;li&gt;评价相似性&lt;/li&gt;
+&lt;li&gt;语音相似性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;激活增强（被激活的节点，下次更加容易）&lt;/li&gt;
+&lt;li&gt;激活扩散（一个节点激活，相邻的节点更容易激活）及抑制（相邻节点的相邻节点可能被抑制）
+&lt;ol&gt;
+&lt;li&gt;气味（or 旋律）与情绪&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;启动效应&#34;&gt;&lt;strong&gt;启动效应&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;情景启动
+地点依赖（编码时的状态）
+状态依赖
+&lt;ul&gt;
+&lt;li&gt;语义启动
+词汇启动
+消除二义性&lt;/li&gt;
+&lt;li&gt;评价性启动
+主观评价&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;完成某个任务会易化相同或类似任务的工作成绩&lt;/p&gt;
+&lt;p&gt;清明梦的可习得？？？&lt;/p&gt;
+&lt;h3 id=&#34;舌尖效应&#34;&gt;&lt;strong&gt;舌尖效应&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;抑制&lt;/p&gt;
+&lt;p&gt;没有足够有效的线索&lt;/p&gt;
+&lt;p&gt;The baker-Baker Paradox&lt;/p&gt;
+&lt;h2 id=&#34;记忆的归因&#34;&gt;&lt;strong&gt;记忆的归因&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;长时记忆&lt;/p&gt;
+&lt;p&gt;对事件发生时间与地点的精确记忆&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;记忆的来源是极其容易搞错的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;实验：Jacoby 如何一夜之间成名？&lt;/p&gt;
+&lt;p&gt;事件：Donald M.Thompson 案件&lt;/p&gt;
+&lt;p&gt;知觉和想象来自&lt;/p&gt;
+&lt;p&gt;知觉：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;细节丰富而准确&lt;/li&gt;
+&lt;li&gt;现实，真实&lt;/li&gt;
+&lt;li&gt;有明确的时间与地点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;想象：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不精确，模糊&lt;/li&gt;
+&lt;li&gt;幻想性，不真实&lt;/li&gt;
+&lt;li&gt;没有明确的时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;似成相识&lt;/p&gt;
+&lt;p&gt;突然感觉似曾相识、特别熟悉，甚至能够预测下一刻发生什么&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-09-经验与觉知</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-09-%E7%BB%8F%E9%AA%8C%E4%B8%8E%E8%A7%89%E7%9F%A5/</link>
+        <pubDate>Sun, 18 May 2025 09:55:01 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-09-%E7%BB%8F%E9%AA%8C%E4%B8%8E%E8%A7%89%E7%9F%A5/</guid>
+        <description>&lt;h1 id=&#34;意识的含义&#34;&gt;意识的含义
+&lt;/h1&gt;&lt;p&gt;最本质的共识&lt;/p&gt;
+&lt;p&gt;向哲学、思辨找想法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;盲人摸象&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Consciousness
+&lt;ul&gt;
+&lt;li&gt;主观经验&lt;/li&gt;
+&lt;li&gt;对信息的存取&lt;/li&gt;
+&lt;li&gt;整合到经验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;属于我的独特的主观性&lt;/p&gt;&lt;/blockquote&gt;
+$$
+Consciousness = Subjectivity = &#34;What \space it \space is \space like \space to \space be \dots&#34;
+$$&lt;h2 id=&#34;qualia可感知的特性&#34;&gt;Qualia（可感知的特性）
+&lt;/h2&gt;&lt;p&gt;私有的品质或属性，仅仅去体验它，但是无法去描述它，因为只有你能够用你特有的方法去体验&lt;/p&gt;
+&lt;h2 id=&#34;the-problem-of-other-minds&#34;&gt;The problem of other Minds
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Are you sure that I am not a Zombie&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;无意识的正常行为的（没有内在体验）的人&lt;/p&gt;
+&lt;h2 id=&#34;假设&#34;&gt;（假设）
+&lt;/h2&gt;&lt;p&gt;共有假设&lt;/p&gt;
+&lt;p&gt;意识是&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主观经验&lt;/li&gt;
+&lt;li&gt;对主观经验的&lt;strong&gt;觉知&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;意识的河流&#34;&gt;意识的河流
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;河流总在流淌，你可以去观察它，也可以不去观察它&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;主观经验和觉知的分离&#34;&gt;主观经验和觉知的分离
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;盲视&lt;/li&gt;
+&lt;li&gt;空间失认症&lt;/li&gt;
+&lt;li&gt;面孔失认症&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;我们能否总是能够觉知到自己的主观经验&#34;&gt;我们能否总是能够觉知到自己的主观经验
+&lt;/h2&gt;&lt;p&gt;走神实验：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Self Caught &amp;amp;&amp;amp; Probe Caught&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;冲突监控与违反预期&#34;&gt;冲突监控与违反预期
+&lt;/h3&gt;&lt;p&gt;熟悉与否，正常与否&lt;/p&gt;
+&lt;h1 id=&#34;精神分析-vs-认知加工的无意识&#34;&gt;精神分析 v.s. 认知加工的无意识
+&lt;/h1&gt;&lt;p&gt;那种黑暗&lt;/p&gt;
+&lt;p&gt;认知是一个有限的资源&lt;/p&gt;
+&lt;p&gt;一个探照灯&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;灵魂如同浮在海面上的冰山，我们只能窥见极小的一角
+——弗洛伊德&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;精神分析&#34;&gt;精神分析
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph TD
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A[前意识] --&amp;gt; B[意识]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  subgraph 防御机制
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	  A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	end
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C[无意识] --&amp;gt; 防御机制
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  防御机制 --&amp;gt; Outer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;认知加工&#34;&gt;认知加工
+&lt;/h2&gt;&lt;p&gt;无意识：很难觉知的各种……&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;绝大对数的加工过程对于用户是透明的
+因为用户不需要了解它
+他们会自动运行
+只需要出错时管处&lt;/p&gt;
+&lt;p&gt;错误就是错误，没有任何隐含的意义&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;意识模块，非意识模块都是平等的，都是某些?????（ 除了意识模块可以被觉知外 ）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关系：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;没有任何关系（绝大多数）
+&lt;ol&gt;
+&lt;li&gt;甲状腺激素水平&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;单向通路（能觉知，但是无法修正）
+&lt;ol&gt;
+&lt;li&gt;客体位置计算&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;双向通路（既能觉知，又能部分影响）
+&lt;ol&gt;
+&lt;li&gt;直立行走&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;无意识加工存在的证据&#34;&gt;无意识加工存在的证据
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;绝大多数我们思想和行为的来由，我们其实并不知晓&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;无意识学习&#34;&gt;无意识学习
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;顺行性遗忘症&lt;/li&gt;
+&lt;li&gt;麻醉状态&lt;/li&gt;
+&lt;li&gt;模式检测
+&lt;ul&gt;
+&lt;li&gt;（没有有意识地学习，但是无意识地建立了某种联系）&lt;/li&gt;
+&lt;li&gt;我就”觉得”是的&lt;/li&gt;
+&lt;li&gt;养鸡场分辨公母&lt;/li&gt;
+&lt;li&gt;实验：合法单词和不合法单词的判断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;无意识过滤&#34;&gt;无意识过滤
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;鸡尾酒会效应（无意识地过滤着信息）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;无意识启动&#34;&gt;无意识启动
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;思维&lt;/li&gt;
+&lt;li&gt;感觉&lt;/li&gt;
+&lt;li&gt;行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;芋下启动&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;控制&#34;&gt;控制
+&lt;/h1&gt;&lt;h2 id=&#34;控制失败&#34;&gt;控制失败
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;我们当然拥有自由意志，因为我们处理拥有自由意志外别无选择
+——Christopher Hitchens&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;有意识控制：指的是主动灵活地转换或压抑 TODO&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph TD
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A --&amp;gt; C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A[无意识发生器] --&amp;gt; B[有意识地控制] --&amp;gt; C[意识]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A --&amp;gt; C
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然而，道高一尺魔高一丈&lt;/p&gt;
+&lt;p&gt;有意识压抑的越大，无意识发生器的欲望更加强烈&lt;/p&gt;
+&lt;p&gt;相反意愿的反弹效应&lt;/p&gt;
+&lt;h3 id=&#34;北极熊效应&#34;&gt;北极熊效应
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;The white bear experiment: 控制是有效的，但是并不总是有效的&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;对行为控制的失败&#34;&gt;对行为控制的失败
+&lt;/h3&gt;&lt;h3 id=&#34;对情绪控制的失败&#34;&gt;对情绪控制的失败
+&lt;/h3&gt;&lt;p&gt;加入了时间压力的情况&lt;/p&gt;
+&lt;p&gt;相反意愿的反弹效应&lt;/p&gt;
+&lt;h3 id=&#34;延迟满足棉花糖实验&#34;&gt;延迟满足（棉花糖实验）
+&lt;/h3&gt;&lt;p&gt;其实是找到策略的能力&lt;/p&gt;
+&lt;h3 id=&#34;mast-strapping-strategies主桅杆效应&#34;&gt;Mast-Strapping Strategies（主桅杆效应）
+&lt;/h3&gt;&lt;h2 id=&#34;控制错觉&#34;&gt;控制错觉
+&lt;/h2&gt;&lt;p&gt;控制感&lt;/p&gt;
+&lt;p&gt;感受到有控制力的好处&lt;/p&gt;
+&lt;p&gt;老人养植物的实验&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;做一个人质，培养一位绑匪&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;end&#34;&gt;End
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;指着告诉我我只是一粒微尘&lt;/li&gt;
+&lt;li&gt;爱却告诉我就是全部&lt;/li&gt;
+&lt;li&gt;于此之间&lt;/li&gt;
+&lt;li&gt;我生命的河流在宁静、持续地流淌&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-10-情绪</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-10-%E6%83%85%E7%BB%AA/</link>
+        <pubDate>Sun, 18 May 2025 09:55:01 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-10-%E6%83%85%E7%BB%AA/</guid>
+        <description>&lt;h1 id=&#34;情绪是什么&#34;&gt;情绪是什么
+&lt;/h1&gt;&lt;p&gt;理性 激情&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我一生都在探索、分析、重建我自己，但现在才了解，在我内心深处有一泓我永远都处理不了的泪水和苦难&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;自动系统--可控系统--思维thinking&#34;&gt;自动系统 + 可控系统 == 思维(thinking)
+&lt;/h2&gt;&lt;p&gt;自动系统&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无意识&lt;/li&gt;
+&lt;li&gt;快速&lt;/li&gt;
+&lt;li&gt;并行&lt;/li&gt;
+&lt;li&gt;基于概率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$\dots$&lt;/p&gt;
+&lt;p&gt;可控系统&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有意识&lt;/li&gt;
+&lt;li&gt;慢速&lt;/li&gt;
+&lt;li&gt;序列&lt;/li&gt;
+&lt;li&gt;理性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$\dots$&lt;/p&gt;
+&lt;h2 id=&#34;thinking-is-for-doing&#34;&gt;Thinking is for doing
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;My thinking is first and last and always for my doing&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;             ——james
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  刺激 --&amp;gt; B[思维]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  B --&amp;gt; C[行为]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C --&amp;gt; D[体验]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  e[觉知]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  意识
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  情绪
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  TODO
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;情绪是由认知到行为的中介系统&#34;&gt;情绪是由认知到行为的中介系统
+&lt;/h2&gt;&lt;p&gt;$Emotions = E + motions$&lt;/p&gt;
+&lt;p&gt;情绪是集体产生的一整套反应&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生理唤醒（身体反应）&lt;/li&gt;
+&lt;li&gt;行为表达（）&lt;/li&gt;
+&lt;li&gt;主观意识体验（）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h1 id=&#34;情绪的理论&#34;&gt;情绪的理论
+&lt;/h1&gt;&lt;h2 id=&#34;詹姆斯-兰格序列发生理论&#34;&gt;詹姆斯-兰格：序列发生理论
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;情绪来自胜利的唤醒。外界刺激引发生理变化，体验到特定情绪&lt;/li&gt;
+&lt;li&gt;情绪体验是序列产生的
+情绪与生理反应相关联，但是&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  感受到的事件 --&amp;gt; 生理及行为反应 --&amp;gt; 情绪体验
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;坎农-巴徳同时发生理论&#34;&gt;坎农-巴徳：同时发生理论
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;情绪起源于丘脑&lt;/li&gt;
+&lt;li&gt;刺激到皮层，产生情绪体验；刺激到植物性神经系统，产生唤醒的变化&lt;/li&gt;
+&lt;li&gt;情绪的评价\感知是独立的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A[生理唤醒]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  B[情绪体验]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C[外在刺激] --&amp;gt; A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C --&amp;gt; B
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;沙科特双因素&#34;&gt;沙科特：双因素
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;情绪体验需要相应的生理唤醒和对其的认知评价&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  B[生理唤醒] --&amp;gt; A[情绪体验]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C[认知评价] --&amp;gt; A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  D[外在刺激]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  D --- B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  D --- C
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;情绪的表达&#34;&gt;情绪的表达
+&lt;/h1&gt;&lt;h2 id=&#34;七种-universe-expression&#34;&gt;七种 Universe expression
+&lt;/h2&gt;&lt;p&gt;高兴&lt;/p&gt;
+&lt;p&gt;生气&lt;/p&gt;
+&lt;p&gt;背诵&lt;/p&gt;
+&lt;p&gt;恐惧&lt;/p&gt;
+&lt;p&gt;厌恶&lt;/p&gt;
+&lt;p&gt;惊奇&lt;/p&gt;
+&lt;p&gt;轻蔑&lt;/p&gt;
+&lt;h2 id=&#34;表情反馈假设&#34;&gt;表情反馈假设
+&lt;/h2&gt;&lt;p&gt;同理心的生理能力&lt;/p&gt;
+&lt;p&gt;镜像神经系统（）&lt;/p&gt;
+&lt;h2 id=&#34;分布&#34;&gt;分布
+&lt;/h2&gt;&lt;p&gt;| | 高唤醒水平（警醒）
+Flight or Fight | 低唤醒水平（平和）&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Rest &amp;amp;&amp;amp; Digist&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;负性（退缩）&lt;/td&gt;
+          &lt;td&gt;恐惧&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;                 苦恼
+
+          惊 |                                       悲伤
+                                  疲惫
+
+         羞愧
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;困乏 |
+| 正性（接近） | 奇&lt;br&gt;
+兴趣&lt;/p&gt;
+&lt;p&gt;愤怒
+兴高采烈 |
+满足&lt;/p&gt;
+&lt;p&gt;自豪 |&lt;/p&gt;
+&lt;h2 id=&#34;自主神经系统控制着生理唤醒&#34;&gt;自主神经系统控制着生理唤醒
+&lt;/h2&gt;&lt;p&gt;交感神经系统&lt;/p&gt;
+&lt;p&gt;警醒\战逃&lt;/p&gt;
+&lt;p&gt;副交感神经系统&lt;/p&gt;
+&lt;p&gt;平和\休息消化&lt;/p&gt;
+&lt;h2 id=&#34;在身体上映射情绪&#34;&gt;在身体上映射情绪
+&lt;/h2&gt;&lt;h1 id=&#34;情绪的功能&#34;&gt;情绪的功能
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;人类有强烈的动机去寻求愉悦且逃避痛苦&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;没有情绪 = 无好&amp;amp;&amp;amp;无坏&lt;/p&gt;
+&lt;p&gt;情绪的好坏 与 分类物品好坏&lt;/p&gt;
+&lt;p&gt;定义 显示&lt;/p&gt;
+&lt;p&gt;保持体验指针偏向正性的一边&lt;/p&gt;
+&lt;h2 id=&#34;情绪对我们的行为是&#34;&gt;情绪对我们的行为是
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;好的指引 or 坏的指引&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;路怒症&lt;/p&gt;
+&lt;p&gt;直观的情绪倾向&lt;/p&gt;
+&lt;p&gt;对于情绪带来的反应更满意&lt;/p&gt;
+&lt;p&gt;内侧前额叶受损，情绪指引弱&lt;/p&gt;
+&lt;h2 id=&#34;作为社交的信号&#34;&gt;作为社交的信号
+&lt;/h2&gt;&lt;p&gt;指导他人行为&lt;/p&gt;
+&lt;p&gt;微笑&lt;/p&gt;
+&lt;p&gt;社交，捕捉&lt;/p&gt;
+&lt;p&gt;生理，痉挛&lt;/p&gt;
+&lt;p&gt;危险解除&lt;/p&gt;
+&lt;p&gt;社会学习&lt;/p&gt;
+&lt;p&gt;传达承诺信号&lt;/p&gt;
+&lt;p&gt;威胁&lt;/p&gt;
+&lt;p&gt;示爱&lt;/p&gt;
+&lt;h1 id=&#34;情绪和大脑&#34;&gt;情绪和大脑
+&lt;/h1&gt;&lt;h2 id=&#34;丘脑皮层杏仁核&#34;&gt;丘脑，皮层，杏仁核
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A[信息]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  D[杏仁核, 快速评价.边缘系统, 产生情绪]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C[皮层，慢速系统，解释与整合]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  B[丘脑, 门控系统]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  B -- 慢速通道 --&amp;gt; C
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  A --- B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  B -- 快速通道 --&amp;gt; D
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  C -- 调节 --&amp;gt; D
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  D --&amp;gt; 放松
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;更情绪化的右脑&#34;&gt;更情绪化的右脑
+&lt;/h2&gt;&lt;h2 id=&#34;对唤醒水平的错误归因&#34;&gt;对唤醒水平的错误归因
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;真实的错误归因&lt;/li&gt;
+&lt;li&gt;虚假的（自认为的）&lt;/li&gt;
+&lt;li&gt;对唤醒水平缺失的错误归因
+替身综合征&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-06-发展</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-06-%E5%8F%91%E5%B1%95/</link>
+        <pubDate>Sun, 18 May 2025 09:52:33 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-06-%E5%8F%91%E5%B1%95/</guid>
+        <description>&lt;h2 id=&#34;先天与后天&#34;&gt;先天与后天
+&lt;/h2&gt;&lt;h3 id=&#34;共享基因共享环境&#34;&gt;共享基因&amp;amp;共享环境
+&lt;/h3&gt;&lt;p&gt;在智力水平中，基因相关高&lt;/p&gt;
+&lt;h4 id=&#34;基因影响-x-neq-x-基因&#34;&gt;基因影响 $X$ $\neq$ $X$ 基因
+&lt;/h4&gt;&lt;p&gt;e.g. 基因 $\to$ 代谢低于正常 $\to$ 需要面临刺激更多 $\to$ 探索、交互 $\to$ 智力水平$\uparrow$&lt;/p&gt;
+&lt;h4 id=&#34;天生如此-neq-基因的影响&#34;&gt;天生如此 $\neq$ 基因的影响
+&lt;/h4&gt;&lt;p&gt;e.g. 胎儿期的影响&lt;/p&gt;
+&lt;p&gt;胎教 母亲的好处 更好的母体内环境&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;母亲在胎儿耳发育完成后，每天朗诵特点一本书&lt;/p&gt;
+&lt;p&gt;婴儿出生后，设计条件反射的检测（吸 奶嘴的频率，更特定的频率得到之前听过的那本&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;母语特征影响胎儿哭声&lt;/p&gt;
+&lt;p&gt;胎儿酒精综合症&lt;/p&gt;
+&lt;p&gt;受精第七周：胎儿变成典型人类女性胚胎的特征（雌性为缺省性别，除非$Y$, 第七周 $Y$ 开始表达，更多雄性激素 $\to$ 生殖和大脑发育方向）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;什么是： 发现了某个决定智力的基因&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;环境和基因的关系？怎么理解 $50%$ 和 $50%$&lt;/p&gt;
+&lt;p&gt;问题是：在不同环境下，智力的差别在多大程度上是因为基因差异的影响，在多大程度上是因为环境差别的影响&lt;/p&gt;
+&lt;p&gt;差别是什么决定&lt;/p&gt;
+&lt;h2 id=&#34;儿童的思想&#34;&gt;儿童的思想
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;基因和环境怎么给人类思想&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;同理心，换位思考的能力，怎么 train 出来&lt;/p&gt;
+&lt;p&gt;体系：物理，心理，哲学？&lt;/p&gt;
+&lt;p&gt;怎么让 ta 了解物理规律，怎么让 ta 学会理解他人（意图是什么），调和物理和真实、现实和想象的关系&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;感觉运动$0 \sim 2$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;感觉反射&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前运算$2 \sim 7$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发展出对客体和事件的思维&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;具体运算$7 \sim 11$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;具体的推理，发展出守恒&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;形式运算 $11 \sim $&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;抽象、形式思维&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;婴儿期失忆症&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;物理&#34;&gt;物理
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;人有没有先天概念&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;康德认为有
+&lt;ul&gt;
+&lt;li&gt;空间和时间&lt;/li&gt;
+&lt;li&gt;因果&lt;/li&gt;
+&lt;li&gt;数量关系&lt;/li&gt;
+&lt;li&gt;类别和范畴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;婴儿的新奇反应&lt;/p&gt;
+&lt;p&gt;对于超出他们预期的事物更感兴趣&lt;/p&gt;
+&lt;p&gt;so 习惯化瘀去习惯化&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;实验：&lt;/p&gt;
+&lt;p&gt;物理遮蔽&lt;/p&gt;
+&lt;p&gt;被遮蔽的物体任然存在&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;问题，难道不是因为物理世界的无监督学习吗&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;怎么解释 ta 的反应&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;心理&#34;&gt;心理
+&lt;/h3&gt;&lt;h4 id=&#34;分类&#34;&gt;分类
+&lt;/h4&gt;&lt;h4 id=&#34;自我与他人的识别&#34;&gt;自我与他人的识别
+&lt;/h4&gt;&lt;p&gt;镜子测试/红点测试&lt;/p&gt;
+&lt;p&gt;（14-18 个月左右发展出来）&lt;/p&gt;
+&lt;h4 id=&#34;意图的理论&#34;&gt;意图的理论
+&lt;/h4&gt;&lt;p&gt;7 个月大小的，已经区分与&lt;/p&gt;
+&lt;p&gt;行为 = 信念 + 欲望&lt;/p&gt;
+&lt;h3 id=&#34;哲学&#34;&gt;哲学
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;一个人可能对 x&lt;/p&gt;
+&lt;p&gt;不同人，对同样外部世界，不同的信念&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;理解主观世界和客观实在的关系&lt;/p&gt;
+&lt;h4 id=&#34;外表现实的区别&#34;&gt;外表—现实的区别
+&lt;/h4&gt;&lt;p&gt;&amp;ldquo;看起来&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;自我中心化&lt;/strong&gt;：完全从自我的角度出发去理解，认为理解的都是一样的（我看不见了，都看不见了）（没办法转换角度，从他人的角度）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;心理理论&lt;/strong&gt;（现实，记忆，信念）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以区分看得见和看不见，但是不知道各各自看到的是什么&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;听到的是否是我听到的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;聚光灯效应&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;露财走夜路&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;虚假共识效应&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我认为的东西，我认为大多数人也这样认为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你的意思是不是我的意思&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All grow-ups were once children—although few of them remember it.&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-05-大脑</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-05-%E5%A4%A7%E8%84%91/</link>
+        <pubDate>Sun, 18 May 2025 09:49:07 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-05-%E5%A4%A7%E8%84%91/</guid>
+        <description>&lt;h2 id=&#34;心智的起源&#34;&gt;心智的起源
+&lt;/h2&gt;&lt;p&gt;先觉假设- 心智的起源，&lt;/p&gt;
+&lt;h3 id=&#34;心-脑关系&#34;&gt;心-脑关系
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;二元论&lt;/strong&gt;（来自笛卡尔）&lt;/p&gt;
+&lt;p&gt;大脑和和精神没有关系&lt;/p&gt;
+&lt;p&gt;认为：人类同时具有精神和物质两套系统（广验实体和精神实体交汇于松果体）&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;还原论&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;大脑与精神是因果关系&lt;/p&gt;
+&lt;p&gt;思维由大脑产生&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;平行论&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;大脑和精神是相互独立且平行对等的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;大脑的功能定位&#34;&gt;大脑的功能定位
+&lt;/h2&gt;&lt;p&gt;功能整体性：功能在整个体系中均匀分布&lt;/p&gt;
+&lt;p&gt;功能定位性：不同的定位负责不同的功能&lt;/p&gt;
+&lt;h3 id=&#34;高尔-颅相学&#34;&gt;高尔-颅相学
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对在&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;功能定位性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;错在&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;隆突&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;人格特质 -&amp;gt; ，，，，&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;永久性 -&amp;gt; 脑的皮层的替换性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;三体脑&#34;&gt;三体脑
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新脑&lt;/li&gt;
+&lt;li&gt;旧脑&lt;/li&gt;
+&lt;li&gt;古脑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;呼吸&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;简单重复性运动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;感觉信息&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;情绪、动机、简单判断&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;自主运动、复杂判断、符号思维&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;大脑皮层-todo&#34;&gt;大脑皮层 TODO
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;额叶（塞尔维亚沟）：说话，想象，思考，各种高级功能&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;时间固着&lt;/li&gt;
+&lt;li&gt;无计划性&lt;/li&gt;
+&lt;li&gt;易冲动&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;顶叶（头顶）：躯体感觉，空间位置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空间失认症（空间忽略）（大脑有加工，但没有觉知）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;枕叶（后脑勺）：视觉&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;面孔失认症（脸盲）&lt;/li&gt;
+&lt;li&gt;盲视(进入了大脑，没有觉知)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;颞叶（耳朵两边）：听觉，语言理解&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;威尔尼克区（左侧颞叶的后部）
+&lt;ul&gt;
+&lt;li&gt;接受性失语症（辞藻华丽，啰哩啰嗦，没有意义）（无内容但语法完整）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;布洛卡区（左侧颞叶前部）
+&lt;ul&gt;
+&lt;li&gt;运动性失语症（能够理解，表达不出来）（有意义但无语法）（涉及到语法，构词，语法加工的不行；但是单个词都可以）（语法加工到说出的过程出了问题）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;大脑中的内战&#34;&gt;大脑中的内战
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;前额叶&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;缓慢，复杂的有意识思维&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;边缘系统&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;迅速、简单的评价及情绪性反应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;旧脑知道新脑不知道的&lt;/p&gt;
+&lt;p&gt;新脑知道的旧脑不知道的&lt;/p&gt;
+&lt;p&gt;逻辑，情绪&lt;/p&gt;
+&lt;h2 id=&#34;大脑功能偏侧化&#34;&gt;大脑功能偏侧化
+&lt;/h2&gt;&lt;p&gt;分治的社会&lt;/p&gt;
+&lt;p&gt;左右半球（由中央对称到左右对称）-&amp;gt; 空间感觉？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;左脑
+&lt;ul&gt;
+&lt;li&gt;对侧的感觉加工和运动控制&lt;/li&gt;
+&lt;li&gt;语言，概念&lt;/li&gt;
+&lt;li&gt;逻辑推理&lt;/li&gt;
+&lt;li&gt;言语分析，数学能力，抽象思维（逻辑，理性，抽象，数学）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;胼胝体&lt;/li&gt;
+&lt;li&gt;右脑
+&lt;ul&gt;
+&lt;li&gt;对侧的感觉加工和运动控制&lt;/li&gt;
+&lt;li&gt;节奏，音乐&lt;/li&gt;
+&lt;li&gt;空间几何&lt;/li&gt;
+&lt;li&gt;想象，综合&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;左右脑功能的分离&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;感觉的敏捷程度取决于&amp;hellip;.先处理&lt;/li&gt;
+&lt;li&gt;认为是旋律-&amp;gt;右脑 -&amp;gt; 左耳的敏捷程度高&lt;/li&gt;
+&lt;li&gt;认为是语言 -&amp;gt; 左脑 -&amp;gt; 右耳敏捷程度高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你究竟在哪里？在现实中还是在你的大脑里&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;疼痛的门控&lt;/p&gt;
+&lt;p&gt;但是是主观控制的，不同于肾上腺素这些非主观的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;视角受限，视角不足&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;打破九年义务教育的桎梏？？？&lt;/p&gt;
+&lt;p&gt;世界很大？？？？&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-04-生存</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-04-%E7%94%9F%E5%AD%98/</link>
+        <pubDate>Sun, 18 May 2025 09:47:22 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-04-%E7%94%9F%E5%AD%98/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;有限资源困境&lt;/p&gt;
+&lt;p&gt;生物群体总数会依可用资源的数量而增加，因此相对来说资源总是有限的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;what-is-life&#34;&gt;What is LIFE?
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hurt&lt;/strong&gt; &amp;amp; &lt;strong&gt;Help&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;生物逆熵存续&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LUCA&lt;/li&gt;
+&lt;li&gt;单细胞生物-内共生&lt;/li&gt;
+&lt;li&gt;真核生物（多细胞）配子生殖&lt;/li&gt;
+&lt;li&gt;Lucy 人类始祖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;合作&#34;&gt;合作
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;单细胞生物-&lt;strong&gt;内共生&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;多细胞生物 -&amp;gt; &lt;strong&gt;配子生殖&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;人类大脑-&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;what-is-life-1&#34;&gt;what is life
+&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;生命以负熵为食&lt;/p&gt;
+&lt;p&gt;生命物质在开放系统中自发地维持负熵来对抗热力学平衡的衰变&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生命逆熵而存续&lt;/p&gt;
+&lt;p&gt;生命是能够主动维持且可传承的有序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生命以基因迭代&lt;/p&gt;
+&lt;p&gt;生命用基因来编码、散播和传承有序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生命天然竞争又随时合作&lt;/p&gt;
+&lt;p&gt;生命通过竞争与合作来维持和传承有序&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;hurt--help-for-survival&#34;&gt;Hurt &amp;amp; Help for SURVIVAL
+&lt;/h2&gt;&lt;h3 id=&#34;争斗&#34;&gt;争斗
+&lt;/h3&gt;&lt;p&gt;挫折-攻击原则&lt;/p&gt;
+&lt;p&gt;动物仅仅是在它们试图达到的某种目的受挫时才会攻击&lt;/p&gt;
+&lt;p&gt;攻击：以上海其他个体为目的的行为&lt;/p&gt;
+&lt;p&gt;挫折：达到某种目的受阻&lt;/p&gt;
+&lt;p&gt;没有出现 &amp;ldquo;暴力&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有预谋的攻击：人们有意识地使用攻击策略达到某种目的&lt;/li&gt;
+&lt;li&gt;冲动的攻击：没有任何预谋的突发的攻击行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;疼痛-攻击原则&lt;/p&gt;
+&lt;h4 id=&#34;什么因素促使了冲动的攻击-&#34;&gt;什么因素促使了冲动的攻击 ？
+&lt;/h4&gt;&lt;p&gt;目标受挫？ $\to$ 有挫败感? $\to$ 冲动的攻击&lt;/p&gt;
+&lt;p&gt;​ $\downarrow$&lt;/p&gt;
+&lt;p&gt;​ 有预谋的攻击&lt;/p&gt;
+&lt;p&gt;导致因素：先天和后天&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;先天&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;性别（&lt;strong&gt;雄性激素&lt;/strong&gt;（更容易烦躁），下丘脑中脑区大小，社会因素）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;雄性激素 $\to$ 烦躁 $\to$ 目标受挫感 $\to$ 攻击行为&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;雄性激素&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;血清素（$\sim$ 传递抑制情绪的）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;温度&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;后天&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;武器效应 weapons effect&lt;/li&gt;
+&lt;li&gt;社会学习&lt;/li&gt;
+&lt;li&gt;文化与社会环境&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;攻击性时天生的本能吗&#34;&gt;攻击性时天生的本能吗？
+&lt;/h4&gt;&lt;p&gt;自然根性&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;自然主义缪误&lt;/p&gt;
+&lt;p&gt;事物因为是自然的，所以是正确的？！&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;is&amp;rdquo; does not equal &amp;ldquo;ought&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;确定性缪误&lt;/p&gt;
+&lt;p&gt;事物因为是自然的，所以是不可避免的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;if we are programmed to be what we are, then these traits are ineluctable. We may, at best, channel them, but we cannot change them either by will, education, and culture&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;基因-to-行为&#34;&gt;基因 $\to$ 行为
+&lt;/h4&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;基因&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;环境&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;生理&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;能力&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;行为&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;p&gt;多巴胺&lt;/p&gt;
+&lt;p&gt;内啡肽&lt;/p&gt;
+&lt;p&gt;肾上腺素&lt;/p&gt;
+&lt;p&gt;皮质醇&lt;/p&gt;
+&lt;p&gt;催产素&lt;/p&gt;
+&lt;p&gt;前额叶：&lt;/p&gt;
+&lt;p&gt;杏仁核：情绪&lt;/p&gt;
+&lt;h2 id=&#34;合作-1&#34;&gt;合作
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;社会脑的假设&lt;/p&gt;
+&lt;p&gt;我们的大脑是未来复杂的社会等级结构关系进化来的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;合作：两个或多个个体形成的互惠行为&lt;/p&gt;
+&lt;p&gt;囚徒困境&lt;/p&gt;
+&lt;p&gt;背叛的风险&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;靠谱&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;更有效的探测者，强有力的惩罚&lt;/p&gt;
+&lt;p&gt;公平原则&lt;/p&gt;
+&lt;h2 id=&#34;群体理想的合作方案&#34;&gt;群体：理想的合作方案
+&lt;/h2&gt;&lt;p&gt;秘密的合作群体&lt;/p&gt;
+&lt;p&gt;非秘密的社会合作群体&lt;/p&gt;
+&lt;p&gt;内群体偏好：群体内成员更倾向于对本群体的其他成员做出更有利的行为或者有更亲近的感觉&lt;/p&gt;
+&lt;p&gt;外群体贬损：群体内成员对非本群体成员倾向于做出更加不利的行为或者更加不喜欢他们&lt;/p&gt;
+&lt;p&gt;群体的缺点：决策&lt;/p&gt;
+&lt;p&gt;去个性化：处于群体中时，个体会更不容易注重自身价值准则而转移到群体的价值准则&lt;/p&gt;
+&lt;p&gt;责任分散：当群体做出同样的行为时，个体会感觉自己为这个行为所附的社会责任降低&lt;/p&gt;
+&lt;p&gt;旁观者效应：随着突发事件中旁观者的增多，受害者获得帮助的概率会降低，如果能够获得 TODO&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;社会范围关系的数量和质量&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;最小群体范式实验&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-03-性与浪漫关系</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-03-%E6%80%A7%E4%B8%8E%E6%B5%AA%E6%BC%AB%E5%85%B3%E7%B3%BB/</link>
+        <pubDate>Sun, 18 May 2025 09:35:52 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-03-%E6%80%A7%E4%B8%8E%E6%B5%AA%E6%BC%AB%E5%85%B3%E7%B3%BB/</guid>
+        <description>&lt;h2 id=&#34;导入&#34;&gt;导入
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;为何存在&lt;/li&gt;
+&lt;li&gt;了解世界&lt;/li&gt;
+&lt;li&gt;成为自我&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由此建立的体系&lt;/p&gt;
+&lt;p&gt;试图给出答案的问题&lt;/p&gt;
+&lt;h2 id=&#34;what-is-life&#34;&gt;What is life
+&lt;/h2&gt;&lt;p&gt;问题：没有生命与非生命的明确的界限（定义）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;卡尔萨根&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;传承、突变，并能传承其突变的系统&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;薛定谔&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;生命以负熵为食&lt;/p&gt;
+&lt;p&gt;（生命物质在开放系统中自发地维持负熵而对抗热力学平衡的衰变）&lt;/p&gt;
+&lt;p&gt;浪花在阳光照耀下翻腾的那一刻&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Def:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the cosmos is also within us, We&amp;rsquo;re made of star-stuff, We are a way for the cosmos, to know itself&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;生命以负熵为食（生命物质在开放系统中自发地维持负熵而对抗热力学平衡的衰变）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生命逆熵而存续(生命是能够主动维持且可传承的有序)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生命以基因迭代（生命用基因来编码、散播和传承有序）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;repreduction&#34;&gt;Repreduction
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Sex&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sex&#34;&gt;Sex
+&lt;/h3&gt;&lt;p&gt;DNA 从一代到另一代的传递工具&lt;/p&gt;
+&lt;p&gt;性是社会性动机&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生理性动机：离开了无法生存的&lt;/p&gt;
+&lt;p&gt;社会性动机：&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;选择-selectivity&#34;&gt;选择 selectivity
+&lt;/h3&gt;&lt;p&gt;从基因角度看&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基因：健康、有异性吸引力的&lt;/li&gt;
+&lt;li&gt;抚养能力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;女性比男性的选择更慎重：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为繁衍付出的不同代价&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;生育机会代价&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;代价与风险&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;社会性与个体差异&lt;/li&gt;
+&lt;li&gt;追求者与被追求者的角色差异&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;吸引力&#34;&gt;吸引力
+&lt;/h3&gt;&lt;p&gt;美丽是个体生物适合度的外在现实和表现&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;环境因素&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;邻近性
+&lt;ul&gt;
+&lt;li&gt;机会 Opportunity&lt;/li&gt;
+&lt;li&gt;动机 Motivation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;熟悉性 Familiarity - 曝光效应\试错效应\脸熟效应（认知范围内、没有危害、熟悉）&lt;/li&gt;
+&lt;li&gt;秘密性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生理因素&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;合适特质的待在信号&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;健康&lt;/li&gt;
+&lt;li&gt;生育力&lt;/li&gt;
+&lt;li&gt;资源 承诺&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;不可抗拒的外表吸引力
+&lt;ul&gt;
+&lt;li&gt;审美&lt;/li&gt;
+&lt;li&gt;光环效应&lt;/li&gt;
+&lt;li&gt;自我实现的预言&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;年龄&lt;/li&gt;
+&lt;li&gt;曲线&lt;/li&gt;
+&lt;li&gt;面孔
+&lt;ul&gt;
+&lt;li&gt;两侧对称&lt;/li&gt;
+&lt;li&gt;代表性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;气味
+&lt;ul&gt;
+&lt;li&gt;MHC （Major Histocompatability Complex）主要组织相容性复合体&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;先天还是后天&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;心理因素&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;相似性或同质性 &amp;raquo; 互补性
+&lt;ul&gt;
+&lt;li&gt;容易相处&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相互肯定&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;互惠&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;关系&#34;&gt;关系
+&lt;/h3&gt;&lt;h5 id=&#34;为什么要结婚&#34;&gt;为什么要结婚
+&lt;/h5&gt;&lt;p&gt;人类的婴儿在未完全发育成熟之前就会从母体中出生&lt;/p&gt;
+&lt;h5 id=&#34;激情之爱&#34;&gt;激情之爱
+&lt;/h5&gt;&lt;h5 id=&#34;伴侣之爱&#34;&gt;伴侣之爱
+&lt;/h5&gt;&lt;p&gt;包含亲情、友情&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每个和你建立交互的优秀的个体&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-02-研究方法</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-02-%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Sun, 18 May 2025 09:32:07 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-02-%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;h1 id=&#34;lecture-02&#34;&gt;Lecture 02
+&lt;/h1&gt;&lt;h2 id=&#34;我们如何知晓&#34;&gt;我们如何知晓
+&lt;/h2&gt;$$
+ 无 \to 有  :\\     公理假设
+$$&lt;ol&gt;
+&lt;li&gt;公理是推论的原点&lt;/li&gt;
+&lt;li&gt;公理不证自明&lt;/li&gt;
+&lt;li&gt;公理无所谓对错，只需要相信&lt;/li&gt;
+&lt;li&gt;公理只是假设&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;认知的相位&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;我们如何找到答案&#34;&gt;我们如何找到答案
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;个人经验&lt;/li&gt;
+&lt;li&gt;直觉&lt;/li&gt;
+&lt;li&gt;社会/文化共识&lt;/li&gt;
+&lt;li&gt;宗教教义与解释&lt;/li&gt;
+&lt;li&gt;哲学与逻辑推理&lt;/li&gt;
+&lt;li&gt;科学与科学方法：科学方法是对世界科学地观察和解释的一套方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;如何科学观察&#34;&gt;如何科学观察
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;不可分、不可测的无法“科学”研究&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;测量&#34;&gt;测量
+&lt;/h3&gt;&lt;p&gt;对&lt;strong&gt;属性&lt;/strong&gt;的测量：定义&amp;amp;检测&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;建立被测属性的操作性&lt;strong&gt;定义&lt;/strong&gt;（有效性）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用合适的工具&lt;strong&gt;测量&lt;/strong&gt;操作性定义中定义的条件（准确性）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+$$
+属性 \underset{\text{定义}}{\leftrightarrow} 操作性定义 \underset{\text{检测}}{\leftrightarrow} 测量 \\
+$$&lt;h4 id=&#34;定义过程存在的问题&#34;&gt;定义过程存在的问题
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;构建效度&lt;/strong&gt;：操作性定义与属性之间在概念上有确定相关的趋势&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;预测效度&lt;/strong&gt;：操作性定义与其他操作性定义的一致性趋势，它可以让我们通过一种操作性定义去预测另外一种操作性定义&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;信度&lt;/strong&gt;：对于同样的事物的重复性测量能得到一致的结果&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;检测能力&lt;/strong&gt;：测量不同事物能够得到不同的结果，正确反应所测量事物的能力&lt;/p&gt;
+&lt;h3 id=&#34;取样&#34;&gt;取样
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Population 总体&lt;/strong&gt;：要测量的全体成员，对心理学来说是整个人类&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sample 样本&lt;/strong&gt;：在总体当中实际测量的那些人&lt;/p&gt;
+&lt;h4 id=&#34;规则&#34;&gt;规则
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;随机取样&lt;/li&gt;
+&lt;li&gt;充分取样&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;避免偏差&#34;&gt;避免偏差
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;被试者偏差&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;需求特征：在一个测量中会使得被测者主动地按照他们所认为的施测者的预期去反应的那些特性，也可以称作合理化表现，或者被试者期望&lt;/li&gt;
+&lt;li&gt;How to
+&lt;ul&gt;
+&lt;li&gt;确保匿名性&lt;/li&gt;
+&lt;li&gt;测量非随意控制或与需求没有明显联系的行为&lt;/li&gt;
+&lt;li&gt;避免让被试了解实验假设以及目的（单盲实验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;观察者偏差&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;避免让实验者了解实验假设以及目的（双盲实验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;如何科学解释&#34;&gt;如何科学解释
+&lt;/h2&gt;&lt;h3 id=&#34;相关关系与因果关系&#34;&gt;相关关系与因果关系
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;相关&lt;/strong&gt;：两个变量之间的线性关系&lt;/p&gt;
+&lt;p&gt;正相关&lt;/p&gt;
+&lt;p&gt;负相关&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;事物是普遍联系的（相关关系&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相关&lt;/strong&gt;并不代表&lt;strong&gt;因果&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;对相关关系的三种英国解释&#34;&gt;对相关关系的三种英国解释
+&lt;/h4&gt;&lt;p&gt;$$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A \rightarrow B \&lt;/li&gt;
+&lt;li&gt;A \leftarrow B \&lt;/li&gt;
+&lt;li&gt;A \leftarrow \space ? \rightarrow B
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;第三变量问题&#34;&gt;第三变量问题
+&lt;/h4&gt;&lt;h3 id=&#34;实验方法&#34;&gt;实验方法
+&lt;/h3&gt;&lt;p&gt;实验：建立变量间因果关系的技术&lt;/p&gt;
+&lt;p&gt;主要成分：操作及控制&lt;/p&gt;
+&lt;p&gt;自变量，混淆变量，因变量&lt;/p&gt;
+&lt;p&gt;操作 控制 测量&lt;/p&gt;
+&lt;p&gt;混淆变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无关变量恒定&lt;/li&gt;
+&lt;li&gt;随机分布被试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TODO：有一个图&lt;/p&gt;
+&lt;p&gt;内部效应：一个实验允许我们建立自变量和因变量之间友好 i 你过消音的消毒，也就是说你这个是&lt;/p&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h4 id=&#34;结论&#34;&gt;结论
+&lt;/h4&gt;&lt;p&gt;操作性定义的关系&lt;/p&gt;
+&lt;p&gt;抽象属性之间系统性的关系&lt;/p&gt;
+&lt;p&gt;代表性变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;外部效度&lt;/strong&gt;：实验中变量的操作性定义与真实世界事件的一致性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代表性被试&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多边形&lt;/li&gt;
+&lt;li&gt;普适性&lt;/li&gt;
+&lt;li&gt;可重复性危机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有反例的真理&lt;/p&gt;
+&lt;p&gt;总是真实的&lt;/p&gt;
+&lt;p&gt;通常是真实的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;平均值的特性对个体的独特性有什么问题&lt;/p&gt;
+&lt;p&gt;心理学通过寻找人们的共性去最终理解每一个人&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;理论：关于一个现象如何存在和为什么存在的一种假设性解释&lt;/p&gt;
+&lt;p&gt;假设：由理论而产生的可检验的预测&lt;/p&gt;
+&lt;p&gt;前提，理解的前提，基础&lt;/p&gt;
+&lt;p&gt;进入海洋之前必须学到的&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>心理学导论-01-引论</title>
+        <link>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-01-%E5%BC%95%E8%AE%BA/</link>
+        <pubDate>Sun, 18 May 2025 09:30:35 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA-01-%E5%BC%95%E8%AE%BA/</guid>
+        <description>&lt;h1 id=&#34;intro&#34;&gt;Intro
+&lt;/h1&gt;&lt;h3 id=&#34;流氓&#34;&gt;“流氓”
+&lt;/h3&gt;&lt;p&gt;无地，无房&lt;/p&gt;
+&lt;p&gt;中国 - “根” - 重视&lt;/p&gt;
+&lt;h3 id=&#34;从根到科学体系的根&#34;&gt;从“根”到科学体系的根
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;思想的来源不乱变&lt;/li&gt;
+&lt;li&gt;问题：科学的根&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;科学的三个前提假设&#34;&gt;&lt;strong&gt;科学的三个前提假设&lt;/strong&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;熵增（热二）&lt;/p&gt;
+$$
+   dS &gt;= \frac{\detla}{T} \\
+   孤立系统的熵永不增加
+   `
+   $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;物理的大脑产生主观精神（一元论）&lt;/p&gt;
+&lt;p&gt;（rj:唯物主义？？？）&lt;/p&gt;
+&lt;p&gt;（还原论：主观精神还原到物理的大脑）（但是这一方向不成立）&lt;/p&gt;
+$$物理 \to 精神 \space only,只承认单向的$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（进化论）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;从宇宙大爆炸-导入-四个问题&#34;&gt;从宇宙大爆炸 导入 四个问题
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;哲学：爱智慧，认知
+&lt;ul&gt;
+&lt;li&gt;宇宙从哪里来 自然科学&lt;/li&gt;
+&lt;li&gt;生命从哪里来 生命科学&lt;/li&gt;
+&lt;li&gt;人类从哪里来 人类学&lt;/li&gt;
+&lt;li&gt;思维（心智）从哪里来 心理学&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;rj: 心理学研究分支于哲学研究，任然是“认知”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is man, that thou art mindful of hum? —Psalms 8:4&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Of all things the measure is man, of the things that are, the existence of things that are andthe non-existence of things that are not&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;人和其他物种有什么不同&#34;&gt;人和其他物种有什么不同？
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;发达的大脑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人之所以为人者，非特以二足而无毛也，以其有辩也。&lt;/p&gt;
+&lt;p&gt;​ &amp;mdash; 荀子&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;有“辩” 心理学的起源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;心理学是什么&#34;&gt;心理学是什么？
+&lt;/h3&gt;&lt;p&gt;心理学是 关于**心智（Mind）**的&lt;em&gt;知识&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;（TODO：四个定义？？？）&lt;/p&gt;
+&lt;p&gt;科学心理学：是 关于**心智（Mind）**的&lt;em&gt;科学&lt;/em&gt;（rj: 实证的，而非经验的）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;治疗人的精神或心理疾病&lt;/li&gt;
+&lt;li&gt;帮助普通人生活得更充实幸福&lt;/li&gt;
+&lt;li&gt;发现并培养具有非凡才能的人&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;流派历史大师&#34;&gt;流派？历史？大师？
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Willelm Wundt 构造主义（&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;William James 机能主义（rj: 幡动？风动！）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;行为主义学派 B.F.Skinner&lt;/p&gt;
+&lt;p&gt;（rj: 神奇宝贝研究员，实证，完全科学）&lt;/p&gt;
+&lt;p&gt;（刺激与行为之间的关系，中间黑箱只是实验，中间过程不可测）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ulric Neisser 认知学派&lt;/p&gt;
+&lt;p&gt;（Turing 的信息论的 idea）&lt;/p&gt;
+&lt;p&gt;（理解到了&lt;strong&gt;认知模型&lt;/strong&gt;）（rj: 仅仅是模型）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Michael Gazzaniga 认知神经科学&lt;/p&gt;
+&lt;p&gt;（加上对大脑电化学反应的测量）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sigmund Freud 精神分析 (rj: Scheller 狂喜，但是不实证)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Abraham Maslow 人本主义 from B.f. &amp;amp;&amp;amp; Freud&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;M artin Seligman 积极心理学&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;心理学的学科分类&#34;&gt;心理学的学科分类
+&lt;/h3&gt;&lt;p&gt;哲学 社会学&lt;/p&gt;
+&lt;p&gt;、+ 心理学&lt;/p&gt;
+&lt;p&gt;科学 生物学&lt;/p&gt;
+&lt;p&gt;（TODO：两个动态维度，三个层次，一个 UP 的标签）&lt;/p&gt;
+&lt;p&gt;积极心理学： Active；not 乐观(positive)&lt;/p&gt;
+&lt;p&gt;进化心理学（lucky）&lt;/p&gt;
+&lt;h3 id=&#34;课程信息&#34;&gt;课程信息
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;19edth 《心理学与生活》（提前看）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;两次作业&lt;/strong&gt; 见课程大纲（TODO d d l 看）&lt;/li&gt;
+&lt;li&gt;参加一小时心理学被实 签字的证明&lt;/li&gt;
+&lt;li&gt;考试（只有期末，50 分，隋唐）
+&lt;ul&gt;
+&lt;li&gt;单选&lt;/li&gt;
+&lt;li&gt;名词解释&lt;/li&gt;
+&lt;li&gt;简答&lt;/li&gt;
+&lt;li&gt;论述题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;期末 50，平时作业 35（），出勤（10），被实&lt;/li&gt;
+&lt;li&gt;课程须知&lt;/li&gt;
+&lt;li&gt;完善教学网信息？？？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;mlh: 知道错，知道问题在哪里，只是给出错误的结论；反而比那些“总是对的”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;问题是什么，问题就在身边&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;hw-01&#34;&gt;HW 01
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;0304 开学第三周周二？？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;你认为什么是心理学？？？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;lh: 一定要选逻辑课？？？&lt;/p&gt;
+&lt;p&gt;lh: 感知理解表征认知&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

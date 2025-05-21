@@ -1,0 +1,1188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>RJSJ on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/tags/rjsj/</link>
+        <description>Recent content in RJSJ on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Wed, 21 May 2025 14:43:16 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/rjsj/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RJSJ 17 面向可复用性的设计</title>
+        <link>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Wed, 21 May 2025 14:43:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;面向可复用性的设计&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;软件复用&#34;&gt;软件复用
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;软件复用：将已有的软件及其有效成分用于构造新的软件&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;复用的优点&#34;&gt;复用的优点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;降低开发成本&lt;/li&gt;
+&lt;li&gt;复用的程序已经过充分测试，可靠且稳定&lt;/li&gt;
+&lt;li&gt;有助于实现标准化，在不同的软件中保持一致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复用的代价&#34;&gt;复用的代价？
+&lt;/h2&gt;&lt;h2 id=&#34;开发可复用的软件development-for-reuse&#34;&gt;开发可复用的软件（Development for reuse）
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;由于要有足够高的适应性，开发成本高于一般软件&lt;/li&gt;
+&lt;li&gt;由于针对更普适的场景进行开发，缺少足够的针对性，所以性能可能会差一些&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复用已有软件进行开发development-with-reuse&#34;&gt;复用已有软件进行开发（Development with reuse）
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过软件库对可复用软件进行有效的管理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通常无法直接就能使用，需要进行适配&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;白盒复用&#34;&gt;白盒复用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;复制已有代码到正在开发的软件，并进行修改&lt;/li&gt;
+&lt;li&gt;优点：可定制化程度高&lt;/li&gt;
+&lt;li&gt;缺点：对已有代码的修改增加了软件的复杂度，且需要充分了解其内部实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;黑盒复用&#34;&gt;黑盒复用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;通过接口（如类、函数调用）来复用已有的代码，无法修改代码&lt;/li&gt;
+&lt;li&gt;优点：简单、清晰&lt;/li&gt;
+&lt;li&gt;缺点：某些情况适应性差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;可复用的软件来源&#34;&gt;可复用的软件来源
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;开源软件的代码&lt;/li&gt;
+&lt;li&gt;已有系统内的代码&lt;/li&gt;
+&lt;li&gt;组织内部的代码库&lt;/li&gt;
+&lt;li&gt;来自同学和同事的代码&lt;/li&gt;
+&lt;li&gt;自己日积月累的代码&lt;/li&gt;
+&lt;li&gt;来自教材、教程、论坛的代码示例
+&lt;ul&gt;
+&lt;li&gt;如，CppReference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;程序设计语言自身提供的库
+&lt;ul&gt;
+&lt;li&gt;如，C++的标准库、STL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;第三方提供的库
+&lt;ul&gt;
+&lt;li&gt;如，C++的Boost库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;复用的形态&#34;&gt;复用的形态
+&lt;/h2&gt;&lt;h3 id=&#34;复制粘贴源代码&#34;&gt;复制粘贴（源代码）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可能的问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;维护成本高&lt;/li&gt;
+&lt;li&gt;同一个代码粘贴到多处地方，改动时需同时修改多处&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复制粘贴操作过程中出错&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;需要看懂被复制的代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;复用函数或类模块&#34;&gt;复用“函数”或“类”（模块）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;封装性有助于复用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;规约或文档对使用者的重要意义&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可能的问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;版本更新导致后向兼容问题&lt;/li&gt;
+&lt;li&gt;需要将相关的类或函数链接到一起&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复用类的两种方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;继承&lt;/li&gt;
+&lt;li&gt;委托：将某些职责由其他类来完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;库提供可复用功能的一组类或函数&#34;&gt;库：提供可复用功能的一组类或函数
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;库提供的类和函数常被称为API（Application Programming Interface，应用编程接口）&lt;/li&gt;
+&lt;li&gt;开发者在编写软件的代码时调用库提供的API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;框架一组类及其之间的连接关系&#34;&gt;框架：一组类及其之间的连接关系
+&lt;/h3&gt;&lt;p&gt;开发者根据框架的规约，将自己编写的代码填充到框架中，形成完整的软件&lt;/p&gt;
+&lt;h1 id=&#34;设计可复用的类&#34;&gt;设计可复用的类
+&lt;/h1&gt;&lt;h2 id=&#34;回顾对象之间的关系&#34;&gt;回顾：对象之间的关系
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;面向对象将现实世界中的概念抽象为“类”，&lt;/p&gt;
+&lt;p&gt;而把符合这些概念的事物抽象为“对象”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;两个对象之间可能存在各种各样的关系:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;泛化：分类法中一般和特殊的关系&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是（is-a）：大学生是学生(&lt;strong&gt;使用公有继承机制可以实现“是”关系&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关联：静态结构上的关系，长期的、稳定的(&lt;strong&gt;用类的成员变量可以实现关联关系&lt;/strong&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;有（has-a）：汽车有轮子&lt;/p&gt;
+&lt;p&gt;(成员变量使用类类型的指针可以表示“有”关系，UML中称为“聚合”关系)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部分于（part-of）：例如头是人体的一部分&lt;/p&gt;
+&lt;p&gt;(成员变量使用类类型对象可以表示“部分于”关系，UML中称为“组合”关系)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.20.01.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.20.01&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;依赖：动态行为上的关系，偶发的、临时性的(&lt;strong&gt;使用类类型的成员函数参数可以实现依赖关系&lt;/strong&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用（uses-a）：程序员使用键盘&lt;/li&gt;
+&lt;li&gt;依赖于（depends-a）：花依赖于蜜蜂传粉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.20.43.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.20.43&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;通过继承实现复用&#34;&gt;通过继承实现复用
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;通过继承关系，子类可以继承父类已有的功能，在此基础上增加子类的特殊功能，从而实现复用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;如何设计继承以减少因复用带来的bug？&lt;/strong&gt;
+&lt;/p&gt;
+$$
+里氏替换原则（LSP）
+$$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;继承必须确保父类所拥有的性质在子类中仍然成立，当一个子类的对象能够替换任何其父类的对象时，它们之间才具有泛化（is-a）关系&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;里氏替换原则是继承复用的基石&lt;/p&gt;
+&lt;p&gt;只有当派生类可以替换掉其基类，而软件功能不受影响时，基类才能真正被复用，派生类也才能够在基类的基础上增加新的行为&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LSP本质：同一个继承体系中的对象应有共同的行为特征&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;违反LSP的后果：有可能需要修改调用父类的代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;通过委派实现复用&#34;&gt;通过委派实现复用
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;委派/委托：类B对象使用类A对象的功能，从而实现对类A的复用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;通过某种方式将类A的对象传入类B中&lt;/li&gt;
+&lt;li&gt;在类B中通过调用类A的成员函数，实现复用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%25202025-05-21%2520at%252014.24.35.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.24.35&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;继承和委派&#34;&gt;继承和委派
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;继承和委派常同时使用，来实现特定的设计目标&lt;/li&gt;
+&lt;li&gt;继承发生在“类”层面，委派发生在“对象”层面
+&lt;ul&gt;
+&lt;li&gt;如果子类只需要复用父类中的一小部分方法，可以不需要使用继承，而是通过委派机制来实现&lt;/li&gt;
+&lt;li&gt;可避免大量无用的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;合成复用原则&#34;&gt;&lt;strong&gt;合成复用原则&lt;/strong&gt;：
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;优先使用委派而不是继承来实现复用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;原因：降低类与类之间的耦合度&lt;/p&gt;
+&lt;p&gt;通过继承来进行复用的主要问题在于继承复用会破坏系统的封装性，因为继承会将父类的实现细节暴露给子类&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实践方法：通过抽象类或接口来实现委派，兼具可复用性和可扩展性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&#34;../../../../../../Screenshot%25202025-05-21%2520at%252014.26.59.png&#34; alt=&#34;Screenshot 2025-05-21 at 14.26.59&#34; style=&#34;zoom:150%;&#34; /&gt;
+&lt;h1 id=&#34;面向复用的设计模式&#34;&gt;面向复用的设计模式
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;广义讲，软件设计模式是可解决一类软件问题并能重复使用的软件设计方案&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;狭义讲，软件设计模式是对被用来在特定场景下解决一般设计问题的类和相互通信的对象的描述&lt;/p&gt;
+&lt;p&gt;(是在类和对象的层次描述的、可重复使用的软件设计问题的解决方案)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.28.17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.28.17&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;适配器模式&#34;&gt;适配器模式
+&lt;/h2&gt;&lt;h3 id=&#34;定义&#34;&gt;定义
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;适配器（Adaptor）模式将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的类可以一起工作&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;类适配器&lt;/li&gt;
+&lt;li&gt;对象适配器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.29.13.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.29.13&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;适配器模式的使用过程&#34;&gt;适配器模式的使用过程
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;客户通过目标接口调用适配器的方法对适配器发出请求&lt;/li&gt;
+&lt;li&gt;适配器使用被适配者接口把请求转换成被适配者的一个或者多个调用接口&lt;/li&gt;
+&lt;li&gt;客户接收到调用的结果，但并未察觉这一切是适配器在起转换作用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方便设计者自由定义接口，不用担心匹配问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;属于静态结构，不适用于多种不同的源适配到同一个目标（如果支持多继承可解决此问题）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;装饰器模式&#34;&gt;装饰器模式
+&lt;/h2&gt;&lt;h3 id=&#34;定义-1&#34;&gt;定义
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;对每一个特性构造子类，通过委派机制增加到对象上&lt;/p&gt;
+&lt;p&gt;装饰器（Decorator）模式动态地给一个对象添加一些额外的职责&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.33.02.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.33.02&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在不影响其他对象的情况下，以动态、透明的方式给单个对象添加职责&lt;/li&gt;
+&lt;li&gt;当不能采用生成子类的方法进行复用时。一种情况是，可能有大量独立扩展，每一种组合将产生大量的子类，使得子类数目呈爆炸性增长。另一种情况是因为类定义被隐藏，或类定义不能用于生成子类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优缺点&#34;&gt;优缺点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用装饰器模式可以很容易地向对象添加职责。可以用添加和分离的方法，在运行时添加和删除职责&lt;/li&gt;
+&lt;li&gt;使用装饰器模式可以很容易地重复添加一个特性，而两次继承则极容易出错&lt;/li&gt;
+&lt;li&gt;避免在层次结构高层的类有太多的特征：可以从简单的部件组合出复杂的功能。具有低依赖性和低复杂性&lt;/li&gt;
+&lt;li&gt;缺点是产生了许多小对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;外观模式&#34;&gt;外观模式
+&lt;/h2&gt;&lt;h3 id=&#34;define&#34;&gt;Define
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.35.07.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.35.07&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;外观（Facade）模式提供一个统一的接口，用来访问子系统中的一群接口&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外观定义了一个高层接口，让子系统更容易使用&lt;/li&gt;
+&lt;li&gt;解除客户程序与抽象类具体实现部分的依赖性，有利于移植和更改&lt;/li&gt;
+&lt;li&gt;外观模式的本质是让接口变得更简单&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;使用效果&#34;&gt;使用效果
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;对客户端屏蔽子系统组件，减少客户端使用对象数目&lt;/li&gt;
+&lt;li&gt;实现了子系统与客户之间松耦合的关系，使得子系统组件的变化不会影响到客户&lt;/li&gt;
+&lt;li&gt;不限制客户应用子系统类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;策略模式&#34;&gt;策略模式
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.36.55.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.36.55&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;策略（Strategy）模式是指定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使得算法可独立于使用它的客户而变化&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;适用场景&#34;&gt;适用场景：
+&lt;/h3&gt;&lt;p&gt;某些对象使用的算法可能多种多样，经常改变，如果将这些算法都编码到对象中，将会使得对象变得异常复杂；而且有时候支持不同的算法也是一个性能负担&lt;/p&gt;
+&lt;h3 id=&#34;优点&#34;&gt;优点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;算法和使用算法的对象相互分离，客户程序可以在运行时动态选择算法，代码复用性好，便于修改和维护&lt;/li&gt;
+&lt;li&gt;消除了冗长的条件语句序列&lt;/li&gt;
+&lt;li&gt;提供相同行为的不同实现，客户可以根据不同的上下文从不同的策略中选择算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;缺点&#34;&gt;缺点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;客户必须了解不同的Strategy&lt;/li&gt;
+&lt;li&gt;Strategy和Context之间的通信开销加大&lt;/li&gt;
+&lt;li&gt;增加了类和对象数目，在算法较多时更加严重&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;模板方法模式&#34;&gt;模板方法模式
+&lt;/h2&gt;&lt;h3 id=&#34;define-1&#34;&gt;define
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;模板方法（Template Method）模式定义操作中算法的骨架，将一些步骤的执行延迟到其子类中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;子类不需要改变算法结构即可重定义算法的某些步骤&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;适用场景-1&#34;&gt;适用场景：
+&lt;/h3&gt;&lt;p&gt;具有统一的操作步骤或操作过程，具有不同的操作细节，即存在多个具有同样操作步骤的应用场景，但某些具体的操作细节却各不相同&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.41.16.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.41.16&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用效果-1&#34;&gt;使用效果
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;模板方法是一种代码复用技术，模板提取了子类的公共行为&lt;/li&gt;
+&lt;li&gt;模板方法模式形成一种反向的控制结构（依赖倒置原则）
+&lt;ul&gt;
+&lt;li&gt;父类调用子类的操作（高层模块调用低层模块的操作），低层模块实现高层模块声明的接口&lt;/li&gt;
+&lt;li&gt;这样控制权在父类（高层模块），低层模块反而要依赖高层模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;可通过在抽象模板定义模板方法给出成熟算法步骤，同时又不限制步骤细节，具体模板实现算法细节不会改变整个算法骨架&lt;/li&gt;
+&lt;li&gt;在抽象模板模式中，可以通过钩子方法对某些步骤进行挂钩，具体模板通过钩子可以选择算法骨架中的某些步骤&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;策略模式vs-模板方法模式&#34;&gt;策略模式vs 模板方法模式
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.42.38.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-21 at 14.42.38&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>RJSJ Mini_lisp</title>
+        <link>https://riyasushin.github.io/p/rjsj-mini_lisp/</link>
+        <pubDate>Tue, 20 May 2025 11:40:18 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-mini_lisp/</guid>
+        <description>&lt;h1 id=&#34;记录没有实现的功能都有哪些&#34;&gt;记录没有实现的功能都有哪些
+&lt;/h1&gt;&lt;p&gt;现在最关键的是实现list相关的一切！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; cond else&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; let&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; begin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; equal?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; eq?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; ```scheme
+&amp;lsquo;(a . (b . (c . (d . ())))) ⇒ &amp;lsquo;(a b c d)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;img src=&#34;https://riyasushin.github.io/%E6%88%AA%E5%B1%8F2025-05-20%2011.54.56.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;截屏2025-05-20 11.54.56&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; apply&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; error&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; exit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; eval&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; newline&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; print&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; list&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; append&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; cdr&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; car&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; cons&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; length&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; list&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; map&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; filter&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;modulo 和 reminder 的 是整数还是 Num都可以！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你也可以不用函数指针，改用 &lt;code&gt;std::function&lt;/code&gt;，然后在创建 &lt;code&gt;EvalEnv&lt;/code&gt; 的时候直接以 Lambda 表达式加捕获的形式塞进去&lt;a class=&#34;link&#34; href=&#34;https://pku-software.github.io/project-doc/levels/7.html#%e4%bb%bb%e5%8a%a1-7-2-%e8%a1%a5%e5%85%a8-47-%e4%b8%aa%e5%86%85%e7%bd%ae%e8%bf%87%e7%a8%8b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;#&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个怎么实现的??&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>RJSJ 16: 软件测试</title>
+        <link>https://riyasushin.github.io/p/rjsj-16-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</link>
+        <pubDate>Sun, 18 May 2025 10:25:56 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-16-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;h1 id=&#34;测试背景&#34;&gt;测试背景
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;验证&lt;/strong&gt;(Validation)： 在开发过程结束后评估系统或组件以确定其是否满足规定要求&lt;/p&gt;
+&lt;p&gt;关注是否构建正确的产品&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;确认(Verification)&lt;/strong&gt;：评估系统或组件以确定给定开发阶段的产品是否满足该阶段开始时的条件&lt;/p&gt;
+&lt;p&gt;关注是否正确地构建了产品&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;为什么要测试&#34;&gt;为什么要测试
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;提升质量– 找错误(faults)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;度量质量&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;证明没有错误? (可能吗?)&lt;/li&gt;
+&lt;li&gt;确认软件是否已做好准备可以被发布&lt;/li&gt;
+&lt;li&gt;确认下一步测哪里&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;学习/了解软件的手段之一&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Testing shows the presence, not the absence of bugs.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;谁去写测试用例&#34;&gt;谁去写测试用例
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;开发者去测&lt;/li&gt;
+&lt;li&gt;独立的测试人员&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;用户&amp;rdquo;——灰度更新&lt;/li&gt;
+&lt;li&gt;有领域知识的人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;什么时候写测试用例&#34;&gt;什么时候写测试用例
+&lt;/h2&gt;&lt;p&gt;![截屏2025-05-18 11.01.58](截屏2025-05-18 11.01.58.png)&lt;/p&gt;
+&lt;h1 id=&#34;测试用例&#34;&gt;测试用例
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;有意义的名称&lt;/li&gt;
+&lt;li&gt;前置条件、流程&lt;/li&gt;
+&lt;li&gt;期望结果&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;什么事测试用例&#34;&gt;什么事测试用例
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;用已知的输入（测试输入/数据）运行被测软件，检查运行结果（基于测试预言）&lt;/p&gt;
+&lt;p&gt;测试结果：通过(pass)或失败(fail)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;测试用例可以对错误(faults)起到文档作用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测试用例可以对被测代码起到文档作用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;测试自动化&#34;&gt;测试自动化
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;测试用例是可自动执行的代码/脚本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;产业界项目里经常测试代码比产品代码体量更大&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测试代码可能比较无趣（并非可能）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;构造一些（复杂）的数据值&lt;/li&gt;
+&lt;li&gt;运行一个或多个函数&lt;/li&gt;
+&lt;li&gt;检查运行结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;测试用例的类型&#34;&gt;测试用例的类型
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;开发者测试/ 非开发者测试&lt;/li&gt;
+&lt;li&gt;单元测试/ 集成测试/ 系统测试 / ……&lt;/li&gt;
+&lt;li&gt;自动测试用例(Automated tests)/ 手动测试用例(Manual tests)&lt;/li&gt;
+&lt;li&gt;功能测试 / 性能测试/ 负载测试 / 安全测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;单元测试&#34;&gt;单元测试
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;测试输入+测试断言&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;![截屏2025-05-18 11.05.27](截屏2025-05-18 11.05.27.png)&lt;/p&gt;
+&lt;h3 id=&#34;作为规约的测试用例&#34;&gt;作为规约的测试用例
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;测试用例展示如何使用系统&lt;/li&gt;
+&lt;li&gt;测试用例需要可读性强
+&lt;ul&gt;
+&lt;li&gt;需要注释/命名来描述其目&lt;/li&gt;
+&lt;li&gt;保持简短，删除重复或冗余的测试用例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;单元测试度量质量&#34;&gt;单元测试：度量质量
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;覆盖率：所有的程序部分都测到了吗？
+&lt;ul&gt;
+&lt;li&gt;语句&lt;/li&gt;
+&lt;li&gt;分支&lt;/li&gt;
+&lt;li&gt;基本块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;断言：程序做对的事情?&lt;/li&gt;
+&lt;li&gt;只是高覆盖率或大量断言并不是高质量的测试用例。只有两者兼有才是！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;黑盒-vs-白盒&#34;&gt;黑盒 v.s. 白盒
+&lt;/h2&gt;&lt;p&gt;黑盒（基于规约）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;等价类划分&lt;/li&gt;
+&lt;li&gt;边界值分析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;白盒（基于代码）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码覆盖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;黑盒测试&#34;&gt;黑盒测试
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;规范软件的行为&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;应当明确、一致、清晰、简单……&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例：“高中生和初中生请举手”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JavaDoc 用于规范 Java 中的类和方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaDoc 从代码中的注释开始&lt;/li&gt;
+&lt;li&gt;自动生成网页便于浏览&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;黑盒测试等价类划分&#34;&gt;黑盒测试：等价类划分
+&lt;/h3&gt;&lt;p&gt;将输入域划分为不同组，组内情形等价&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同一个类中的输入应当在程序中表现出相似行为&lt;/li&gt;
+&lt;li&gt;应当划分为有效等价类与无效等价类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;确保检验每个类中的中间值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;eg&lt;/strong&gt;（等价类划分）:某城市的电话号码由三部分组成。这三部分的名称和内容的合法情况是:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;地区码：空白或三位数字&lt;/li&gt;
+&lt;li&gt;前缀：非’0’和’1’开头的三位数字&lt;/li&gt;
+&lt;li&gt;后缀：四位数字&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;程序检测输入的数据是否合法，如何划分等价类？&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;地区码&lt;/th&gt;
+          &lt;th&gt;空白、三位数字&lt;/th&gt;
+          &lt;th&gt;非数字存在，少于3位，多于3位&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;前缀&lt;/td&gt;
+          &lt;td&gt;非’0’和’1’开头的三位数字&lt;/td&gt;
+          &lt;td&gt;有非数字、0开头的数字、1开头的数字、少于3位数字、多余3位数字&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;后缀&lt;/td&gt;
+          &lt;td&gt;四位数字&lt;/td&gt;
+          &lt;td&gt;有非数字、少于4位数字、多余4位数字&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;选取位于等价类边界的值进行测试
+&lt;ul&gt;
+&lt;li&gt;错误往往出现在边界值上，而非区间中心&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;设计越过边界的等价类以检测健壮性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;任何对象：空指针&lt;/li&gt;
+&lt;li&gt;字符串：空串&lt;/li&gt;
+&lt;li&gt;集合：
+&lt;ul&gt;
+&lt;li&gt;空集&lt;/li&gt;
+&lt;li&gt;恰含一个元素&lt;/li&gt;
+&lt;li&gt;集合满（或差一个元素满）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;黑盒测试编写指南&#34;&gt;黑盒测试编写指南
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;根据需求书写测试用例&lt;/li&gt;
+&lt;li&gt;测试用例应当对于需求可追踪&lt;/li&gt;
+&lt;li&gt;测试用例应当可重复，使得不同的运行得到相同的结果
+&lt;ul&gt;
+&lt;li&gt;输入应当明确&lt;/li&gt;
+&lt;li&gt;期望结果明确：通过/失败&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;什么时候写黑盒测试用例&#34;&gt;什么时候写黑盒测试用例?
+&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;h2 id=&#34;白盒测试&#34;&gt;白盒测试
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;给定系统内部细节，完整检测内部运行情况&lt;/p&gt;
+&lt;p&gt;检测所有代码片段（PIE模型）&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;测试代码中的逻辑路径&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;方法:覆盖所有语句&lt;/li&gt;
+&lt;li&gt;指令:&lt;/li&gt;
+&lt;li&gt;分支:覆盖所有分支&lt;/li&gt;
+&lt;li&gt;条件:覆盖所有条件/条件组合&lt;/li&gt;
+&lt;li&gt;循环:覆盖“循环”的所有等价类
+&lt;ul&gt;
+&lt;li&gt;不执行循环 (0 passes)&lt;/li&gt;
+&lt;li&gt;执行一遍循环 (1 pass)&lt;/li&gt;
+&lt;li&gt;执行两遍循环 (2 passes)&lt;/li&gt;
+&lt;li&gt;执行n遍循环 (n passes, n &amp;gt; 2)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;仍根据需求决定期望行为&lt;/li&gt;
+&lt;li&gt;数量巨大 – 工作量大、时间长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;白盒测试用例编写指南&#34;&gt;白盒测试用例编写指南
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;评估白盒测试用例的指标
+&lt;ul&gt;
+&lt;li&gt;代码覆盖率：指令覆盖、分支覆盖等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;测试用例生成需要覆盖没有被覆盖的代码状态，如语句、分支等&lt;/li&gt;
+&lt;li&gt;等价类划分/边界值分析任然适用&lt;/li&gt;
+&lt;li&gt;通常在黑盒测试后进行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;什么时候写白盒测试&#34;&gt;什么时候写白盒测试
+&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;h3 id=&#34;代码覆盖工具&#34;&gt;代码覆盖工具
+&lt;/h3&gt;&lt;p&gt;程序插装(instruments)&lt;/p&gt;
+&lt;p&gt;运行测试用例，生成数据库&lt;/p&gt;
+&lt;p&gt;辅助工具检测数据库，报告测试用例覆盖率&lt;/p&gt;
+&lt;h1 id=&#34;数据驱动测试&#34;&gt;数据驱动测试
+&lt;/h1&gt;&lt;h2 id=&#34;带参数单元测试用例&#34;&gt;带参数单元测试用例
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;boost/test/unit_test.hpp&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BOOST_DATA_TEST_CASE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_test_case&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;BOOST_TEST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;测试用例泛化&#34;&gt;测试用例泛化
+&lt;/h1&gt;&lt;p&gt;TODO&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>RJSJ 15: 面向健壮性的设计</title>
+        <link>https://riyasushin.github.io/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Sun, 18 May 2025 10:25:48 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-15-%E9%9D%A2%E5%90%91%E5%81%A5%E5%A3%AE%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+        <description>&lt;h1 id=&#34;正确性和健壮性&#34;&gt;正确性和健壮性
+&lt;/h1&gt;&lt;h2 id=&#34;正确性&#34;&gt;正确性
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;行为要严格符合贵越重定义的行为&lt;/li&gt;
+&lt;li&gt;永远不给错误的结果&lt;/li&gt;
+&lt;li&gt;让开发者更容易；输入错误，直接结束&lt;/li&gt;
+&lt;li&gt;对内的实现，倾向于正确&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;健壮性&#34;&gt;健壮性
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;指的是在异常情况下，软件能够正常运行的能力&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;没有被规约覆盖的情况是“异常情况”，出现规约定义外的情形时，软件要做出恰当的反应&lt;/li&gt;
+&lt;li&gt;尽可能让软件运行而不是总是推出&lt;/li&gt;
+&lt;li&gt;让用户变得更容易；出错也可以容忍&lt;/li&gt;
+&lt;li&gt;对外的接口倾向于健壮&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;eg&#34;&gt;e.g.
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;问题&lt;/th&gt;
+          &lt;th&gt;正确性做法&lt;/th&gt;
+          &lt;th&gt;健壮性做法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;视频文件有坏帧&lt;/td&gt;
+          &lt;td&gt;停止播放，提醒损坏&lt;/td&gt;
+          &lt;td&gt;跳过坏帧，从下一正确的继续播放&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用户输入奇怪的格式&lt;/td&gt;
+          &lt;td&gt;提示输入错误&lt;/td&gt;
+          &lt;td&gt;尝试用不同日期格式解析，告诉用户解析结果&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;代码的括号不匹配&lt;/td&gt;
+          &lt;td&gt;编译错误&lt;/td&gt;
+          &lt;td&gt;尝试补充不匹配的括号继续编译&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;健壮性原则postels-law&#34;&gt;健壮性原则（Postel`s Law）
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对自己的代码要保守，对用户的行为要开放
+&lt;ul&gt;
+&lt;li&gt;严于律己，宽以待人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;总是假定用户恶意，家底自己代码可能失败&lt;/li&gt;
+&lt;li&gt;吧用户想象成可能输入任何东西的傻瓜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;软件中的问题&#34;&gt;软件中的问题
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Fault，故障&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bugs&lt;/li&gt;
+&lt;li&gt;代码实现的错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Error 错误&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不正确的内部运行状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Failure&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行时候表现出来的、外在的、和规约不一致的行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Problem&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;笼统/泛指各种不正确的情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mistake&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;侧重描述人的行为存在失误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Defect&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;泛指各类设计和实现中存在的问题，导致bug的根源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bug&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同fault&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Exception&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一种应对故障、处理错误的编程机制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Anomaly&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;常用于算法领域描述与正常分布不一致的情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fault--error--failure&#34;&gt;Fault =&amp;gt; Error =&amp;gt; Failure
+&lt;/h2&gt;&lt;p&gt;导致Failure的必要条件:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可达性
+&lt;ul&gt;
+&lt;li&gt;执行到包含Fault的代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;感染性
+&lt;ul&gt;
+&lt;li&gt;执行Fault的代码后，程序状态是Error&lt;/li&gt;
+&lt;li&gt;（错误状态和运行环境有关，在特定环境下才出错）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;传播性
+&lt;ul&gt;
+&lt;li&gt;Error能传递到程序的输出，被外界感知&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mistake-和-defect&#34;&gt;Mistake 和 Defect
+&lt;/h2&gt;&lt;p&gt;mistake指的是程序员的错误行为&lt;/p&gt;
+&lt;p&gt;defect是软件的内在性质，可能导致执行结果和预期（用户希望的结果）不一致&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序的果实可能导致软件出现defect&lt;/li&gt;
+&lt;li&gt;并非所有defect都是由于mistake导致的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;提升正确性和健壮性的方法&#34;&gt;提升正确性和健壮性的方法
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;故障拒绝
+&lt;ul&gt;
+&lt;li&gt;防御性变成、代码审查、形式化验证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;故障检测
+&lt;ul&gt;
+&lt;li&gt;测试、调试、测试驱动开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;容错
+&lt;ul&gt;
+&lt;li&gt;在运行时通过一定手段消除影响&lt;/li&gt;
+&lt;li&gt;冗余、备份、重试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;防御性编程&#34;&gt;防御性编程
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;子程序不因传入错误数据而被破坏，哪怕是由其它子程序产生的错误数据&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其核心是承认程序都会有问题，都需要被修改，这是保护的基础&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;常用技术：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;输入检查&lt;/li&gt;
+&lt;li&gt;断言&lt;/li&gt;
+&lt;li&gt;错误处理&lt;/li&gt;
+&lt;li&gt;异常处理&lt;/li&gt;
+&lt;li&gt;隔栏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;输入检查&#34;&gt;输入检查
+&lt;/h2&gt;&lt;p&gt;检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件&lt;/li&gt;
+&lt;li&gt;用户输入&lt;/li&gt;
+&lt;li&gt;网络&lt;/li&gt;
+&lt;li&gt;其他外部接口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;参数类型是否一致&lt;/li&gt;
+&lt;li&gt;参数值是否合法&lt;/li&gt;
+&lt;li&gt;长度要求&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;assert&#34;&gt;Assert
+&lt;/h2&gt;&lt;p&gt;用来检查永远不应该发生的状况&lt;/p&gt;
+&lt;p&gt;断言只在开发阶段被编译到目标代码中，而在生成产品代码时不编译到产品代码中&lt;/p&gt;
+&lt;h3 id=&#34;c中的assert&#34;&gt;C++中的Assert
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在头文件&lt;cassert&gt;中定义的assert宏&lt;/li&gt;
+&lt;li&gt;false时候会停止运行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;cassert&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;func1 finish&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;func1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;first&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;func1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;second&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;func1 finish&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;first&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assertion failed: n==1, file example1.cpp, line 6&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;技巧&#34;&gt;技巧
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;可用断言在函数开始处检查传入参数的合法性&lt;/li&gt;
+&lt;li&gt;每个assert只检验一个条件&lt;/li&gt;
+&lt;li&gt;不要在断言中使用改变环境的语句，因为assert仅在debug阶段生效，如果这么做，会使程序在真正运行时出错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;错误处理&#34;&gt;错误处理
+&lt;/h2&gt;&lt;p&gt;理想情况：希望在发生错误情况时，不只是简单地终止程序运行，而是能够反馈错误情况的信息，并且能够对程序运行中已发生的事情做些处理。&lt;/p&gt;
+&lt;h2 id=&#34;异常&#34;&gt;异常
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;异常（Exception）是把代码中的错误或不正常事件传递给调用方代码的一种特殊手段&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;当一个函数出现自己无法处理的错误时，可以抛出异常，然后由该函数的直接或者间接调用者处理这个错误&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;异常不是bug&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“异常” 是在程序开发中必须考虑的一些特殊情况，是程序运行时就可预料的执行分支（注：异常是不可避免的，如程序运行时产生除 0 的情况、打开的外部文件不存在、数组访问的越界等）&lt;/li&gt;
+&lt;li&gt;“Bug”是程序的缺陷，是程序运行时不被预期的运行方式（注：Bug是人为的、可避免的；如使用野指针、动态分配内存使用结束后未释放等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![截屏2025-05-18 10.46.46](截屏2025-05-18 10.46.46.png)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;异常的抛出规则&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;异常时通过抛出对象而引发的，该对象的类型决定了应该激活哪个catch的处理代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;被选中的处理代码的调用链是，找到与该类型匹配且离抛出异常位置最近的那一个catch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抛出异常对象后会生成一个异常对象的拷贝，因为抛出的异常对象可能是一个临时对象，所以会调用复制构造函数生成一个拷贝对象&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;异常的匹配规则&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先检查throw语句本身是否在try块内部，如果是，再在当前函数栈中查找匹配的catch语句。如果有匹配的直接跳到catch的地方执行&lt;/li&gt;
+&lt;li&gt;如果没有匹配的catch块或者throw语句不在try块内部，则退出当前函数栈，在调用函数的栈中查找匹配的catch&lt;/li&gt;
+&lt;li&gt;如果到达main函数，都没有匹配的catch，就会终止程序&lt;/li&gt;
+&lt;li&gt;找到匹配的catch会直接跳到catch语句执行，执行完后，会继续沿着catch语句后面执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![截屏2025-05-18 10.49.46](截屏2025-05-18 10.49.46.png)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;bad_alloc: new的时候内存不足&lt;/li&gt;
+&lt;li&gt;out_of_range&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&amp;hellip;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;用智能指针，放着catch后内存没有释放&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;template&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SmatrPrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//将外面申请的资源，托管给类的成员
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;SmatrPrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ptr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;nullptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//在对象析构时，自动释放资源
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;o&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SmatrPrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;k&#34;&gt;delete&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_ptr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;隔栏&#34;&gt;隔栏
+&lt;/h2&gt;&lt;p&gt;如果所有的代码都做异常和错误处理，会使代码变得臃肿，可读性下降&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;隔栏（barricade）是在设计上简化错误处理的策略，将程序的外部和内部进行隔离&lt;/p&gt;
+&lt;p&gt;​	把某些接口选定为安全区域的边界，对穿越安全区域边界的数据进行合法性校验，并当数据非法时进行处理&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;隔栏的使用使断言和错误处理有了清晰的区分
+&lt;ul&gt;
+&lt;li&gt;隔栏外部的程序使用错误处理技术，外部的数据是不安全的&lt;/li&gt;
+&lt;li&gt;隔栏内部的程序就应该使用断言技术，因为传入程序内部的数据都已经过了隔栏的处理，应该是正确的，如果出错，则说明程序本身出错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;防御式编程的使用考虑&#34;&gt;防御式编程的使用考虑
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;防御式编程的矛盾
+&lt;ol&gt;
+&lt;li&gt;在产品开发阶段，希望显示出的错误越多越好，引入很多防御性的代码&lt;/li&gt;
+&lt;li&gt;在产品发布阶段，希望错误尽可能偃旗息鼓，尽量不要在使用中出现&lt;/li&gt;
+&lt;li&gt;如何权衡&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;过度的防御式编程也会引入问题
+&lt;ol&gt;
+&lt;li&gt;如果在程序的每一个想到的地方都进行参数检查、错误保护等，那么程序将变得臃肿而缓慢&lt;/li&gt;
+&lt;li&gt;更糟糕的是，防御式编程引入的额外代码增加了软件的复杂度，反而容易造成错误&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>RJSJ 14</title>
+        <link>https://riyasushin.github.io/p/rjsj-14/</link>
+        <pubDate>Sun, 18 May 2025 10:25:31 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-14/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>RJSJ 13</title>
+        <link>https://riyasushin.github.io/p/rjsj-13/</link>
+        <pubDate>Sun, 18 May 2025 10:24:17 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/rjsj-13/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

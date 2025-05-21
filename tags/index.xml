@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on Rijoshin&#39;s notes</title>
+        <link>https://riyasushin.github.io/tags/</link>
+        <description>Recent content in Tags on Rijoshin&#39;s notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Rijoshin</copyright>
+        <lastBuildDate>Wed, 21 May 2025 14:43:16 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RJSJ</title>
+        <link>https://riyasushin.github.io/tags/rjsj/</link>
+        <pubDate>Wed, 21 May 2025 14:43:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/rjsj/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Overview</title>
+        <link>https://riyasushin.github.io/tags/overview/</link>
+        <pubDate>Tue, 20 May 2025 16:23:52 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/overview/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LLM</title>
+        <link>https://riyasushin.github.io/tags/llm/</link>
+        <pubDate>Tue, 20 May 2025 16:11:16 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/llm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Lora</title>
+        <link>https://riyasushin.github.io/tags/lora/</link>
+        <pubDate>Tue, 20 May 2025 16:10:51 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/lora/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>PD分离</title>
+        <link>https://riyasushin.github.io/tags/pd%E5%88%86%E7%A6%BB/</link>
+        <pubDate>Tue, 20 May 2025 16:06:45 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/pd%E5%88%86%E7%A6%BB/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CNN</title>
+        <link>https://riyasushin.github.io/tags/cnn/</link>
+        <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/cnn/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>DiT</title>
+        <link>https://riyasushin.github.io/tags/dit/</link>
+        <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/dit/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>GAN</title>
+        <link>https://riyasushin.github.io/tags/gan/</link>
+        <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/gan/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>VAR</title>
+        <link>https://riyasushin.github.io/tags/var/</link>
+        <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/var/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Cfg</title>
+        <link>https://riyasushin.github.io/tags/cfg/</link>
+        <pubDate>Tue, 20 May 2025 15:56:59 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/cfg/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>VLLM</title>
+        <link>https://riyasushin.github.io/tags/vllm/</link>
+        <pubDate>Tue, 20 May 2025 15:53:32 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/vllm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>解释器</title>
+        <link>https://riyasushin.github.io/tags/%E8%A7%A3%E9%87%8A%E5%99%A8/</link>
+        <pubDate>Tue, 20 May 2025 11:40:18 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/%E8%A7%A3%E9%87%8A%E5%99%A8/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>AIInfra</title>
+        <link>https://riyasushin.github.io/tags/aiinfra/</link>
+        <pubDate>Tue, 20 May 2025 10:26:47 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/aiinfra/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>AISystem</title>
+        <link>https://riyasushin.github.io/tags/aisystem/</link>
+        <pubDate>Tue, 20 May 2025 10:26:47 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/aisystem/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Camel-Ai</title>
+        <link>https://riyasushin.github.io/tags/camel-ai/</link>
+        <pubDate>Tue, 20 May 2025 10:16:03 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/camel-ai/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FAI</title>
+        <link>https://riyasushin.github.io/tags/fai/</link>
+        <pubDate>Tue, 20 May 2025 10:16:03 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/fai/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CUDA</title>
+        <link>https://riyasushin.github.io/tags/cuda/</link>
+        <pubDate>Mon, 19 May 2025 23:52:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/cuda/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>GPU</title>
+        <link>https://riyasushin.github.io/tags/gpu/</link>
+        <pubDate>Mon, 19 May 2025 23:52:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/gpu/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>杂谈</title>
+        <link>https://riyasushin.github.io/tags/%E6%9D%82%E8%B0%88/</link>
+        <pubDate>Sun, 18 May 2025 15:53:02 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/%E6%9D%82%E8%B0%88/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>心导</title>
+        <link>https://riyasushin.github.io/tags/%E5%BF%83%E5%AF%BC/</link>
+        <pubDate>Sun, 18 May 2025 14:18:05 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/%E5%BF%83%E5%AF%BC/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Hugo</title>
+        <link>https://riyasushin.github.io/tags/hugo/</link>
+        <pubDate>Sun, 18 May 2025 08:56:27 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/hugo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Css</title>
+        <link>https://riyasushin.github.io/tags/css/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/css/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Html</title>
+        <link>https://riyasushin.github.io/tags/html/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/html/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Markdown</title>
+        <link>https://riyasushin.github.io/tags/markdown/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/markdown/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Themes</title>
+        <link>https://riyasushin.github.io/tags/themes/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/themes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Tag With Whitespaces</title>
+        <link>https://riyasushin.github.io/tags/tag-with-whitespaces/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/tag-with-whitespaces/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Text</title>
+        <link>https://riyasushin.github.io/tags/text/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/text/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Emoji</title>
+        <link>https://riyasushin.github.io/tags/emoji/</link>
+        <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://riyasushin.github.io/tags/emoji/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="问题描述模型 一个问题的定义 初始状态 $S_0$。 可选动作。在一个给定状态 s, ACTIONS(s) 返回一组可能的动作。 状态转移模型。在状态 s 下执行动作 a 之后所到达的状态用 RESULT(s,a) 表示。 一个状态经过一个动作后来到的下一个状态我们称之为后继状态 。 初始状态、动作、状态转移模型构成了状态空间。 状态空间构成一幅有向图。 路径是从一个状态出发通过一系列动作所经过的状态序列。 目标状态。 路径花费。每条路径可以有一个花费，用来度量解的好坏。 一个问题的解 是从初始状态出发到达目标状态的一个动作序列。解的质量可以用路径的花费来度量。 最优解是所有解中花费最小的一个。\n">
+<title>FAI 11 Solving_Problems_by_Searching</title>
+
+<link rel='canonical' href='https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/'>
+
+<link rel="stylesheet" href="/scss/style.min.9e4644e1248cb7554587d90b023e226811a193d8aaeb09d2785da6d726ee580a.css"><meta property='og:title' content="FAI 11 Solving_Problems_by_Searching">
+<meta property='og:description' content="问题描述模型 一个问题的定义 初始状态 $S_0$。 可选动作。在一个给定状态 s, ACTIONS(s) 返回一组可能的动作。 状态转移模型。在状态 s 下执行动作 a 之后所到达的状态用 RESULT(s,a) 表示。 一个状态经过一个动作后来到的下一个状态我们称之为后继状态 。 初始状态、动作、状态转移模型构成了状态空间。 状态空间构成一幅有向图。 路径是从一个状态出发通过一系列动作所经过的状态序列。 目标状态。 路径花费。每条路径可以有一个花费，用来度量解的好坏。 一个问题的解 是从初始状态出发到达目标状态的一个动作序列。解的质量可以用路径的花费来度量。 最优解是所有解中花费最小的一个。\n">
+<meta property='og:url' content='https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/'>
+<meta property='og:site_name' content='Rijoshin&#39;s notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='FAI' /><meta property='article:published_time' content='2025-05-18T12:03:50&#43;08:00'/><meta property='article:modified_time' content='2025-05-18T12:03:50&#43;08:00'/>
+<meta name="twitter:title" content="FAI 11 Solving_Problems_by_Searching">
+<meta name="twitter:description" content="问题描述模型 一个问题的定义 初始状态 $S_0$。 可选动作。在一个给定状态 s, ACTIONS(s) 返回一组可能的动作。 状态转移模型。在状态 s 下执行动作 a 之后所到达的状态用 RESULT(s,a) 表示。 一个状态经过一个动作后来到的下一个状态我们称之为后继状态 。 初始状态、动作、状态转移模型构成了状态空间。 状态空间构成一幅有向图。 路径是从一个状态出发通过一系列动作所经过的状态序列。 目标状态。 路径花费。每条路径可以有一个花费，用来度量解的好坏。 一个问题的解 是从初始状态出发到达目标状态的一个动作序列。解的质量可以用路径的花费来度量。 最优解是所有解中花费最小的一个。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_5120372bca6142c.png" width="300"
+                            height="301" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Rijoshin&#39;s notes</a></h1>
+            <h2 class="site-description">昔之善战者，先为不可胜，以待敌之可胜。不可胜在己，可胜在敌。故善战者，能为不可胜，不能使敌之必可胜。激水之疾，至于漂石者，势也；鸷鸟之疾，至于毁折者，节也。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Riyasushin'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://riyasushin.github.io/" selected>English</option>
+                                
+                                    <option value="https://riyasushin.github.io/zh-cn/" >中文</option>
+                                
+                                    <option value="https://riyasushin.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一个问题的定义">一个问题的定义</a></li>
+    <li><a href="#eg-罗马尼亚寻径问题">eg: 罗马尼亚寻径问题</a></li>
+    <li><a href="#e-g-八数码问题">e g: 八数码问题</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#搜索树">搜索树</a>
+      <ol>
+        <li><a href="#父节点子节点开节点闭节点搜索策略">父节点，子节点，开节点，闭节点，搜索策略</a></li>
+        <li><a href="#树搜索图搜索">树搜索，图搜索</a></li>
+      </ol>
+    </li>
+    <li><a href="#搜索算法的评价">搜索算法的评价</a></li>
+    <li><a href="#问题难度和算法复杂度">问题难度和算法复杂度</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#搜索算法的一般存储框架">搜索算法的一般存储框架</a></li>
+    <li><a href="#bfs">BFS</a></li>
+    <li><a href="#dfs">DFS</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" >
+                课程笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/fai-11-solving_problems_by_searching/">FAI 11 Solving_Problems_by_Searching</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 18, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="问题描述模型">问题描述模型
+</h1><h2 id="一个问题的定义">一个问题的定义
+</h2><ol>
+<li>初始状态 $S_0$。</li>
+<li>可选动作。在一个给定状态 s, ACTIONS(s) 返回一组可能的动作。</li>
+<li>状态转移模型。在状态 s 下执行动作 a 之后所到达的状态用 RESULT(s,a) 表示。
+一个状态经过一个动作后来到的下一个状态我们称之为<strong>后继状态</strong> 。
+<strong>初始状态、动作、状态转移模型构成了状态空间</strong>。
+状态空间构成一幅有向图。
+<strong>路径是从一个状态出发通过一系列动作所经过的状态序列</strong>。</li>
+<li>目标状态。</li>
+<li>路径花费。每条路径可以有一个花费，用来度量解的好坏。</li>
+</ol>
+<blockquote>
+<p>一个问题的解 是从初始状态出发到达目标状态的一个<strong>动作序列</strong>。解的质量可以用路径的花费来度量。
+<strong>最优解</strong>是所有解中花费最小的一个。</p></blockquote>
+<h2 id="eg-罗马尼亚寻径问题">eg: 罗马尼亚寻径问题
+</h2><ol>
+<li>初始状态：In（Arad）</li>
+<li>可行动作：在 Arad，可选的动作是三个，分别去到 Z，S，T 三市</li>
+<li>状态转移，走了一条路之后到了哪里呢？例如说走了去 Z 市的路，后继状态就是 In（Z）。这里所有城市构成状态空间，所有道路构成动作空间。路径就是从一个城市到另一个城市的通路。</li>
+<li>目标状态：因为最终要去 Bucharest，所以到了 Bucharest，就不用再往下走了。</li>
+<li>路径花费，就是把从 Arad 走到 Bucharest，的路径上的每段路的长度加起来</li>
+</ol>
+<h2 id="e-g-八数码问题">e g: 八数码问题
+</h2><p>状态: 一个状态描述了八个数字和一个空格所在的位置。</p>
+<ol>
+<li>初始状态: 任何一个状态都可以是初始状态。</li>
+<li>动作: 空格可以上、下、左、右移动。只要移动后还在 3*3 的方格内。</li>
+<li>状态转移模型: 给定一个状态和动作，给出之后的状态。</li>
+<li>目标: 给出想要达到的数字和空格分布状态</li>
+<li>路径花费: 每步花费 1, 路径花费就是移动的总步数。</li>
+</ol>
+<h1 id="搜索求解">搜索求解
+</h1><h2 id="搜索树">搜索树
+</h2><h3 id="父节点子节点开节点闭节点搜索策略">父节点，子节点，开节点，闭节点，搜索策略
+</h3><blockquote>
+<p>一个状态经过一个动作，到了另一个状态。那么我们称发生动作之前的状态是<strong>父节点</strong>，而动作发生后的后继状态，称为<strong>子节点</strong>。</p></blockquote>
+<blockquote>
+<p>如果一个状态，没有节点，也就是说不能再往下搜索了，那么这个状态称为叶节点。没有儿子可展开的点叫叶节点。</p></blockquote>
+<blockquote>
+<p><strong>开节点和闭节点</strong></p>
+<ol>
+<li>最开始，树上只有根节点，也就是初始状态。搜索是一个动态过程。整个搜索的过程就是不断依据可行动作展开搜索树的过程。</li>
+<li>然后展开一步以后，我们多了几个新的叶节点，也就是对于根节点的子节点，这几个节点称为开节点，因为是刚刚展开的。英文叫做 frontier 也叫 open list。</li>
+<li>再展开一步以后，我们看多了几个新的叶节点，这些新的叶节点和原来的叶节点一起，都是叶节点。这个时候，闭节点是什么呢？图中灰色的节点称为闭节点，因为他们是<strong>已经被展开过的了</strong>。英文叫做 closed list 或者 explored set，explored 的意思是已经被探索过的节点。</li>
+</ol></blockquote>
+<blockquote>
+<p>搜索策略
+对于一个算法而言，我们在一个时刻有那么多的开节点，先展开谁、后展开谁，就构成了不同的搜索策略搜索策略</p>
+<p>就是如何在开节点集上，选择一个节点，把它优先展开。在最开始，树上只有根节点，也就是初始状态。事实上，搜索是一个动态过程。整个搜索的过程就是不断依据可行动作展开搜索树的过程。展开搜索树我们要做的就是先展开谁，后展开谁。如何选择下一个节点去展开被称为 search strategy 搜索策略。</p></blockquote>
+<p><img src="/p/fai-11-solving_problems_by_searching/image-20250518121211877.png"
+	width="253"
+	height="228"
+	srcset="/p/fai-11-solving_problems_by_searching/image-20250518121211877_hu_7d4861bd94fd538a.png 480w, /p/fai-11-solving_problems_by_searching/image-20250518121211877_hu_864ae005222e714d.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250518121211877"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="110"
+		data-flex-basis="266px"
+	
+></p>
+<h3 id="树搜索图搜索">树搜索，图搜索
+</h3><p><img src="/p/fai-11-solving_problems_by_searching/image-20250518121628601.png"
+	width="560"
+	height="327"
+	srcset="/p/fai-11-solving_problems_by_searching/image-20250518121628601_hu_c97afd9dc62a5f3a.png 480w, /p/fai-11-solving_problems_by_searching/image-20250518121628601_hu_a7b0ee633d83e153.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250518121628601"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="411px"
+	
+></p>
+<blockquote>
+<p>树搜索：</p>
+<p>我们看看这个 Tree-Search 的函数，输入的是一个问题 problem，就是我们刚刚定义的<strong>问题五元组</strong>。函数返回 return 的是一个解决方案 solution，或者告诉我们找不到解 failure。</p>
+<p>最开始初始化 frontier，frontier 就是一个开节点，最开始把开节点设置为问题的初始状态，问题开始于一个点。然后，我们做一个循环，首先看看 frontier 能不能被展开，如果不能被展开，就代表没有解，则返回失败。如果 frontier 有解的话，我们就从 frontier 里面拿出一个叶节点，然后判断一下拿出来的节点是不是目标，如果是的话，我们就可以返回解决方案了。</p>
+<p>如果不是目标的话，那我们还要继续展开这个叶节点，然后把新获得的节点加到 frontier 开节点集合里面。提供给下一次循环来选择展开用。</p>
+<p>这些叶节点都是开节点，因为它们都没有被展开过。</p>
+<p>那么不断循环，这就是树搜索。我们最开始有一个根节点，开展以后把叶节点都放到 frontier 集合里面，然后取出一个来再展开，然后新获得的节点再放到 frontier 集合里面。</p>
+<p><strong>这个树搜索，并没记住我们以前展开过什么的，只是在不停地展开</strong>。</p></blockquote>
+<blockquote>
+<p>图搜索：</p>
+<p>我们看看 Graph-Search 这个函数。它的输入输出和树搜索是一样的。输入。。。输出。。。</p>
+<p>那么这里黑体字是新加的一些操作。</p>
+<p>Initialize the explored set to be empty，我们初始化一个空的闭节点集合，定义这个新变量的目的是用来存储哪些节点已经被展开搜索过的。然后开始循环，这跟刚才树搜索是一样的。Frontier 如果为空，则返回 failure。如果有也叶节点，则选择一个叶节点，如果叶节点是目标，则找到解了。否则的话，add the node to the explored set，把这个节点放到闭节点集合里面，代表这个节点已经被探索展开过了。后面就是把它的儿子都加到 frontier 集里面。但这里有个条件，only if not in the frontier or explored set，这个地方我做了一个重复判断，就是如果加这个新节点的时候，我们要看看这个节点在不在 frontier 里面，以及在不在已经被搜索过的节点集合里面，如果在的话就不加了。只有它不在的时候，我们才做这个事情。那么这个就是图搜索和树搜索的不同。</p>
+<p><strong>图搜索用 explored set 这个机制，就可以避免重复地搜索某些节点。</strong></p></blockquote>
+<h2 id="搜索算法的评价">搜索算法的评价
+</h2><ul>
+<li>完备性 Completeness: 如果存在解，该算法是否一定会找到解?</li>
+<li>最优性 Optimality: 该算法是否能够找到最优解?</li>
+<li>时间复杂度 Time complexity: 算法找到解需要花长时间?</li>
+<li>空间复杂度 Space complexity: 算法需要多少内存用于搜索?</li>
+</ul>
+<h2 id="问题难度和算法复杂度">问题难度和算法复杂度
+</h2><ul>
+<li>问题的难度 problem difficulty 两种方法来度量：图规模和搜索树规模：
+<ul>
+<li>图规模（对应图搜索）
+<ul>
+<li>当输入是一个图时，例如罗马尼亚地图寻径问题，理论上，我们用状态空间图的大小来衡量问题的规模 |V | + |E|, V 是点数 ，E 边数。</li>
+</ul>
+</li>
+<li>搜索树的规模（对应树搜索）
+<ul>
+<li>用如下二个指标来度量:
+<ul>
+<li>b, 分支数 branching factor 或者节点所具有的最大子节点数目；</li>
+<li>d, depth，最浅的目标状态所在；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>算法复杂度
+<ul>
+<li>时间复杂度经常用搜索树展开的节点的数目表示。</li>
+<li>空间复杂度通常用需要存储的最大节点数目来估计。</li>
+</ul>
+</li>
+</ul>
+<h1 id="无信息搜索">无信息搜索
+</h1><p>无信息搜索是指在搜索过程中不使用任何启发信息的搜索方法。无信息搜索方法通常会遍历整个搜索空间，直到找到解或者确定无解。</p>
+<p>无信息搜索可以理解为，没有任何的先验知识，就是盲目地去试（尽管盲目地试的时候也可以有些尝试时优先级策略）。</p>
+<h2 id="搜索算法的一般存储框架">搜索算法的一般存储框架
+</h2><h2 id="bfs">BFS
+</h2><h2 id="dfs">DFS
+</h2><h1 id="有信息搜索">有信息搜索
+</h1>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/fai/">FAI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-04-rag%E7%9A%84%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 04 RAG的使用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 03 提示词调优大法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 02 前端后端交互设计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI Camel Ai 01 基本调用方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/fai-12-basic-ideas-of-rl/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">FAI 12 Basic Ideas of RL</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+  <section class="copyright">
+    &copy;  2025 Rijoshin
+  </section>
+
+  <section class="powerby">
+    Built with <a
+      href="https://gohugo.io/"
+      target="_blank"
+      rel="noopener"
+      >Hugo</a
+    >
+    <br />
+    Theme <b
+      ><a
+        href="https://github.com/CaiJimmy/hugo-theme-stack"
+        target="_blank"
+        rel="noopener"
+        data-version="3.30.0"
+        >Stack</a
+      ></b
+    > designed by <a
+      href="https://jimmycai.com"
+      target="_blank"
+      rel="noopener"
+      >Jimmy</a
+    >
+  </section>
+
+  
+  <section class="totalcount">
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+      发表了46篇文章 · 总计29.22k字
+  </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
