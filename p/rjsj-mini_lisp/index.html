@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="记录没有实现的功能都有哪些 现在最关键的是实现list相关的一切！\ncond else\nlet\nbegin\nequal?\neq?\n```scheme &lsquo;(a . (b . (c . (d . ())))) ⇒ &lsquo;(a b c d)\napply\nerror\nexit\neval\nnewline\nprint\nlist\nappend\ncdr\ncar\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="TODO 写到现在写完了全部内容（除了7+）\n计划中的7+\n对命令行输入的进一步优化 历史记录 左右移动 多行输入 记录 花了两天突击完成（总共）\n需要优化的地方\n哪里可以用std::move减少拷贝开销 测试走一走，白盒测试，完成所有的内容的测试（估计是个麻烦事，看时间情况） 总结 怎么说，写的还是有些慢的；\n">
 <title>RJSJ Mini_lisp</title>
 
 <link rel='canonical' href='https://riyasushin.github.io/p/rjsj-mini_lisp/'>
 
 <link rel="stylesheet" href="/scss/style.min.9e4644e1248cb7554587d90b023e226811a193d8aaeb09d2785da6d726ee580a.css"><meta property='og:title' content="RJSJ Mini_lisp">
-<meta property='og:description' content="记录没有实现的功能都有哪些 现在最关键的是实现list相关的一切！\ncond else\nlet\nbegin\nequal?\neq?\n```scheme &lsquo;(a . (b . (c . (d . ())))) ⇒ &lsquo;(a b c d)\napply\nerror\nexit\neval\nnewline\nprint\nlist\nappend\ncdr\ncar\n">
+<meta property='og:description' content="TODO 写到现在写完了全部内容（除了7+）\n计划中的7+\n对命令行输入的进一步优化 历史记录 左右移动 多行输入 记录 花了两天突击完成（总共）\n需要优化的地方\n哪里可以用std::move减少拷贝开销 测试走一走，白盒测试，完成所有的内容的测试（估计是个麻烦事，看时间情况） 总结 怎么说，写的还是有些慢的；\n">
 <meta property='og:url' content='https://riyasushin.github.io/p/rjsj-mini_lisp/'>
 <meta property='og:site_name' content='Rijoshin&#39;s notes'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='RJSJ' /><meta property='article:tag' content='解释器' /><meta property='article:published_time' content='2025-05-20T11:40:18&#43;08:00'/><meta property='article:modified_time' content='2025-05-20T11:40:18&#43;08:00'/>
 <meta name="twitter:title" content="RJSJ Mini_lisp">
-<meta name="twitter:description" content="记录没有实现的功能都有哪些 现在最关键的是实现list相关的一切！\ncond else\nlet\nbegin\nequal?\neq?\n```scheme &lsquo;(a . (b . (c . (d . ())))) ⇒ &lsquo;(a b c d)\napply\nerror\nexit\neval\nnewline\nprint\nlist\nappend\ncdr\ncar\n">
+<meta name="twitter:description" content="TODO 写到现在写完了全部内容（除了7+）\n计划中的7+\n对命令行输入的进一步优化 历史记录 左右移动 多行输入 记录 花了两天突击完成（总共）\n需要优化的地方\n哪里可以用std::move减少拷贝开销 测试走一走，白盒测试，完成所有的内容的测试（估计是个麻烦事，看时间情况） 总结 怎么说，写的还是有些慢的；\n">
     </head>
     <body class="
     article-page
@@ -339,98 +339,33 @@
     <section class="article-content">
     
     
-    <h1 id="记录没有实现的功能都有哪些">记录没有实现的功能都有哪些
-</h1><p>现在最关键的是实现list相关的一切！</p>
+    <h1 id="todo">TODO
+</h1><p>写到现在写完了全部内容（除了7+）</p>
+<p>计划中的7+</p>
 <ul>
-<li>
-<p><input disabled="" type="checkbox"> cond else</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> let</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> begin</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> equal?</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> eq?</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> ```scheme
-&lsquo;(a . (b . (c . (d . ())))) ⇒ &lsquo;(a b c d)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><input disabled="" type="checkbox"> <img src="/%E6%88%AA%E5%B1%8F2025-05-20%2011.54.56.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="截屏2025-05-20 11.54.56"
-	
-	
-></p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> apply</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> error</p>
-</li>
-<li>
-<p><input checked="" disabled="" type="checkbox"> exit</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> eval</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> newline</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> print</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> list</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> append</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> cdr</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> car</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> cons</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> length</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> list</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> map</p>
-</li>
-<li>
-<p><input disabled="" type="checkbox"> filter</p>
+<li>对命令行输入的进一步优化
+<ul>
+<li>历史记录</li>
+<li>左右移动</li>
+<li>多行输入</li>
+</ul>
 </li>
 </ul>
-<p>modulo 和 reminder 的 是整数还是 Num都可以！</p>
+<h1 id="记录">记录
+</h1><p>花了两天突击完成（总共）</p>
+<p>需要优化的地方</p>
 <ul>
-<li>你也可以不用函数指针，改用 <code>std::function</code>，然后在创建 <code>EvalEnv</code> 的时候直接以 Lambda 表达式加捕获的形式塞进去<a class="link" href="https://pku-software.github.io/project-doc/levels/7.html#%e4%bb%bb%e5%8a%a1-7-2-%e8%a1%a5%e5%85%a8-47-%e4%b8%aa%e5%86%85%e7%bd%ae%e8%bf%87%e7%a8%8b"  target="_blank" rel="noopener"
-    >#</a></li>
+<li>哪里可以用std::move减少拷贝开销</li>
+<li>测试走一走，白盒测试，完成所有的内容的测试（估计是个麻烦事，看时间情况）</li>
 </ul>
-<p>这个怎么实现的??</p>
+<h1 id="总结">总结
+</h1><p>怎么说，写的还是有些慢的；</p>
+<p>因为对Pair类的string和list的处理没有太弄清楚浪费了不少时间</p>
+<p>eval的调用的位置，卡了2h，因为少一个eval，有一部分处理的就会不够，这点想出来还是用了太久</p>
+<p>高阶函数还是Python好写，因为类型不敏感处理多态更轻松</p>
+<p>CPP20真好用(bushi</p>
+<p>这是我写的最爽的一次大作业</p>
+<p>感谢认真负责的教学团队</p>
 
 </section>
 
@@ -690,13 +625,7 @@
      
      
      
-     
-     
-     
-     
-     
-     
-      发表了46篇文章 · 总计29.22k字
+      发表了40篇文章 · 总计29.19k字
   </section>
 </footer>
 

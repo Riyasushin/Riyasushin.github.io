@@ -98,24 +98,6 @@
     <loc>https://riyasushin.github.io/p/overview-of-ai-reasoning/</loc>
     <lastmod>2025-05-20T16:23:52+08:00</lastmod>
   </url><url>
-    <loc>https://riyasushin.github.io/tags/llm/</loc>
-    <lastmod>2025-05-20T16:11:16+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/p/rope/</loc>
-    <lastmod>2025-05-20T16:11:16+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/tags/lora/</loc>
-    <lastmod>2025-05-20T16:10:51+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/p/lora/</loc>
-    <lastmod>2025-05-20T16:10:51+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/p/pd%E5%88%86%E7%A6%BB/</loc>
-    <lastmod>2025-05-20T16:06:45+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/tags/pd%E5%88%86%E7%A6%BB/</loc>
-    <lastmod>2025-05-20T16:06:45+08:00</lastmod>
-  </url><url>
     <loc>https://riyasushin.github.io/tags/cnn/</loc>
     <lastmod>2025-05-20T15:59:24+08:00</lastmod>
   </url><url>
@@ -145,9 +127,6 @@
   </url><url>
     <loc>https://riyasushin.github.io/p/pipefusion/</loc>
     <lastmod>2025-05-20T15:56:04+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/p/dit/</loc>
-    <lastmod>2025-05-20T15:55:38+08:00</lastmod>
   </url><url>
     <loc>https://riyasushin.github.io/p/xdit/</loc>
     <lastmod>2025-05-20T15:55:16+08:00</lastmod>
@@ -188,9 +167,6 @@
     <loc>https://riyasushin.github.io/p/fai-camel-ai-03-%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%B0%83%E4%BC%98%E5%A4%A7%E6%B3%95/</loc>
     <lastmod>2025-05-20T10:14:38+08:00</lastmod>
   </url><url>
-    <loc>https://riyasushin.github.io/p/fai-camel-ai-02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2025-05-20T10:12:57+08:00</lastmod>
-  </url><url>
     <loc>https://riyasushin.github.io/p/fai-camel-ai-01-%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2025-05-20T10:12:16+08:00</lastmod>
   </url><url>
@@ -209,15 +185,6 @@
     <loc>https://riyasushin.github.io/p/fai-12-basic-ideas-of-rl/</loc>
     <lastmod>2025-05-19T12:41:17+08:00</lastmod>
   </url><url>
-    <loc>https://riyasushin.github.io/categories/daily/</loc>
-    <lastmod>2025-05-18T15:53:02+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/p/food-hunting/</loc>
-    <lastmod>2025-05-18T15:53:02+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2025-05-18T15:53:02+08:00</lastmod>
-  </url><url>
     <loc>https://riyasushin.github.io/p/introduction-to-psychology-concepts/</loc>
     <lastmod>2025-05-18T14:18:05+08:00</lastmod>
   </url><url>
@@ -228,6 +195,9 @@
     <lastmod>2025-05-18T12:31:21+08:00</lastmod>
   </url><url>
     <loc>https://riyasushin.github.io/categories/fakediary/</loc>
+    <lastmod>2025-05-18T12:31:21+08:00</lastmod>
+  </url><url>
+    <loc>https://riyasushin.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2025-05-18T12:31:21+08:00</lastmod>
   </url><url>
     <loc>https://riyasushin.github.io/p/fai-11-solving_problems_by_searching/</loc>
