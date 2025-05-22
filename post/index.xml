@@ -7,7 +7,108 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Rijoshin</copyright>
-        <lastBuildDate>Wed, 21 May 2025 14:43:16 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 22 May 2025 15:15:19 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>DiTFastAttn Attention Compression for Diffusion Transformer Models</title>
+        <link>https://riyasushin.github.io/p/ditfastattn-attention-compression-for-diffusion-transformer-models/</link>
+        <pubDate>Thu, 22 May 2025 15:15:19 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/ditfastattn-attention-compression-for-diffusion-transformer-models/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.00.14.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.00.14&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上海交通大学，清华大学&amp;hellip;&amp;hellip;贵校的呢???&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;abstraction&#34;&gt;Abstraction
+&lt;/h1&gt;&lt;p&gt;DiT 由于自注意力算子的二次复杂度，面临着计算挑战。&lt;/p&gt;
+&lt;p&gt;注意力计算中识别出三个关键冗余：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空间冗余，许多 注意力头 关注局部信息；&lt;/li&gt;
+&lt;li&gt;时间冗余，相邻步骤的注意力输出之间具有高度相似性；&lt;/li&gt;
+&lt;li&gt;条件冗余，条件和无条件推理表现出显著相似性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们提出三种技术来减少这些冗余：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;带有残差共享的窗口注意力以减少空间冗余；&lt;/li&gt;
+&lt;li&gt;跨时间步长的注意力共享以利用步骤之间的相似性；&lt;/li&gt;
+&lt;li&gt;跨CFG的注意力共享以在条件生成期间跳过冗余计算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们将DiTFastAttn应用于图像生成任务的DiT、PixArt-Sigma，以及视频生成任务的OpenSora。我们的结果表明，对于图像生成，我们的方法将注意力FLOPs减少多达76%，并在高分辨率（2k × 2k）生成中实现了高达1.8倍的端到端加速。&lt;/p&gt;
+&lt;h1 id=&#34;motivation&#34;&gt;Motivation
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;怎么发现的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;空间维度冗余。许多注意力头主要捕获局部空间信息，对于距离较远的标记的注意力值接近于零。&lt;/li&gt;
+&lt;li&gt;时间步相近，注意力输出可以非常相似。&lt;/li&gt;
+&lt;li&gt;条件推理和无条件推理在注意力输出中的相似性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.02.25.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.02.25&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;methods&#34;&gt;Methods
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;为什么这个方法这么做&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;窗口注意力 + 残差共享&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🧐：为什么想了这么个招，感觉不显然&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attention Sharing across Timesteps (AST)&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.19.07.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.19.07&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attention Sharing across CFG (ASC)&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.19.24.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.19.24&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;🧐：怎么实现的这两个share?????
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/thu-nics/DiTFastAttn/blob/main/modules/fast_attn_processor.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;代码&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;claim-and-evidence&#34;&gt;Claim and Evidence
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;实验有没有支持这个结论，怎么设计的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;todo&#34;&gt;TODO
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Attention Sharing  是个什么玩法&lt;/li&gt;
+&lt;li&gt;attention map怎么画的，直接灰度图吗&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>RJSJ 17 面向可复用性的设计</title>
         <link>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
         <pubDate>Wed, 21 May 2025 14:43:16 +0800</pubDate>
@@ -70,7 +171,7 @@
 &lt;/li&gt;
 &lt;li&gt;第三方提供的库
 &lt;ul&gt;
-&lt;li&gt;如，C++的Boost库&lt;/li&gt;
+&lt;li&gt;如，C++的 Boost 库&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -116,8 +217,8 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;库提供可复用功能的一组类或函数&#34;&gt;库：提供可复用功能的一组类或函数
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;库提供的类和函数常被称为API（Application Programming Interface，应用编程接口）&lt;/li&gt;
-&lt;li&gt;开发者在编写软件的代码时调用库提供的API&lt;/li&gt;
+&lt;li&gt;库提供的类和函数常被称为 API（Application Programming Interface，应用编程接口）&lt;/li&gt;
+&lt;li&gt;开发者在编写软件的代码时调用库提供的 API&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;框架一组类及其之间的连接关系&#34;&gt;框架：一组类及其之间的连接关系
 &lt;/h3&gt;&lt;p&gt;开发者根据框架的规约，将自己编写的代码填充到框架中，形成完整的软件&lt;/p&gt;
@@ -139,11 +240,11 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;有（has-a）：汽车有轮子&lt;/p&gt;
-&lt;p&gt;(成员变量使用类类型的指针可以表示“有”关系，UML中称为“聚合”关系)&lt;/p&gt;
+&lt;p&gt;(成员变量使用类类型的指针可以表示“有”关系，UML 中称为“聚合”关系)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;部分于（part-of）：例如头是人体的一部分&lt;/p&gt;
-&lt;p&gt;(成员变量使用类类型对象可以表示“部分于”关系，UML中称为“组合”关系)&lt;/p&gt;
+&lt;p&gt;(成员变量使用类类型对象可以表示“部分于”关系，UML 中称为“组合”关系)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.20.01.png&#34;
@@ -178,8 +279,7 @@
 &lt;h2 id=&#34;通过继承实现复用&#34;&gt;通过继承实现复用
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;通过继承关系，子类可以继承父类已有的功能，在此基础上增加子类的特殊功能，从而实现复用&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;如何设计继承以减少因复用带来的bug？&lt;/strong&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如何设计继承以减少因复用带来的 bug？&lt;/strong&gt;&lt;/p&gt;
 $$
 里氏替换原则（LSP）
 $$&lt;ul&gt;
@@ -191,29 +291,19 @@ $$&lt;ul&gt;
 &lt;p&gt;只有当派生类可以替换掉其基类，而软件功能不受影响时，基类才能真正被复用，派生类也才能够在基类的基础上增加新的行为&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;LSP本质：同一个继承体系中的对象应有共同的行为特征&lt;/p&gt;
+&lt;p&gt;LSP 本质：同一个继承体系中的对象应有共同的行为特征&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;违反LSP的后果：有可能需要修改调用父类的代码&lt;/p&gt;
+&lt;p&gt;违反 LSP 的后果：有可能需要修改调用父类的代码&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;通过委派实现复用&#34;&gt;通过委派实现复用
 &lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;委派/委托：类B对象使用类A对象的功能，从而实现对类A的复用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;委派/委托：类 B 对象使用类 A 对象的功能，从而实现对类 A 的复用&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;通过某种方式将类A的对象传入类B中&lt;/li&gt;
-&lt;li&gt;在类B中通过调用类A的成员函数，实现复用&lt;/li&gt;
+&lt;li&gt;通过某种方式将类 A 的对象传入类 B 中&lt;/li&gt;
+&lt;li&gt;在类 B 中通过调用类 A 的成员函数，实现复用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%25202025-05-21%2520at%252014.24.35.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Screenshot 2025-05-21 at 14.24.35&#34;
-	
-	
-&gt;&lt;/p&gt;
 &lt;h2 id=&#34;继承和委派&#34;&gt;继承和委派
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;继承和委派常同时使用，来实现特定的设计目标&lt;/li&gt;
@@ -237,7 +327,6 @@ $$&lt;ul&gt;
 &lt;p&gt;实践方法：通过抽象类或接口来实现委派，兼具可复用性和可扩展性&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src=&#34;../../../../../../Screenshot%25202025-05-21%2520at%252014.26.59.png&#34; alt=&#34;Screenshot 2025-05-21 at 14.26.59&#34; style=&#34;zoom:150%;&#34; /&gt;
 &lt;h1 id=&#34;面向复用的设计模式&#34;&gt;面向复用的设计模式
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;广义讲，软件设计模式是可解决一类软件问题并能重复使用的软件设计方案&lt;/p&gt;&lt;/blockquote&gt;
@@ -363,8 +452,8 @@ $$&lt;ul&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;缺点&#34;&gt;缺点
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;客户必须了解不同的Strategy&lt;/li&gt;
-&lt;li&gt;Strategy和Context之间的通信开销加大&lt;/li&gt;
+&lt;li&gt;客户必须了解不同的 Strategy&lt;/li&gt;
+&lt;li&gt;Strategy 和 Context 之间的通信开销加大&lt;/li&gt;
 &lt;li&gt;增加了类和对象数目，在算法较多时更加严重&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;模板方法模式&#34;&gt;模板方法模式
@@ -398,7 +487,7 @@ $$&lt;ul&gt;
 &lt;li&gt;可通过在抽象模板定义模板方法给出成熟算法步骤，同时又不限制步骤细节，具体模板实现算法细节不会改变整个算法骨架&lt;/li&gt;
 &lt;li&gt;在抽象模板模式中，可以通过钩子方法对某些步骤进行挂钩，具体模板通过钩子可以选择算法骨架中的某些步骤&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;策略模式vs-模板方法模式&#34;&gt;策略模式vs 模板方法模式
+&lt;h2 id=&#34;策略模式-vs-模板方法模式&#34;&gt;策略模式 vs 模板方法模式
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-21%20at%2014.42.38.png&#34;
 	
 	

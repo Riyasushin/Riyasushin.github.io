@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Rijoshin</copyright>
-        <lastBuildDate>Wed, 21 May 2025 14:43:16 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 22 May 2025 15:15:19 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Lab</title>
+        <link>https://riyasushin.github.io/categories/lab/</link>
+        <pubDate>Thu, 22 May 2025 15:15:19 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/categories/lab/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>课程笔记</title>
         <link>https://riyasushin.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Wed, 21 May 2025 14:43:16 +0800</pubDate>
@@ -21,14 +29,6 @@
         <pubDate>Tue, 20 May 2025 16:23:52 +0800</pubDate>
         
         <guid>https://riyasushin.github.io/categories/aisystem/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Lab</title>
-        <link>https://riyasushin.github.io/categories/lab/</link>
-        <pubDate>Tue, 20 May 2025 16:23:52 +0800</pubDate>
-        
-        <guid>https://riyasushin.github.io/categories/lab/</guid>
         <description></description>
         </item>
         <item>

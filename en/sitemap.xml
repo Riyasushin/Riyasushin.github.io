@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://riyasushin.github.io/</loc>
-    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -21,7 +21,7 @@
                 />
   </url><url>
     <loc>https://riyasushin.github.io/categories/</loc>
-    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -38,8 +38,20 @@
                 href="https://riyasushin.github.io/categories/"
                 />
   </url><url>
+    <loc>https://riyasushin.github.io/tags/cfg/</loc>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
+  </url><url>
+    <loc>https://riyasushin.github.io/tags/dit/</loc>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
+  </url><url>
+    <loc>https://riyasushin.github.io/p/ditfastattn-attention-compression-for-diffusion-transformer-models/</loc>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
+  </url><url>
+    <loc>https://riyasushin.github.io/categories/lab/</loc>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
+  </url><url>
     <loc>https://riyasushin.github.io/post/</loc>
-    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -56,14 +68,8 @@
                 href="https://riyasushin.github.io/post/"
                 />
   </url><url>
-    <loc>https://riyasushin.github.io/tags/rjsj/</loc>
-    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
-  </url><url>
     <loc>https://riyasushin.github.io/tags/</loc>
-    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -80,6 +86,15 @@
                 href="https://riyasushin.github.io/tags/"
                 />
   </url><url>
+    <loc>https://riyasushin.github.io/tags/transformer/</loc>
+    <lastmod>2025-05-22T15:15:19+08:00</lastmod>
+  </url><url>
+    <loc>https://riyasushin.github.io/tags/rjsj/</loc>
+    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
+  </url><url>
+    <loc>https://riyasushin.github.io/p/rjsj-17-%E9%9D%A2%E5%90%91%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7%E7%9A%84%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2025-05-21T14:43:16+08:00</lastmod>
+  </url><url>
     <loc>https://riyasushin.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-05-21T14:43:16+08:00</lastmod>
   </url><url>
@@ -89,9 +104,6 @@
     <loc>https://riyasushin.github.io/categories/aisystem/</loc>
     <lastmod>2025-05-20T16:23:52+08:00</lastmod>
   </url><url>
-    <loc>https://riyasushin.github.io/categories/lab/</loc>
-    <lastmod>2025-05-20T16:23:52+08:00</lastmod>
-  </url><url>
     <loc>https://riyasushin.github.io/tags/overview/</loc>
     <lastmod>2025-05-20T16:23:52+08:00</lastmod>
   </url><url>
@@ -99,9 +111,6 @@
     <lastmod>2025-05-20T16:23:52+08:00</lastmod>
   </url><url>
     <loc>https://riyasushin.github.io/tags/cnn/</loc>
-    <lastmod>2025-05-20T15:59:24+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/tags/dit/</loc>
     <lastmod>2025-05-20T15:59:24+08:00</lastmod>
   </url><url>
     <loc>https://riyasushin.github.io/categories/fai/</loc>
@@ -118,9 +127,6 @@
   </url><url>
     <loc>https://riyasushin.github.io/p/patch-parallelism/</loc>
     <lastmod>2025-05-20T15:57:36+08:00</lastmod>
-  </url><url>
-    <loc>https://riyasushin.github.io/tags/cfg/</loc>
-    <lastmod>2025-05-20T15:56:59+08:00</lastmod>
   </url><url>
     <loc>https://riyasushin.github.io/p/cfg-parallelism/</loc>
     <lastmod>2025-05-20T15:56:59+08:00</lastmod>

@@ -7,7 +7,108 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Rijoshin</copyright>
-        <lastBuildDate>Tue, 20 May 2025 15:59:24 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/dit/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 22 May 2025 15:15:19 +0800</lastBuildDate><atom:link href="https://riyasushin.github.io/tags/dit/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>DiTFastAttn Attention Compression for Diffusion Transformer Models</title>
+        <link>https://riyasushin.github.io/p/ditfastattn-attention-compression-for-diffusion-transformer-models/</link>
+        <pubDate>Thu, 22 May 2025 15:15:19 +0800</pubDate>
+        
+        <guid>https://riyasushin.github.io/p/ditfastattn-attention-compression-for-diffusion-transformer-models/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.00.14.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.00.14&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上海交通大学，清华大学&amp;hellip;&amp;hellip;贵校的呢???&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;abstraction&#34;&gt;Abstraction
+&lt;/h1&gt;&lt;p&gt;DiT 由于自注意力算子的二次复杂度，面临着计算挑战。&lt;/p&gt;
+&lt;p&gt;注意力计算中识别出三个关键冗余：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空间冗余，许多 注意力头 关注局部信息；&lt;/li&gt;
+&lt;li&gt;时间冗余，相邻步骤的注意力输出之间具有高度相似性；&lt;/li&gt;
+&lt;li&gt;条件冗余，条件和无条件推理表现出显著相似性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们提出三种技术来减少这些冗余：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;带有残差共享的窗口注意力以减少空间冗余；&lt;/li&gt;
+&lt;li&gt;跨时间步长的注意力共享以利用步骤之间的相似性；&lt;/li&gt;
+&lt;li&gt;跨CFG的注意力共享以在条件生成期间跳过冗余计算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们将DiTFastAttn应用于图像生成任务的DiT、PixArt-Sigma，以及视频生成任务的OpenSora。我们的结果表明，对于图像生成，我们的方法将注意力FLOPs减少多达76%，并在高分辨率（2k × 2k）生成中实现了高达1.8倍的端到端加速。&lt;/p&gt;
+&lt;h1 id=&#34;motivation&#34;&gt;Motivation
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;怎么发现的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;空间维度冗余。许多注意力头主要捕获局部空间信息，对于距离较远的标记的注意力值接近于零。&lt;/li&gt;
+&lt;li&gt;时间步相近，注意力输出可以非常相似。&lt;/li&gt;
+&lt;li&gt;条件推理和无条件推理在注意力输出中的相似性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.02.25.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.02.25&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;methods&#34;&gt;Methods
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;为什么这个方法这么做&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;窗口注意力 + 残差共享&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🧐：为什么想了这么个招，感觉不显然&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attention Sharing across Timesteps (AST)&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.19.07.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.19.07&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Attention Sharing across CFG (ASC)&lt;img src=&#34;https://riyasushin.github.io/Screenshot%202025-05-22%20at%2016.19.24.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot 2025-05-22 at 16.19.24&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;🧐：怎么实现的这两个share?????
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/thu-nics/DiTFastAttn/blob/main/modules/fast_attn_processor.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;代码&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;claim-and-evidence&#34;&gt;Claim and Evidence
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;实验有没有支持这个结论，怎么设计的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;todo&#34;&gt;TODO
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Attention Sharing  是个什么玩法&lt;/li&gt;
+&lt;li&gt;attention map怎么画的，直接灰度图吗&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>VAR AR VAE GAN DiT Depooling</title>
         <link>https://riyasushin.github.io/p/var-ar-vae-gan-dit-depooling/</link>
         <pubDate>Tue, 20 May 2025 15:59:24 +0800</pubDate>
